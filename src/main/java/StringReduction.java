@@ -22,16 +22,16 @@ import java.util.*;
  * DEALINGS IN THE SOFTWARE.
  */
 public class StringReduction implements StringReducer {
-    public void reduce (Map<String, Integer> m, int freq) {
+    public void reduce(Map<String, Integer> m, int freq) {
         //Map<String, Integer> sort = new TreeMap<String, Integer>(m);
         // TODO : move this out of here!
         // TODO : object comparison is probably enough to avoid the ArrayList
         List<Map.Entry<String, Integer>> sort = new ArrayList<Map.Entry<String, Integer>>(m.entrySet());
         Collections.sort(sort,
-                new Comparator<Map.Entry<String,Integer>>() {
-                   public int compare (Map.Entry<String,Integer> a, Map.Entry<String,Integer> b) {
-                       return a.getKey().compareTo(b.getKey());
-                   }
+                new Comparator<Map.Entry<String, Integer>>() {
+                    public int compare(Map.Entry<String, Integer> a, Map.Entry<String, Integer> b) {
+                        return a.getKey().compareTo(b.getKey());
+                    }
                 });
         int size = sort.size();
         for (int i = 0; i < size; i++) {
@@ -41,7 +41,7 @@ public class StringReduction implements StringReducer {
                     continue;
                 }
                 if ((Math.abs(sort.get(i).getValue()) - Math.abs(sort.get(j).getValue()) < freq)
-                    && Tools.is_substr(sort.get(i).getKey(), sort.get(j).getKey())) {
+                        && Tools.is_substr(sort.get(i).getKey(), sort.get(j).getKey())) {
                     if (sort.get(i).getValue() > 0) {
                         sort.get(i).setValue(-sort.get(i).getValue());
                     }

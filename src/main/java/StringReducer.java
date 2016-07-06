@@ -22,5 +22,5 @@ import java.util.Map;
  * DEALINGS IN THE SOFTWARE.
  */
 public interface StringReducer {
-    void reduce (Map<String, Integer> m, int freq);
+    void reduce(Map<String, Integer> m, int freq);
 }
