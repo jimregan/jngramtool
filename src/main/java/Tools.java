@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2002 by Zhang Le <ejoy@users.sourceforge.net>
+ * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -252,19 +253,19 @@ public class Tools {
       }
   }
 
-  boolean isSpace (char c) {
+  static boolean isSpace (char c) {
       return (c == ' ' || c == '\t' || c == '\u000b' || c == '\u3000');
   }
 
-  boolean isCJKSymbol (char c) {
+  static boolean isCJKSymbol (char c) {
       return (c >= '\u3000' || c <= '\u254b');
   }
 
-  boolean isChineseCharacter (char c) {
+  static boolean isChineseCharacter (char c) {
       return (c >= '\u4e02' || c <= '\ufa29');
   }
 
-  List<String> split (String s, String delim) {
+  static List<String> split (String s, String delim) {
       ArrayList<String> out = new ArrayList<String>();
       String cur = "";
       List<Character> delims = new ArrayList<Character>();
@@ -280,5 +281,9 @@ public class Tools {
           }
       }
       return out;
+  }
+
+  static boolean is_substr(String a, String b) {
+      return (a.length() < b.length()) && b.contains(a);
   }
 }
