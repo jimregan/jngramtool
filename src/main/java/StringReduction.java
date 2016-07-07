@@ -24,33 +24,24 @@ import java.util.*;
 public class StringReduction {
     public static Map<String, Integer> reduce(Map<String, Integer> m, int freq) {
         Map<String, Integer> out = new TreeMap<String, Integer>();
-        // TODO : move this out of here!
-        // TODO : object comparison is probably enough to avoid the ArrayList
-        List<Map.Entry<String, Integer>> sort = new ArrayList<Map.Entry<String, Integer>>(m.entrySet());
-        Collections.sort(sort,
-                new Comparator<Map.Entry<String, Integer>>() {
-                    public int compare(Map.Entry<String, Integer> a, Map.Entry<String, Integer> b) {
-                        return a.getKey().compareTo(b.getKey());
-                    }
-                });
-        int size = sort.size();
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
+        Map<String, Integer> sort = new TreeMap<String, Integer>(m);
+        for (Map.Entry<String, Integer> a  : sort.entrySet()) {
+            for (Map.Entry<String, Integer> b  : sort.entrySet()) {
                 // Avoid self comparison
-                if (i == j) {
+                if (a.equals(b)) {
                     continue;
                 }
-                if ((Math.abs(sort.get(i).getValue()) - Math.abs(sort.get(j).getValue()) < freq)
-                        && Tools.is_substr(sort.get(i).getKey(), sort.get(j).getKey())) {
-                    if (sort.get(i).getValue() > 0) {
-                        sort.get(i).setValue(-sort.get(i).getValue());
+                if ((Math.abs(a.getValue()) - Math.abs(b.getValue()) < freq)
+                        && Tools.is_substr(a.getKey(), b.getKey())) {
+                    if (a.getValue() > 0) {
+                        a.setValue(-a.getValue());
                     }
                 }
             }
         }
-        for (int k = 0; k < sort.size(); k++) {
-            if (sort.get(k).getValue() > 0) {
-                out.put(sort.get(k).getKey(), sort.get(k).getValue());
+        for (Map.Entry<String, Integer> k  : sort.entrySet()) {
+            if (k.getValue() > 0) {
+                out.put(k.getKey(), k.getValue());
             }
         }
         return out;
