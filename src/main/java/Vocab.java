@@ -19,10 +19,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
@@ -86,6 +83,23 @@ public class Vocab {
 
             while ((line = br.readLine()) != null) {
                 add(line);
+            }
+        } catch (Exception e) {
+            // FIXME
+        }
+    }
+
+    void save(String filename) {
+        try {
+            OutputStream fos = new FileOutputStream(filename);
+            OutputStreamWriter osw = new OutputStreamWriter(fos, Charset.forName(charset));
+            BufferedWriter bw = new BufferedWriter(osw);
+
+            for (Map.Entry<String, Integer> e : vocab.entrySet()) {
+                if (e.getValue() > idSpecialLast) {
+                    bw.write(e.getKey());
+                    bw.newLine();
+                }
             }
         } catch (Exception e) {
             // FIXME
