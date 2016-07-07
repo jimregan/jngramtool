@@ -21,7 +21,7 @@ import java.util.*;
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-public class StringReduction implements StringReducer {
+public class StringReduction {
     public void reduce(Map<String, Integer> m, int freq) {
         //Map<String, Integer> sort = new TreeMap<String, Integer>(m);
         // TODO : move this out of here!
