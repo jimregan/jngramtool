@@ -282,6 +282,7 @@ public class Tools {
                 cur += c;
             }
         }
+        out.add(cur);
         return out;
     }
 
