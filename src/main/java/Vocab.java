@@ -19,5 +19,76 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Vocab {
+    private Map<String, Integer> vocab = new HashMap<String, Integer>();
+    private int last_id = 0;
+
+    private void clear_vocab() {
+        vocab.clear();
+        last_id = 0;
+    }
+    public int idSpace;
+    public int idTab;
+    public int idVt;
+    public int idFullStop;
+    public int idQuestion;
+    public int idSeparator;
+    public int idInter;
+    public int idBOS;
+    public int idEOS;
+    public int idSpecialLast;
+
+    public int add(String s) {
+        int out = last_id;
+        last_id++;
+        vocab.put(s, out);
+        return out;
+    }
+
+    private void init_special_ids() {
+        clear_vocab();
+        add("__NULL_ID__");
+        idSpace = add(" ");
+        idTab = add("\t");
+        idVt = add("\u000B");
+        idFullStop = add(".");
+        idQuestion = add("?");
+        idSeparator = add(";");
+        idInter = add("!");
+        idBOS = add("__BOS__");
+        idEOS = add("__EOS__");
+        idSpecialLast = idEOS;
+    }
+
+    Vocab() {
+        init_special_ids();
+    }
+
+    private String charset = "UTF-8";
+    public void setCharset(String cs) {
+        charset = cs;
+    }
+
+    void load(String filename) {
+        String line;
+        try {
+            InputStream fis = new FileInputStream(filename);
+            InputStreamReader isr = new InputStreamReader(fis, Charset.forName(charset));
+            BufferedReader br = new BufferedReader(isr);
+
+            while ((line = br.readLine()) != null) {
+                add(line);
+            }
+        } catch (Exception e) {
+            // FIXME
+        }
+    }
 }
