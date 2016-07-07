@@ -22,7 +22,7 @@ import java.util.*;
  * DEALINGS IN THE SOFTWARE.
  */
 public class StringReduction {
-    public static Map<String, Integer> reduce1_base(Map<String, Integer> m, int freq, boolean orig) {
+    public static Map<String, Integer> reduce1_base(Map<String, Integer> m, int freq, boolean unique) {
         Map<String, Integer> out = new TreeMap<String, Integer>();
         Map<String, Integer> sort = new TreeMap<String, Integer>(m);
         for (Map.Entry<String, Integer> a  : sort.entrySet()) {
@@ -33,7 +33,7 @@ public class StringReduction {
                 if ((Math.abs(a.getValue()) - Math.abs(b.getValue()) < freq)
                         && Tools.is_substr(a.getKey(), b.getKey())) {
                     if (a.getValue() > 0) {
-                        if (orig) {
+                        if (unique) {
                             a.setValue(-a.getValue());
                         } else {
                             a.setValue(Math.abs(a.getValue()) - Math.abs(b.getValue()));
@@ -55,7 +55,7 @@ public class StringReduction {
         return reduce1_base(m, freq, true);
     }
 
-    public static Map<String, Integer> reduce1fix(Map<String, Integer> m, int freq) {
+    public static Map<String, Integer> reduce1unique(Map<String, Integer> m, int freq) {
         return reduce1_base(m, freq, false);
     }
 }

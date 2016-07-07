@@ -49,7 +49,7 @@ public class StringReductionTest {
         Map<String, Integer> res1 = StringReduction.reduce1(m1, 5);
         assert(res1.toString().equals(e1.toString()));
         //reduce1's algorithm seems to not reduce in the way I expect
-        Map<String, Integer> res2 = StringReduction.reduce1fix(m2, 5);
+        Map<String, Integer> res2 = StringReduction.reduce1unique(m2, 5);
         System.out.print(res2.toString());
         assert(res2.toString().equals(e2.toString()));
     }
