@@ -22,8 +22,8 @@ import java.util.*;
  * DEALINGS IN THE SOFTWARE.
  */
 public class StringReduction {
-    public void reduce(Map<String, Integer> m, int freq) {
-        //Map<String, Integer> sort = new TreeMap<String, Integer>(m);
+    public static Map<String, Integer> reduce(Map<String, Integer> m, int freq) {
+        Map<String, Integer> out = new TreeMap<String, Integer>();
         // TODO : move this out of here!
         // TODO : object comparison is probably enough to avoid the ArrayList
         List<Map.Entry<String, Integer>> sort = new ArrayList<Map.Entry<String, Integer>>(m.entrySet());
@@ -48,6 +48,12 @@ public class StringReduction {
                 }
             }
         }
+        for (int k = 0; k < sort.size(); k++) {
+            if (sort.get(k).getValue() > 0) {
+                out.put(sort.get(k).getKey(), sort.get(k).getValue());
+            }
+        }
+        return out;
     }
 
 }
