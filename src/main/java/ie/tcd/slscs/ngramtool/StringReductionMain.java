@@ -1,3 +1,5 @@
+package ie.tcd.slscs.ngramtool;
+
 import static org.kohsuke.args4j.ExampleMode.ALL;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;

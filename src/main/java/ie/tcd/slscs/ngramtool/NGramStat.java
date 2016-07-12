@@ -1,3 +1,5 @@
+package ie.tcd.slscs.ngramtool;
+
 /*
  * ngramstat.hpp  -  Implements Nagao 1994 N-gram extraction algorithm (unicode
  * version)
@@ -29,21 +31,6 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-public class NGram {
-    String text;
-    int count;
+public class NGramStat {
 
-    public void NGram(String t, int c) {
-        text = t;
-        count = c;
-    }
-    public int getCount() {
-        return count;
-    }
-    public String getText() {
-        return text;
-    }
-    public void setCount(int c) {
-        count = c;
-    }
 }

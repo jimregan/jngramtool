@@ -1,4 +1,4 @@
-/*
+package ie.tcd.slscs.ngramtool;/*
  * Copyright (C) 2004 by Zhang Le <ejoy@users.sourceforge.net>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a

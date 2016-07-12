@@ -1,4 +1,4 @@
-/*
+package ie.tcd.slscs.ngramtool;/*
  * Copyright (C) 2002 by Zhang Le <ejoy@users.sourceforge.net>
  * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>
  *

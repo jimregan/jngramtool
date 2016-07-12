@@ -1,3 +1,5 @@
+package ie.tcd.slscs.ngramtool;
+
 import java.util.*;
 
 /*

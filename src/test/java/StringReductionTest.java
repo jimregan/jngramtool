@@ -19,12 +19,11 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+import ie.tcd.slscs.ngramtool.StringReduction;
 import org.junit.Test;
 
 import java.util.Map;
 import java.util.TreeMap;
-
-import static org.junit.Assert.*;
 
 public class StringReductionTest {
     Map<String, Integer> m1 = new TreeMap<String, Integer>();

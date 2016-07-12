@@ -19,10 +19,11 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+import ie.tcd.slscs.ngramtool.Tools;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 public class ToolsTest {
     @org.junit.Test
     public void isSpace() throws Exception {
