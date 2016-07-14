@@ -1,3 +1,4 @@
+package ie.tcd.slscs.ngramtool;
 /*
  * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>
  *
