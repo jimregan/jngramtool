@@ -28,17 +28,26 @@ import static org.junit.Assert.*;
 public class StringUtilsTest {
     @Test
     public void replacePunctWithSpace() throws Exception {
-        assert(StringUtils.replacePunctWithSpace("this's,a-test.").equals("this s a test "));
+        String inp = "this's,a-test.";
+        String exp = "this s a test ";
+        String out = StringUtils.replacePunctWithSpace(inp);
+        assertEquals(exp, out);
     }
 
     @Test
     public void replaceNumbers() throws Exception {
-        assert(StringUtils.replaceNumbers("a 400 and 500 thing").equals("a ### and ### thing"));
+        String inp = "a 400 and 500 thing";
+        String exp = "a ### and ### thing";
+        String out = StringUtils.replaceNumbers(inp);
+        assertEquals(exp, out);
     }
 
     @Test
     public void replaceAllNumbers() throws Exception {
-        assert(StringUtils.replaceAllNumbers("a 400 and 500 thing").equals("a # and # thing"));
+        String inp = "a 400 and 500 thing";
+        String exp = "a # and # thing";
+        String out = StringUtils.replaceAllNumbers(inp);
+        assertEquals(exp, out);
     }
 
 }

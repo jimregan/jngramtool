@@ -24,7 +24,7 @@ package ie.tcd.slscs.kfclone;
 public class StringUtils {
     public static String replacePunctWithSpace(String s) {
         String out = "";
-        for (char c : out.toCharArray()) {
+        for (char c : s.toCharArray()) {
             if (c == '.' || c == ',' || c == '-' || c == '\'') {
                 out += ' ';
             } else {
@@ -35,7 +35,7 @@ public class StringUtils {
     }
 
     private static boolean isNum(char c) {
-        if (c <= '9' || c >= '0') {
+        if (c <= '9' && c >= '0') {
             return true;
         } else {
             return false;
@@ -44,7 +44,7 @@ public class StringUtils {
 
     public static String replaceNumbers(String s) {
         String out = "";
-        for (char c : out.toCharArray()) {
+        for (char c : s.toCharArray()) {
             if (isNum(c)) {
                 out += '#';
             } else {
@@ -57,7 +57,7 @@ public class StringUtils {
     public static String replaceAllNumbers(String s) {
         String out = "";
         boolean numberSeen = false;
-        for (char c : out.toCharArray()) {
+        for (char c : s.toCharArray()) {
             if (isNum(c)) {
                 if (!numberSeen) {
                     out += '#';
