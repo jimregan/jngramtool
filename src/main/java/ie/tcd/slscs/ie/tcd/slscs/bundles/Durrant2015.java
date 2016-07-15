@@ -28,9 +28,11 @@ public class Durrant2015 implements Classifier {
 
     private Map<SubCategory, Category> subcatCatMap;
     private Map<String, SubCategory> ngramMap;
+    private Map<String, SubCategory> ngramMapST;
 
     public Durrant2015() {
         ngramMap = new HashMap<String, SubCategory>();
+        ngramMapST = new HashMap<String, SubCategory>();
         subcatCatMap = new HashMap<SubCategory, Category>();
         initSubcatCatMap();
         setupNgramToSubcatMap();
@@ -109,7 +111,7 @@ public class Durrant2015 implements Classifier {
         } else if (c == SubCategory.modality || c == SubCategory.s_modality) {
             return "Modality";
         } else {
-            return "Unknown category";
+            return "Unknown subcategory";
         }
     }
 
@@ -208,65 +210,65 @@ public class Durrant2015 implements Classifier {
         ngramMap.put("on the one hand", SubCategory.transition);
         ngramMap.put("on the other hand", SubCategory.transition);
         // Table 3, p. 19
-        ngramMap.put("the presence of a", SubCategory.description);
-        ngramMap.put("the presence of the", SubCategory.description);
-        ngramMap.put("the shape of the", SubCategory.description);
+        ngramMapST.put("the presence of a", SubCategory.description);
+        ngramMapST.put("the presence of the", SubCategory.description);
+        ngramMapST.put("the shape of the", SubCategory.description);
 
-        ngramMap.put("at the bottom of", SubCategory.location);
-        ngramMap.put("on the surface of", SubCategory.location);
-        ngramMap.put("the bottom of the", SubCategory.location);
-        ngramMap.put("the centre of the", SubCategory.location);
-        ngramMap.put("the surface of the", SubCategory.location);
-        ngramMap.put("the top of the", SubCategory.location);
+        ngramMapST.put("at the bottom of", SubCategory.location);
+        ngramMapST.put("on the surface of", SubCategory.location);
+        ngramMapST.put("the bottom of the", SubCategory.location);
+        ngramMapST.put("the centre of the", SubCategory.location);
+        ngramMapST.put("the surface of the", SubCategory.location);
+        ngramMapST.put("the top of the", SubCategory.location);
 
-        ngramMap.put("a measure of the", SubCategory.procedure);
-        ngramMap.put("be used as a", SubCategory.procedure);
-        ngramMap.put("be used in the", SubCategory.procedure);
-        ngramMap.put("be used to determine", SubCategory.procedure);
-        ngramMap.put("can also be used", SubCategory.procedure);
-        ngramMap.put("can be used to", SubCategory.procedure);
-        ngramMap.put("could be used to", SubCategory.procedure);
-        ngramMap.put("it can be used", SubCategory.procedure);
-        ngramMap.put("the use of a", SubCategory.procedure);
-        ngramMap.put("to ensure that the", SubCategory.procedure);
-        ngramMap.put("used to determine the", SubCategory.procedure);
-        ngramMap.put("will be used to", SubCategory.procedure);
+        ngramMapST.put("a measure of the", SubCategory.procedure);
+        ngramMapST.put("be used as a", SubCategory.procedure);
+        ngramMapST.put("be used in the", SubCategory.procedure);
+        ngramMapST.put("be used to determine", SubCategory.procedure);
+        ngramMapST.put("can also be used", SubCategory.procedure);
+        ngramMapST.put("can be used to", SubCategory.procedure);
+        ngramMapST.put("could be used to", SubCategory.procedure);
+        ngramMapST.put("it can be used", SubCategory.procedure);
+        ngramMapST.put("the use of a", SubCategory.procedure);
+        ngramMapST.put("to ensure that the", SubCategory.procedure);
+        ngramMapST.put("used to determine the", SubCategory.procedure);
+        ngramMapST.put("will be used to", SubCategory.procedure);
 
-        ngramMap.put("a large number of", SubCategory.quantification);
-        ngramMap.put("is the same as", SubCategory.quantification);
-        ngramMap.put("than that of the", SubCategory.quantification);
-        ngramMap.put("the difference between the", SubCategory.quantification);
-        ngramMap.put("the efficiency of the", SubCategory.quantification);
-        ngramMap.put("the length of the", SubCategory.quantification);
-        ngramMap.put("the same as the", SubCategory.quantification);
-        ngramMap.put("the size of the", SubCategory.quantification);
-        ngramMap.put("the temperature of the", SubCategory.quantification);
+        ngramMapST.put("a large number of", SubCategory.quantification);
+        ngramMapST.put("is the same as", SubCategory.quantification);
+        ngramMapST.put("than that of the", SubCategory.quantification);
+        ngramMapST.put("the difference between the", SubCategory.quantification);
+        ngramMapST.put("the efficiency of the", SubCategory.quantification);
+        ngramMapST.put("the length of the", SubCategory.quantification);
+        ngramMapST.put("the same as the", SubCategory.quantification);
+        ngramMapST.put("the size of the", SubCategory.quantification);
+        ngramMapST.put("the temperature of the", SubCategory.quantification);
 
-        ngramMap.put("it is thought that", SubCategory.s_epistemic);
-        ngramMap.put("it was found that", SubCategory.s_epistemic);
-        ngramMap.put("was found to be", SubCategory.s_epistemic);
+        ngramMapST.put("it is thought that", SubCategory.s_epistemic);
+        ngramMapST.put("it was found that", SubCategory.s_epistemic);
+        ngramMapST.put("was found to be", SubCategory.s_epistemic);
 
-        ngramMap.put("with respect to the", SubCategory.t_framing);
+        ngramMapST.put("with respect to the", SubCategory.t_framing);
 
-        ngramMap.put("be due to the", SubCategory.t_resultative);
-        ngramMap.put("is determined by the", SubCategory.t_resultative);
-        ngramMap.put("is due to the", SubCategory.t_resultative);
-        ngramMap.put("the reason for this", SubCategory.t_resultative);
-        ngramMap.put("this is because the", SubCategory.t_resultative);
-        ngramMap.put("this is due to", SubCategory.t_resultative);
+        ngramMapST.put("be due to the", SubCategory.t_resultative);
+        ngramMapST.put("is determined by the", SubCategory.t_resultative);
+        ngramMapST.put("is due to the", SubCategory.t_resultative);
+        ngramMapST.put("the reason for this", SubCategory.t_resultative);
+        ngramMapST.put("this is because the", SubCategory.t_resultative);
+        ngramMapST.put("this is due to", SubCategory.t_resultative);
         // p. 20
-        ngramMap.put("this means that the", SubCategory.t_resultative);
+        ngramMapST.put("this means that the", SubCategory.t_resultative);
 
-        ngramMap.put("as can be seen", SubCategory.t_structuring);
-        ngramMap.put("as shown in figure", SubCategory.t_structuring);
-        ngramMap.put("be seen that the", SubCategory.t_structuring);
-        ngramMap.put("can be seen from", SubCategory.t_structuring);
-        ngramMap.put("can be seen that", SubCategory.t_structuring);
-        ngramMap.put("is shown in figure", SubCategory.t_structuring);
-        ngramMap.put("it can be seen", SubCategory.t_structuring);
-        ngramMap.put("shown in figure the", SubCategory.t_structuring);
+        ngramMapST.put("as can be seen", SubCategory.t_structuring);
+        ngramMapST.put("as shown in figure", SubCategory.t_structuring);
+        ngramMapST.put("be seen that the", SubCategory.t_structuring);
+        ngramMapST.put("can be seen from", SubCategory.t_structuring);
+        ngramMapST.put("can be seen that", SubCategory.t_structuring);
+        ngramMapST.put("is shown in figure", SubCategory.t_structuring);
+        ngramMapST.put("it can be seen", SubCategory.t_structuring);
+        ngramMapST.put("shown in figure the", SubCategory.t_structuring);
 
-        ngramMap.put("is defined as the", SubCategory.t_transition);
+        ngramMapST.put("is defined as the", SubCategory.t_transition);
     }
 
     public Category categoryFromSubcategory (SubCategory s) {
