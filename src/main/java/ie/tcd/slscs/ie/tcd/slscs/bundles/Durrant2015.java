@@ -59,7 +59,10 @@ public class Durrant2015 implements Classifier {
 
         centrality,
         epistemic,
-        modality
+        modality,
+        t_resultative,
+        t_structuring,
+        t_transition
     }
 
     public String classify(NGram n) {
@@ -97,6 +100,9 @@ public class Durrant2015 implements Classifier {
         subcatCatMap.put(SubCategory.centrality, Category.text);
         subcatCatMap.put(SubCategory.epistemic, Category.text);
         subcatCatMap.put(SubCategory.modality, Category.text);
+        subcatCatMap.put(SubCategory.t_resultative, Category.text);
+        subcatCatMap.put(SubCategory.t_structuring, Category.text);
+        subcatCatMap.put(SubCategory.t_transition, Category.text);
     }
 
     private void setupNgramToSubcatMap() {
@@ -174,7 +180,61 @@ public class Durrant2015 implements Classifier {
         ngramMap.put("the presence of the", SubCategory.description);
         ngramMap.put("the shape of the", SubCategory.description);
 
-        ngramMap.put("the shape of the", SubCategory.location);
+        ngramMap.put("at the bottom of", SubCategory.location);
+        ngramMap.put("on the surface of", SubCategory.location);
+        ngramMap.put("the bottom of the", SubCategory.location);
+        ngramMap.put("the centre of the", SubCategory.location);
+        ngramMap.put("the surface of the", SubCategory.location);
+        ngramMap.put("the top of the", SubCategory.location);
+
+        ngramMap.put("a measure of the", SubCategory.procedure);
+        ngramMap.put("be used as a", SubCategory.procedure);
+        ngramMap.put("be used in the", SubCategory.procedure);
+        ngramMap.put("be used to determine", SubCategory.procedure);
+        ngramMap.put("can also be used", SubCategory.procedure);
+        ngramMap.put("can be used to", SubCategory.procedure);
+        ngramMap.put("could be used to", SubCategory.procedure);
+        ngramMap.put("it can be used", SubCategory.procedure);
+        ngramMap.put("the use of a", SubCategory.procedure);
+        ngramMap.put("to ensure that the", SubCategory.procedure);
+        ngramMap.put("used to determine the", SubCategory.procedure);
+        ngramMap.put("will be used to", SubCategory.procedure);
+
+        ngramMap.put("a large number of", SubCategory.quantification);
+        ngramMap.put("is the same as", SubCategory.quantification);
+        ngramMap.put("than that of the", SubCategory.quantification);
+        ngramMap.put("the difference between the", SubCategory.quantification);
+        ngramMap.put("the efficiency of the", SubCategory.quantification);
+        ngramMap.put("the length of the", SubCategory.quantification);
+        ngramMap.put("the same as the", SubCategory.quantification);
+        ngramMap.put("the size of the", SubCategory.quantification);
+        ngramMap.put("the temperature of the", SubCategory.quantification);
+
+        ngramMap.put("it is thought that", SubCategory.s_epistemic);
+        ngramMap.put("it was found that", SubCategory.s_epistemic);
+        ngramMap.put("was found to be", SubCategory.s_epistemic);
+
+        ngramMap.put("with respect to the", SubCategory.framing);
+
+        ngramMap.put("be due to the", SubCategory.t_resultative);
+        ngramMap.put("is determined by the", SubCategory.t_resultative);
+        ngramMap.put("is due to the", SubCategory.t_resultative);
+        ngramMap.put("the reason for this", SubCategory.t_resultative);
+        ngramMap.put("this is because the", SubCategory.t_resultative);
+        ngramMap.put("this is due to", SubCategory.t_resultative);
+        // p. 20
+        ngramMap.put("this means that the", SubCategory.t_resultative);
+
+        ngramMap.put("as can be seen", SubCategory.t_structuring);
+        ngramMap.put("as shown in figure", SubCategory.t_structuring);
+        ngramMap.put("be seen that the", SubCategory.t_structuring);
+        ngramMap.put("can be seen from", SubCategory.t_structuring);
+        ngramMap.put("can be seen that", SubCategory.t_structuring);
+        ngramMap.put("is shown in figure", SubCategory.t_structuring);
+        ngramMap.put("it can be seen", SubCategory.t_structuring);
+        ngramMap.put("shown in figure the", SubCategory.t_structuring);
+
+        ngramMap.put("is defined as the", SubCategory.t_transition);
     }
 
     public Category categoryFromSubcategory (SubCategory s) {
