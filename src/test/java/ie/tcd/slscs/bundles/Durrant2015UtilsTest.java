@@ -1,12 +1,11 @@
-package ie.tcd.slscs.ie.tcd.slscs.bundles;
+package ie.tcd.slscs.bundles;
 
+import ie.tcd.slscs.bundles.Durrant2015Utils;
 import ie.tcd.slscs.ngramtool.NGram;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -16,7 +15,7 @@ public class Durrant2015UtilsTest {
         String inp = "There;s a 90s   thing";
         String exp = "theres a Ns thing";
         String out = Durrant2015Utils.normalise(inp);
-        assertEquals(exp, out);
+        Assert.assertEquals(exp, out);
     }
 
     @Test
@@ -24,7 +23,7 @@ public class Durrant2015UtilsTest {
         String inp = "There;s a 90s   thing";
         String exp = "theres a s thing";
         String out = Durrant2015Utils.normaliseDurrant(inp);
-        assertEquals(exp, out);
+        Assert.assertEquals(exp, out);
     }
 
     @Test

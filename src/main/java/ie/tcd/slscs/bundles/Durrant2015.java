@@ -1,5 +1,6 @@
-package ie.tcd.slscs.ie.tcd.slscs.bundles;
+package ie.tcd.slscs.bundles;
 
+import ie.tcd.slscs.ie.tcd.slscs.bundles.Classifier;
 import ie.tcd.slscs.ngramtool.NGram;
 
 import java.util.HashMap;
