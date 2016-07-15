@@ -35,7 +35,7 @@ public class NGram {
     String text;
     int count;
 
-    public void NGram(String t, int c) {
+    public NGram(String t, int c) {
         text = t;
         count = c;
     }

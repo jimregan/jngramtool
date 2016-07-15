@@ -21,6 +21,9 @@ package ie.tcd.slscs.kfclone;
  * DEALINGS IN THE SOFTWARE.
  */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringUtils {
     public static String replacePunctWithSpace(String s) {
         String out = "";
@@ -71,5 +74,26 @@ public class StringUtils {
             }
         }
         return out;
+    }
+
+    public static String getIndexString(String s, String keep) {
+        String out = "";
+        List<Character> kc = new ArrayList<Character>();
+        for (char c : keep.toCharArray()) {
+            kc.add(c);
+        }
+        for (char c : s.toCharArray()) {
+            if (kc.contains(c)) {
+                out += c;
+            } else {
+                out += ' ';
+            }
+        }
+        return out;
+    }
+
+    public static String getIndexString(String s) {
+        String keep = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØŒÙÚÛÜÝŸÞßªàáâãäåæçèéêëìíîïðñºòóôõöøœùúûüýþÿŠŽšž©";
+        return getIndexString(s, keep);
     }
 }
