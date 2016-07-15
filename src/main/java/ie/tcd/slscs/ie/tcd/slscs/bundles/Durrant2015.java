@@ -60,6 +60,7 @@ public class Durrant2015 implements Classifier {
         centrality,
         epistemic,
         modality,
+        t_framing,
         t_resultative,
         t_structuring,
         t_transition
@@ -77,6 +78,36 @@ public class Durrant2015 implements Classifier {
             return "Stance";
         } else if (c == Category.text) {
             return "Text";
+        } else {
+            return "Unknown category";
+        }
+    }
+
+    public String getSubCategoryString (SubCategory c) {
+        if (c == SubCategory.location) {
+            return "Location";
+        } else if (c == SubCategory.procedure) {
+            return "Procedure";
+        } else if (c == SubCategory.quantification) {
+            return "Quantification";
+        } else if (c == SubCategory.description) {
+            return "Description";
+        } else if (c == SubCategory.int_framing_attr) {
+            return "Intangible framing attributes";
+        } else if (c == SubCategory.transition || c == SubCategory.t_transition) {
+            return "Transition";
+        } else if (c == SubCategory.resultative || c == SubCategory.t_resultative) {
+            return "Resultative";
+        } else if (c == SubCategory.structuring || c == SubCategory.t_structuring) {
+            return "Structuring";
+        } else if (c == SubCategory.framing || c == SubCategory.t_framing) {
+            return "Framing";
+        } else if (c == SubCategory.centrality || c == SubCategory.s_centrality) {
+            return "Centrality";
+        } else if (c == SubCategory.epistemic || c == SubCategory.s_epistemic) {
+            return "Epistemic";
+        } else if (c == SubCategory.modality || c == SubCategory.s_modality) {
+            return "Modality";
         } else {
             return "Unknown category";
         }
@@ -103,6 +134,7 @@ public class Durrant2015 implements Classifier {
         subcatCatMap.put(SubCategory.t_resultative, Category.text);
         subcatCatMap.put(SubCategory.t_structuring, Category.text);
         subcatCatMap.put(SubCategory.t_transition, Category.text);
+        subcatCatMap.put(SubCategory.t_framing, Category.text);
     }
 
     private void setupNgramToSubcatMap() {
@@ -214,7 +246,7 @@ public class Durrant2015 implements Classifier {
         ngramMap.put("it was found that", SubCategory.s_epistemic);
         ngramMap.put("was found to be", SubCategory.s_epistemic);
 
-        ngramMap.put("with respect to the", SubCategory.framing);
+        ngramMap.put("with respect to the", SubCategory.t_framing);
 
         ngramMap.put("be due to the", SubCategory.t_resultative);
         ngramMap.put("is determined by the", SubCategory.t_resultative);
