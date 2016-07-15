@@ -42,31 +42,4 @@ public class Durrant2015UtilsTest {
         double out = Durrant2015Utils.ngramOverlap(a, b);
         assert(out == 0.5);
     }
-
-    @Test
-    public void likeACorpus() throws Exception {
-        List<NGram> a = new ArrayList<NGram>();
-        List<NGram> b = new ArrayList<NGram>();
-        a.add(new NGram("some overlap", 1));
-        a.add(new NGram("more overlap", 1));
-        a.add(new NGram("only a", 1));
-        a.add(new NGram("also only a", 1));
-        b.add(new NGram("some overlap", 1));
-        b.add(new NGram("more overlap", 1));
-        b.add(new NGram("only b", 1));
-        b.add(new NGram("also only b", 1));
-        double out = Durrant2015Utils.ngramOverlap(a, b);
-        System.out.println("Corpus A:");
-        for (NGram n : a) {
-            System.out.println(n.getText() + "\t" + n.getCount());
-        }
-        System.out.println();
-        System.out.println("Corpus B:");
-        for (NGram n : b) {
-            System.out.println(n.getText() + "\t" + n.getCount());
-        }
-        System.out.println();
-        System.out.print("Overlap: ");
-        System.out.format("%.2f%%\n", (out * 100.0));
-    }
 }
