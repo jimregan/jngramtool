@@ -15,6 +15,7 @@ public class Durrant2015Utils {
      * article.
      *
      * @see #normaliseDurrant(String) for the
+     * exact normalisation method mentioned.
      */
     static String normalise(String s) {
         return s.toLowerCase()
