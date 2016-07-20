@@ -38,10 +38,13 @@ public class FilterTest {
         List<NGram> one = new ArrayList<NGram>();
         List<NGram> two = new ArrayList<NGram>();
         List<NGram> three = new ArrayList<NGram>();
+        List<NGram> exp = new ArrayList<NGram>();
         one.add(new NGram("a simple one", 1));
         three.add(new NGram("a simple one", 1));
+        exp.add(new NGram("a simple one", 2));
         two.add(new NGram("a simpler one", 34));
         three.add(new NGram("a simpler one", 1));
+        exp.add(new NGram("a simpler one", 35));
         three.add(new NGram("this is unique", 1));
         ngrams.put("one", one);
         ngrams.put("two", two);
@@ -52,6 +55,7 @@ public class FilterTest {
         for(NGram c : out) {
             System.out.println(c.getText());
         }
+        //assert(three.equals(exp));
     }
 
 }

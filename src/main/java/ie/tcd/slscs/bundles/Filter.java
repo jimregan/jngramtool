@@ -2,10 +2,7 @@ package ie.tcd.slscs.bundles;
 
 import ie.tcd.slscs.ngramtool.NGram;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
  * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>
@@ -48,12 +45,13 @@ public class Filter {
         if(current.size() == 0) {
             return;
         } else {
-            for (NGram n : current) {
+            Iterator<NGram> it = current.iterator();
+            while (it.hasNext()) {
+                NGram n = it.next();
                 if (!others.containsKey(n.getText())) {
-                    current.remove(n.getText());
+                    it.remove();
                 }
             }
         }
-        ngrams.put(author, current);
     }
 }
