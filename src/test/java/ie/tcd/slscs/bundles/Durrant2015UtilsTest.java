@@ -15,7 +15,7 @@ public class Durrant2015UtilsTest {
         String inp = "There;s a 90s   thing";
         String exp = "theres a Ns thing";
         String out = Durrant2015Utils.normalise(inp);
-        Assert.assertEquals(exp, out);
+        assertEquals(exp, out);
     }
 
     @Test
@@ -23,7 +23,7 @@ public class Durrant2015UtilsTest {
         String inp = "There;s a 90s   thing";
         String exp = "theres a s thing";
         String out = Durrant2015Utils.normaliseDurrant(inp);
-        Assert.assertEquals(exp, out);
+        assertEquals(exp, out);
     }
 
     @Test
