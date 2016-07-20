@@ -51,10 +51,6 @@ public class FilterTest {
         ngrams.put("three", three);
         Filter.filterByAuthor("three", ngrams);
         List<NGram> out = ngrams.get("three");
-        System.out.println(out.size());
-        for(NGram c : out) {
-            System.out.println(c.getText());
-        }
         //assert(three.equals(exp));
     }
 
