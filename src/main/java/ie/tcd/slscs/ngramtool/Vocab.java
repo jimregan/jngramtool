@@ -74,35 +74,27 @@ public class Vocab {
         charset = cs;
     }
 
-    void load(String filename) {
+    void load(String filename) throws IOException{
         String line;
-        try {
-            InputStream fis = new FileInputStream(filename);
-            InputStreamReader isr = new InputStreamReader(fis, Charset.forName(charset));
-            BufferedReader br = new BufferedReader(isr);
+        InputStream fis = new FileInputStream(filename);
+        InputStreamReader isr = new InputStreamReader(fis, Charset.forName(charset));
+        BufferedReader br = new BufferedReader(isr);
 
-            while ((line = br.readLine()) != null) {
-                add(line);
-            }
-        } catch (Exception e) {
-            // FIXME
+        while ((line = br.readLine()) != null) {
+            add(line);
         }
     }
 
-    void save(String filename) {
-        try {
-            OutputStream fos = new FileOutputStream(filename);
-            OutputStreamWriter osw = new OutputStreamWriter(fos, Charset.forName(charset));
-            BufferedWriter bw = new BufferedWriter(osw);
+    void save(String filename) throws IOException {
+        OutputStream fos = new FileOutputStream(filename);
+        OutputStreamWriter osw = new OutputStreamWriter(fos, Charset.forName(charset));
+        BufferedWriter bw = new BufferedWriter(osw);
 
-            for (Map.Entry<String, Integer> e : vocab.entrySet()) {
-                if (e.getValue() > idSpecialLast) {
-                    bw.write(e.getKey());
-                    bw.newLine();
-                }
+        for (Map.Entry<String, Integer> e : vocab.entrySet()) {
+            if (e.getValue() > idSpecialLast) {
+                bw.write(e.getKey());
+                bw.newLine();
             }
-        } catch (Exception e) {
-            // FIXME
         }
     }
 }
