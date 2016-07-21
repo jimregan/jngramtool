@@ -25,8 +25,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Constraints {
+    public boolean ignoreCase = true;
+    public boolean skipNormalTags = true;
+    public boolean useStopWords = false;
+    public boolean useSkipChars = false;
+    public boolean useEqualChars = false;
+
     private List<Character> delims;
     private List<String> stopwords;
+    private List<Character> skipchars;
+    private List<Character> equalchars;
 
     Constraints() {
         delims = new ArrayList<Character>();
@@ -50,6 +58,13 @@ public class Constraints {
         }
         return out;
     }
+    public boolean isDelimeter(char c) {
+        if(delims.contains(c)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void addStopWord(String s) {
         stopwords.add(s);
@@ -60,4 +75,43 @@ public class Constraints {
     public List<String> getStopWords() {
         return stopwords;
     }
+    public boolean isStopWord(String s) {
+        if(stopwords.contains(s)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public void removeStopWord(String s) {
+        stopwords.remove(s);
+    }
+    public void setSkipChars(String s) {
+        skipchars.clear();
+        for(Character c : s.toCharArray()) {
+            skipchars.add(c);
+        }
+    }
+    public void setSkipChars() {
+        setSkipChars("-=");
+    }
+
+    public String getSkipChars() {
+        String out = "";
+        for (Character c : skipchars) {
+            out += c;
+        }
+        return out;
+    }
+    public boolean isSkipChar(char c) {
+        if(!useSkipChars) {
+            return false;
+        } else {
+            if (skipchars.contains(c)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
 }
