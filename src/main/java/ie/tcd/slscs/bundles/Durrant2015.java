@@ -59,24 +59,21 @@ public class Durrant2015 implements Classifier {
         subcatCatMap = new HashMap<SubCategory, Category>();
         initSubcatCatMap();
         setupNgramToSubcatMap();
+        setField(true, true);
+    }
+
+    public void setField(boolean humanities, boolean science_tech) {
+        ngramMap.clear();
+        if(!humanities && !science_tech) {
+            System.err.println("at least one field must be selected!");
+            humanities = true;
+            science_tech = true;
+        }
         if(humanities) {
             ngramMap.putAll(ngramMapH);
         }
         if(science_tech) {
             ngramMap.putAll(ngramMapST);
-        }
-    }
-
-    boolean humanities = true;
-    boolean science_tech = true;
-
-    public void setField(boolean h, boolean st) {
-        humanities = h;
-        science_tech = st;
-        if(!humanities && !science_tech) {
-            System.err.println("at least one field must be selected!");
-            humanities = true;
-            science_tech = true;
         }
     }
 
