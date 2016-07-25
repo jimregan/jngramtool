@@ -49,14 +49,35 @@ public class Durrant2015 implements Classifier {
 
     private Map<SubCategory, Category> subcatCatMap;
     private Map<String, SubCategory> ngramMap;
+    private Map<String, SubCategory> ngramMapH;
     private Map<String, SubCategory> ngramMapST;
 
     public Durrant2015() {
         ngramMap = new HashMap<String, SubCategory>();
+        ngramMapH = new HashMap<String, SubCategory>();
         ngramMapST = new HashMap<String, SubCategory>();
         subcatCatMap = new HashMap<SubCategory, Category>();
         initSubcatCatMap();
         setupNgramToSubcatMap();
+        if(humanities) {
+            ngramMap.putAll(ngramMapH);
+        }
+        if(science_tech) {
+            ngramMap.putAll(ngramMapST);
+        }
+    }
+
+    boolean humanities = true;
+    boolean science_tech = true;
+
+    public void setField(boolean h, boolean st) {
+        humanities = h;
+        science_tech = st;
+        if(!humanities && !science_tech) {
+            System.err.println("at least one field must be selected!");
+            humanities = true;
+            science_tech = true;
+        }
     }
 
     public enum Category {
@@ -91,6 +112,12 @@ public class Durrant2015 implements Classifier {
 
     public String classify(NGram n) {
         String out = "";
+        SubCategory sc = ngramMap.get(n.getText());
+        if(sc != null) {
+            out = getCatSubCat(sc);
+        } else {
+            out = "Unknown";
+        }
         return out;
     }
 
@@ -136,6 +163,14 @@ public class Durrant2015 implements Classifier {
         }
     }
 
+    private String getCatSubCat(SubCategory sc) {
+        Category c = subcatCatMap.get(sc);
+        String out = getCategoryString(c);
+        out += ": ";
+        out += getSubCategoryString(sc);
+        return out;
+    }
+
     private void initSubcatCatMap() {
         subcatCatMap.put(SubCategory.location, Category.research);
         subcatCatMap.put(SubCategory.procedure, Category.research);
@@ -162,74 +197,74 @@ public class Durrant2015 implements Classifier {
 
     private void setupNgramToSubcatMap() {
         // Table 2, p. 17
-        ngramMap.put("of the concept of", SubCategory.int_framing_attr);
-        ngramMap.put("the existence of a", SubCategory.int_framing_attr);
-        ngramMap.put("the existence of the", SubCategory.int_framing_attr);
-        ngramMap.put("the fact that it", SubCategory.int_framing_attr);
-        ngramMap.put("the form of the", SubCategory.int_framing_attr);
-        ngramMap.put("the idea of a", SubCategory.int_framing_attr);
-        ngramMap.put("the nature of the", SubCategory.int_framing_attr);
-        ngramMap.put("the power of the", SubCategory.int_framing_attr);
-        ngramMap.put("the role of the", SubCategory.int_framing_attr);
-        ngramMap.put("the validity of the", SubCategory.int_framing_attr);
-        ngramMap.put("the idea of the", SubCategory.int_framing_attr);
+        ngramMapH.put("of the concept of", SubCategory.int_framing_attr);
+        ngramMapH.put("the existence of a", SubCategory.int_framing_attr);
+        ngramMapH.put("the existence of the", SubCategory.int_framing_attr);
+        ngramMapH.put("the fact that it", SubCategory.int_framing_attr);
+        ngramMapH.put("the form of the", SubCategory.int_framing_attr);
+        ngramMapH.put("the idea of a", SubCategory.int_framing_attr);
+        ngramMapH.put("the nature of the", SubCategory.int_framing_attr);
+        ngramMapH.put("the power of the", SubCategory.int_framing_attr);
+        ngramMapH.put("the role of the", SubCategory.int_framing_attr);
+        ngramMapH.put("the validity of the", SubCategory.int_framing_attr);
+        ngramMapH.put("the idea of the", SubCategory.int_framing_attr);
 
-        ngramMap.put("at the time of", SubCategory.location);
-        ngramMap.put("in the Ns and", SubCategory.location);
-        ngramMap.put("in the process of", SubCategory.location);
-        ngramMap.put("the Ns and Ns", SubCategory.location);
+        ngramMapH.put("at the time of", SubCategory.location);
+        ngramMapH.put("in the Ns and", SubCategory.location);
+        ngramMapH.put("in the process of", SubCategory.location);
+        ngramMapH.put("the Ns and Ns", SubCategory.location);
 
-        ngramMap.put("as a means of", SubCategory.procedure);
-        ngramMap.put("in a way that", SubCategory.procedure);
-        ngramMap.put("in an attempt to", SubCategory.procedure);
-        ngramMap.put("the use of the", SubCategory.procedure);
-        ngramMap.put("the way in which", SubCategory.procedure);
-        ngramMap.put("way in which the", SubCategory.procedure);
+        ngramMapH.put("as a means of", SubCategory.procedure);
+        ngramMapH.put("in a way that", SubCategory.procedure);
+        ngramMapH.put("in an attempt to", SubCategory.procedure);
+        ngramMapH.put("the use of the", SubCategory.procedure);
+        ngramMapH.put("the way in which", SubCategory.procedure);
+        ngramMapH.put("way in which the", SubCategory.procedure);
 
-        ngramMap.put("the extent to which", SubCategory.quantification);
+        ngramMapH.put("the extent to which", SubCategory.quantification);
 
-        ngramMap.put("at the heart of", SubCategory.s_centrality);
-        ngramMap.put("in the first place", SubCategory.s_centrality);
-        ngramMap.put("one of the main", SubCategory.s_centrality);
-        ngramMap.put("the importance of the", SubCategory.s_centrality);
+        ngramMapH.put("at the heart of", SubCategory.s_centrality);
+        ngramMapH.put("in the first place", SubCategory.s_centrality);
+        ngramMapH.put("one of the main", SubCategory.s_centrality);
+        ngramMapH.put("the importance of the", SubCategory.s_centrality);
 
-        ngramMap.put("appears to be a", SubCategory.s_epistemic);
-        ngramMap.put("be argued that the", SubCategory.s_epistemic);
-        ngramMap.put("be seen as a", SubCategory.s_epistemic);
-        ngramMap.put("can be seen as", SubCategory.s_epistemic);
+        ngramMapH.put("appears to be a", SubCategory.s_epistemic);
+        ngramMapH.put("be argued that the", SubCategory.s_epistemic);
+        ngramMapH.put("be seen as a", SubCategory.s_epistemic);
+        ngramMapH.put("can be seen as", SubCategory.s_epistemic);
         // Table 2, p. 18
-        ngramMap.put("could be argued that", SubCategory.s_epistemic);
-        ngramMap.put("it can be argued", SubCategory.s_epistemic);
-        ngramMap.put("it could be argued", SubCategory.s_epistemic);
-        ngramMap.put("it is not a", SubCategory.s_epistemic);
-        ngramMap.put("that it is not", SubCategory.s_epistemic);
-        ngramMap.put("that it is the", SubCategory.s_epistemic);
-        ngramMap.put("that there is no", SubCategory.s_epistemic);
-        ngramMap.put("that there was a", SubCategory.s_epistemic);
-        ngramMap.put("there seems to be", SubCategory.s_epistemic);
+        ngramMapH.put("could be argued that", SubCategory.s_epistemic);
+        ngramMapH.put("it can be argued", SubCategory.s_epistemic);
+        ngramMapH.put("it could be argued", SubCategory.s_epistemic);
+        ngramMapH.put("it is not a", SubCategory.s_epistemic);
+        ngramMapH.put("that it is not", SubCategory.s_epistemic);
+        ngramMapH.put("that it is the", SubCategory.s_epistemic);
+        ngramMapH.put("that there is no", SubCategory.s_epistemic);
+        ngramMapH.put("that there was a", SubCategory.s_epistemic);
+        ngramMapH.put("there seems to be", SubCategory.s_epistemic);
 
-        ngramMap.put("it is impossible to", SubCategory.s_modality);
+        ngramMapH.put("it is impossible to", SubCategory.s_modality);
 
-        ngramMap.put("as part of the", SubCategory.framing);
-        ngramMap.put("for the purposes of", SubCategory.framing);
-        ngramMap.put("in relation to the", SubCategory.framing);
-        ngramMap.put("in the context of", SubCategory.framing);
-        ngramMap.put("in the light of", SubCategory.framing);
-        ngramMap.put("on the basis of", SubCategory.framing);
-        ngramMap.put("on the part of", SubCategory.framing);
-        ngramMap.put("the context of the", SubCategory.framing);
-        ngramMap.put("the part of the", SubCategory.framing);
-        ngramMap.put("to the extent that", SubCategory.framing);
+        ngramMapH.put("as part of the", SubCategory.framing);
+        ngramMapH.put("for the purposes of", SubCategory.framing);
+        ngramMapH.put("in relation to the", SubCategory.framing);
+        ngramMapH.put("in the context of", SubCategory.framing);
+        ngramMapH.put("in the light of", SubCategory.framing);
+        ngramMapH.put("on the basis of", SubCategory.framing);
+        ngramMapH.put("on the part of", SubCategory.framing);
+        ngramMapH.put("the context of the", SubCategory.framing);
+        ngramMapH.put("the part of the", SubCategory.framing);
+        ngramMapH.put("to the extent that", SubCategory.framing);
 
-        ngramMap.put("does not mean that", SubCategory.resultative);
+        ngramMapH.put("does not mean that", SubCategory.resultative);
 
-        ngramMap.put("an example of the", SubCategory.transition);
-        ngramMap.put("as opposed to the", SubCategory.transition);
-        ngramMap.put("despite the fact that", SubCategory.transition);
-        ngramMap.put("in contrast to the", SubCategory.transition);
-        ngramMap.put("in favour of the", SubCategory.transition);
-        ngramMap.put("on the one hand", SubCategory.transition);
-        ngramMap.put("on the other hand", SubCategory.transition);
+        ngramMapH.put("an example of the", SubCategory.transition);
+        ngramMapH.put("as opposed to the", SubCategory.transition);
+        ngramMapH.put("despite the fact that", SubCategory.transition);
+        ngramMapH.put("in contrast to the", SubCategory.transition);
+        ngramMapH.put("in favour of the", SubCategory.transition);
+        ngramMapH.put("on the one hand", SubCategory.transition);
+        ngramMapH.put("on the other hand", SubCategory.transition);
         // Table 3, p. 19
         ngramMapST.put("the presence of a", SubCategory.description);
         ngramMapST.put("the presence of the", SubCategory.description);
