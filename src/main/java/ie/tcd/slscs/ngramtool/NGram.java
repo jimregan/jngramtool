@@ -48,4 +48,12 @@ public class NGram {
     public void setCount(int c) {
         count = c;
     }
+    public String toString() {
+        String out = "\"";
+        out += getText();
+        out += ',';
+        out += getCount();
+        out += '"';
+        return out;
+    }
 }
