@@ -54,7 +54,11 @@ public class StringUtilsTest {
     public void getIndexString() throws Exception {
         String inp = "ślepy";
         String keep = inp;
-        assertEquals(StringUtils.getIndexString(inp), " lepy");
-        assertEquals(StringUtils.getIndexString(inp, keep), inp);
+        String exp1 = " lepy";
+        String exp2 = inp;
+        String out1 = StringUtils.getIndexString(inp);
+        String out2 = StringUtils.getIndexString(inp, keep);
+        assertEquals(out1, exp1);
+        assertEquals(out2, exp2);
     }
 }
