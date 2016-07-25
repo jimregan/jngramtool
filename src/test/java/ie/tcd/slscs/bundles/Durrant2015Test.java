@@ -45,23 +45,23 @@ public class Durrant2015Test {
         String out1 = durrant.classify(inp1);
         String out2 = durrant.classify(inp2);
         String out3 = durrant.classify(inp3);
-        assertEquals(exp1, out1);
-        assertEquals(exp2, out2);
-        assertEquals(exp2, unk);
+        assertEquals(out1, exp1);
+        assertEquals(out2, exp2);
+        assertEquals(out3, unk);
         durrant.setField(true, false);
         out1 = durrant.classify(inp1);
         out2 = durrant.classify(inp2);
         out3 = durrant.classify(inp3);
-        assertEquals(exp1, out1);
-        assertEquals(exp2, unk);
-        assertEquals(exp2, unk);
+        assertEquals(out1, exp1);
+        assertEquals(out2, unk);
+        assertEquals(out3, unk);
         durrant.setField(false, true);
         out1 = durrant.classify(inp1);
         out2 = durrant.classify(inp2);
         out3 = durrant.classify(inp3);
-        assertEquals(exp1, unk);
-        assertEquals(exp2, out2);
-        assertEquals(exp2, unk);
+        assertEquals(out1, unk);
+        assertEquals(out2, exp2);
+        assertEquals(out3, unk);
     }
 
 }
