@@ -1,17 +1,8 @@
 package ie.tcd.slscs.ngramtool;
 
 /*
- * ngramstat.hpp  -  Implements Nagao 1994 N-gram extraction algorithm (unicode
- * version)
- *
- * This class implements Nagao 1994's N-gram extraction algorithm (with minor
- * improvements). All the Characters are encoded in unicode (uchar_t)
- * internally so we can handle oriental languages like Chinese and Japanese
- * gracefully.
- *
  * Copyright (C) 2002 by Zhang Le <ejoy@users.sourceforge.net>
- * Begin       : 30-Oct-2002
- * Last Change : 22-Apr-2004.
+ * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -30,6 +21,14 @@ package ie.tcd.slscs.ngramtool;
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
+ */
+
+/**
+ * This class implements Nagao 1994's N-gram extraction algorithm (with minor
+ * improvements). All the characters are encoded in unicode
+ * internally so we can handle oriental languages like Chinese and Japanese
+ * gracefully.
+ *
  */
 public class NGram {
     String text;
