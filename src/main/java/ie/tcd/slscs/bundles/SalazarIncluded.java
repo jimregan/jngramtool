@@ -818,6 +818,9 @@ public class SalazarIncluded implements Classifier {
             return "Unknown";
         }
     }
+    public String getFields() {
+        return "Salazar Included";
+    }
 
     public void filterList(List<NGram> l) {
         Iterator<NGram> it = l.iterator();

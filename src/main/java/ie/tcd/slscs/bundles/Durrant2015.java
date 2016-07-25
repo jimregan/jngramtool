@@ -51,6 +51,7 @@ public class Durrant2015 implements Classifier {
     private Map<String, SubCategory> ngramMap;
     private Map<String, SubCategory> ngramMapH;
     private Map<String, SubCategory> ngramMapST;
+    private String areas;
 
     public Durrant2015() {
         ngramMap = new HashMap<String, SubCategory>();
@@ -71,9 +72,14 @@ public class Durrant2015 implements Classifier {
         }
         if(humanities) {
             ngramMap.putAll(ngramMapH);
+            areas = "Durrant (Humanities)";
         }
         if(science_tech) {
             ngramMap.putAll(ngramMapST);
+            areas = "Durrant (Science/Tech)";
+        }
+        if(humanities && science_tech) {
+            areas = "Durrant";
         }
     }
 
@@ -116,6 +122,9 @@ public class Durrant2015 implements Classifier {
             out = "Unknown";
         }
         return out;
+    }
+    public String getFields() {
+        return areas;
     }
 
     public String getCategoryString (Category c) {
