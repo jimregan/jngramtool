@@ -58,7 +58,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("for # min");
         ngrams.add("region of the");
         ngrams.add("expression of the");
-        ngrams.add("for # min");
         ngrams.add("one of the");
         ngrams.add("for # h");
         ngrams.add("present in the");
@@ -84,7 +83,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("each of the");
         ngrams.add("suggesting that the");
         ngrams.add("due to the");
-        ngrams.add("for # min");
         ngrams.add("the regulation of");
         ngrams.add("see materials and");
         ngrams.add("relative to the");
@@ -148,7 +146,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("linked to the");
         ngrams.add("part of a");
         ngrams.add("defects in the");
-        ngrams.add("figure # the");
         ngrams.add("the results are");
         ngrams.add("only in the");
         ngrams.add("addition of the");
@@ -172,7 +169,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("results in a");
         ngrams.add("role in the");
         ngrams.add("and in the");
-        ngrams.add("for # h");
         ngrams.add("between the two");
         ngrams.add("observed in the");
         ngrams.add("presence or absence");
@@ -205,7 +201,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("used as a");
         ngrams.add("in contrast the");
         ngrams.add("components of the");
-        ngrams.add("for # min");
         ngrams.add("indicate that the");
         ngrams.add("been shown to be");
         ngrams.add("the presence of a");
@@ -237,7 +232,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("depends on the");
         ngrams.add("there is an");
         ngrams.add("at a density");
-        ngrams.add("# min at");
         ngrams.add("that has been");
         ngrams.add("not bind to");
         ngrams.add("the case of the");
@@ -346,7 +340,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("the position of the");
         ngrams.add("derived from the");
         ngrams.add("member of the");
-        ngrams.add("# ml of");
         ngrams.add("obtained from the");
         ngrams.add("in the regulation");
         ngrams.add("washed three times");
@@ -354,7 +347,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("this article has");
         ngrams.add("a final concentration");
         ngrams.add("was added to the");
-        ngrams.add("# min at");
         ngrams.add("adjacent to the");
         ngrams.add("showed that the");
         ngrams.add("of a single");
@@ -412,7 +404,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("at restrictive temperatures");
         ngrams.add("extracts prepared from");
         ngrams.add("early and late");
-        ngrams.add("for # h");
         ngrams.add("but did not");
         ngrams.add("is not yet");
         ngrams.add("high concentrations of");
@@ -469,7 +460,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("close to the");
         ngrams.add("in the materials");
         ngrams.add("described in materials and methods");
-        ngrams.add("for # min at");
         ngrams.add("described in materials and");
         ngrams.add("described in materials");
         ngrams.add("dependent on the");
@@ -544,17 +534,13 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("we have previously");
         ngrams.add("it can be");
         ngrams.add("which have been");
-        ngrams.add("fig # b");
-        ngrams.add("min at #");
         ngrams.add("separated on a");
         ngrams.add("is activated by");
         ngrams.add("differences between the");
         ngrams.add("but it is");
-        ngrams.add("for # min");
         ngrams.add("the length of the");
         ngrams.add("were harvested and");
         ngrams.add("as a probe");
-        ngrams.add("in # mm");
         ngrams.add("the product of the");
         ngrams.add("transferred to a");
         ngrams.add("# min the");
@@ -571,7 +557,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("for a further");
         ngrams.add("to explain the");
         ngrams.add("leads to the");
-        ngrams.add("presence of #");
         ngrams.add("of each of the");
         ngrams.add("sensitive to the");
         ngrams.add("table # in");
@@ -650,7 +635,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("does not appear");
         ngrams.add("are consistent with the");
         ngrams.add("at least one");
-        ngrams.add("presence of #");
         ngrams.add("to inhibit the");
         ngrams.add("important for the");
         ngrams.add("of one or");
@@ -696,7 +680,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("indicated by an");
         ngrams.add("interactions between the");
         ngrams.add("the positions of the");
-        ngrams.add("# min at");
         ngrams.add("in the presence and");
         ngrams.add("the interaction of the");
         ngrams.add("well as in");
@@ -714,7 +697,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("treated with the");
         ngrams.add("to be an");
         ngrams.add("the results of the");
-        ngrams.add("figure # a");
         ngrams.add("# and #");
         ngrams.add("may be the");
         ngrams.add("orientation of the");
@@ -740,7 +722,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("the present study we");
         ngrams.add("present study we");
         ngrams.add("we found that the");
-        ngrams.add("# min at");
         ngrams.add("the presence of an");
         ngrams.add("depending on the");
         ngrams.add("the end of the");
@@ -756,7 +737,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("this is the");
         ngrams.add("shown in the");
         ngrams.add("on the basis of the");
-        ngrams.add("for # hr");
         ngrams.add("the size of the");
         ngrams.add("that there is");
         ngrams.add("in the context");
@@ -770,7 +750,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("product of the");
         ngrams.add("fraction of the");
         ngrams.add("those of the");
-        ngrams.add("figure # the");
         ngrams.add("as in a");
         ngrams.add("these results indicate");
         ngrams.add("the possibility that the");
@@ -789,7 +768,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("of the reaction");
         ngrams.add("fragment of the");
         ngrams.add("of expression of");
-        ngrams.add("for # min at");
         ngrams.add("under the control of the");
         ngrams.add("supplemented with #");
         ngrams.add("amounts of the");
@@ -805,7 +783,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("concentrations of the");
         ngrams.add("result of the");
         ngrams.add("in all the");
-        ngrams.add("min at # #c");
         ngrams.add("these results are consistent");
         ngrams.add("added to a final");
         ngrams.add("it seems likely");
@@ -813,7 +790,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("carried out on");
         ngrams.add("excess of unlabelled");
         ngrams.add("we show that the");
-        ngrams.add("min at #");
         ngrams.add("h at room");
         ngrams.add("truncated form of");
         ngrams.add("arrows indicate the");
@@ -866,7 +842,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("loss of function");
         ngrams.add("is inhibited by");
         ngrams.add("we have not");
-        ngrams.add("for # h");
         ngrams.add("the surface of the");
         ngrams.add("from a single");
         ngrams.add("to form a");
@@ -900,7 +875,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("loss of the");
         ngrams.add("site in the");
         ngrams.add("from that of");
-        ngrams.add("for # h at");
         ngrams.add("room temperature for");
         ngrams.add("more than one");
         ngrams.add("it does not");
@@ -926,7 +900,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("have shown that the");
         ngrams.add("may play a");
         ngrams.add("be noted that");
-        ngrams.add("# min at");
         ngrams.add("two copies of");
         ngrams.add("have also been");
         ngrams.add("it may be");
@@ -945,10 +918,8 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("reactions were carried");
         ngrams.add("at a concentration of");
         ngrams.add("the existence of a");
-        ngrams.add("for # min");
         ngrams.add("not shown suggesting");
         ngrams.add("the remainder of the");
-        ngrams.add("for # h");
         ngrams.add("there are two");
         ngrams.add("# h in the");
         ngrams.add("a percentage of the");
@@ -995,7 +966,6 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("in the initial");
         ngrams.add("ends of the");
         ngrams.add("recognition of the");
-        ngrams.add("figure # a");
         ngrams.add("of the central");
         ngrams.add("in the amount");
         ngrams.add("compared to the");
