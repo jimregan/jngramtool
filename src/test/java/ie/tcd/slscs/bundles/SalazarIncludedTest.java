@@ -33,7 +33,7 @@ import static org.junit.Assert.*;
 
 public class SalazarIncludedTest {
     @Test
-    public void filterByAuthor() throws Exception {
+    public void classifierTest() throws Exception {
         Classifier salazar = new SalazarIncluded();
         NGram inp1 = new NGram("is required for", 2);
         NGram inp2 = new NGram("my fake n-gram", 3);
