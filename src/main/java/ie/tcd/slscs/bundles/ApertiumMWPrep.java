@@ -121,14 +121,4 @@ public class ApertiumMWPrep implements Classifier {
     public String getFields() {
         return "Apertium: MW Preposition";
     }
-
-    public void filterList(List<NGram> l) {
-        Iterator<NGram> it = l.iterator();
-        while(it.hasNext()) {
-            NGram cur = it.next();
-            if(ngrams.contains(StringUtils.replaceAllNumbers(cur.getText()))) {
-                it.remove();
-            }
-        }
-    }
 }
