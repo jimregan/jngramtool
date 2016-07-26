@@ -36,7 +36,8 @@ public class NaiveSyntax implements Classifier {
     private List<String> preps;
     private List<String> dets;
     public NaiveSyntax() {
-        ngrams = new ArrayList<String>();
+        preps = new ArrayList<String>();
+        dets = new ArrayList<String>();
         initPreps();
         initDets();
     }
@@ -140,11 +141,7 @@ public class NaiveSyntax implements Classifier {
         dets.add("your");
     }
     public String classify(NGram n) {
-        if(ngrams.contains(n.getText())) {
-            return "Yes";
-        } else {
-            return "No";
-        }
+        return "FIXME";
     }
     public String isMWPrep(NGram n) {
         String[] ss = n.getText().split(" ");
