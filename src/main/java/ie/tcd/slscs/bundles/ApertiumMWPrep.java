@@ -109,7 +109,8 @@ public class ApertiumMWPrep implements Classifier {
         ngrams.add("with a view to");
         ngrams.add("with no");
         ngrams.add("with regard to");
-        ngrams.add("without no loss of");
+        ngrams.add("without any loss of");
+        ngrams.add("with no loss of");
     }
     public String classify(NGram n) {
         if(ngrams.contains(n.getText())) {
