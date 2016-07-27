@@ -110,8 +110,21 @@ public class StringUtils {
                 } else {
                     sawspace = false;
                 }
-             }
+            }
         }
         return sb.toString();
+    }
+
+    public static String processString(String s, Config cfg) {
+        if(!cfg.isCaseSensitive()) {
+            s = s.toLowerCase();
+        }
+        if(cfg.replaceAllNumbers()) {
+            s = replaceAllNumbers(s);
+        } else if(cfg.replaceNumbers()) {
+            s = replaceNumbers(s);
+        }
+        s = stripSpace(s);
+        return s;
     }
 }

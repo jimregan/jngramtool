@@ -69,4 +69,14 @@ public class StringUtilsTest {
         String out = StringUtils.stripSpace(inp);
         assertEquals(exp, out);
     }
+
+    @Test
+    public void testProcessString() {
+        String inp = "THIS has 9992,00 in   it";
+        String exp = "this has #,# in it";
+        Config cfg = new Config();
+        cfg.setCaseSensitive(false);
+        String out = StringUtils.processString(inp, cfg);
+        assertEquals(exp, out);
+    }
 }
