@@ -46,13 +46,25 @@ public class UtilsTest {
     }
 
     @Test
+    public void testTrim() throws Exception {
+        String inp = "    test   ";
+        String exp = "test";
+        String out = Utils.trim(inp);
+        assertEquals(exp, out);
+        String inp1 = "    test";
+        String exp1 = "test";
+        String out1 = Utils.trim(inp1);
+        assertEquals(exp1, out1);
+    }
+
+    @Test
     public void testGetSubSentences() throws Exception {
         List<String> inp = new ArrayList<String>();
         inp.add("one sentence, which has (among others); a few n-grams");
         inp.add("and another; this also has a few");
         List<String> exp = new ArrayList<String>();
         exp.add("one sentence");
-        exp.add("which has "); // FIXME: add a trim() method
+        exp.add("which has");
         exp.add("among others");
         exp.add("a few n-grams");
         exp.add("and another");
