@@ -25,6 +25,7 @@ import ie.tcd.slscs.ngramtool.NGram;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 public class Utils {
@@ -40,5 +41,37 @@ public class Utils {
             sb.append(s);
         }
         return sb.toString();
+    }
+    public static List<String> getSubSentences(List<String> sentences, String split) {
+        List<Character> chars = new ArrayList<Character>();
+        List<String> ret = new ArrayList<String>();
+        String cur = "";
+        for(char c : split.toCharArray()) {
+            chars.add(c);
+        }
+        for (String sent : sentences) {
+            for (char c : sent.toCharArray()) {
+                if(chars.contains(c)) {
+                    if(cur != "") {
+                        ret.add(cur);
+                        cur = "";
+                    }
+                } else {
+                    if(cur == "" && c == ' ') {
+                        continue;
+                    } else {
+                        cur += c;
+                    }
+                }
+            }
+            if(cur != "") {
+                ret.add(cur);
+                cur = "";
+            }
+        }
+        if(cur != "") {
+            ret.add(cur);
+        }
+        return ret;
     }
 }
