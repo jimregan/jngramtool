@@ -25,13 +25,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringUtils {
+    private static boolean isPunct(char c, boolean hyphen) {
+        if (c == '.' || c == ',' || c == '\'') {
+            return true;
+        } else if (hyphen && c == '-') {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public static String replacePunctWithSpace(String s) {
         String out = "";
         for (char c : s.toCharArray()) {
-            if (c == '.' || c == ',' || c == '-' || c == '\'') {
+            if (isPunct(c, true)) {
                 out += ' ';
             } else {
                 out += c;
+            }
+        }
+        return out;
+    }
+    public static String replaceNonInternalPunctWithSpace(String s, boolean hyphen) {
+        String out = "";
+        char[] chars = s.toCharArray();
+        int len = chars.length;
+        for (int i = 0; i <=len; i++) {
+            if(hyphen && chars[i] == '-') {
+                continue;
+            }
+            if (isPunct(chars[i], hyphen)) {
+                if (i == 0 || i == len) {
+                    out += ' ';
+                } else if ((chars[i-1] == ' ') && (chars[i+i] == ' ' || isPunct(chars[i+1], true))) {
+                    out += ' ';
+                } else {
+                    out += chars[i];
+                }
+            } else {
+                out += chars[i];
             }
         }
         return out;

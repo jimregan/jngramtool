@@ -79,4 +79,15 @@ public class StringUtilsTest {
         String out = StringUtils.processString(inp, cfg);
         assertEquals(exp, out);
     }
+
+    @Test
+    public void testReplaceNonInternalPunctWithSpace() {
+        String inp = "word , hyphenated-word 999,99 9,,9";
+        String exp1 = "word   hyphenated-word 999,99 9  9";
+        String exp2 = "word   hyphenatedword 999,99 9  9";
+        String out1 = StringUtils.replaceNonInternalPunctWithSpace(inp, false);
+        String out2 = StringUtils.replaceNonInternalPunctWithSpace(inp, true);
+        assertEquals(out1, exp1);
+        assertEquals(out2, exp2);
+    }
 }
