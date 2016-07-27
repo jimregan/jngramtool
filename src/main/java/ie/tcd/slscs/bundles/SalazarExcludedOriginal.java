@@ -46,6 +46,11 @@ public class SalazarExcludedOriginal implements Classifier {
         ngrams = new ArrayList<String>();
         initNGrams();
     }
+
+    public String getFields() {
+        return "Salazar Excluded";
+    }
+
     void initNGrams() {
         ngrams.add("in the presence");
         ngrams.add("in the absence");
