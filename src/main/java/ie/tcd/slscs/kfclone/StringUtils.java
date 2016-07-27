@@ -53,7 +53,7 @@ public class StringUtils {
             if(hyphen && chars[i] == '-') {
                 continue;
             }
-            if (isPunct(chars[i], hyphen)) {
+            if (isPunct(chars[i], !hyphen)) {
                 if (i == 0 || i == len) {
                     out += ' ';
                 } else if ((chars[i-1] == ' ') && (chars[i+i] == ' ' || isPunct(chars[i+1], true))) {
@@ -63,6 +63,19 @@ public class StringUtils {
                 }
             } else {
                 out += chars[i];
+            }
+        }
+        return out;
+    }
+
+    public static String observeTreatAsToken(String s, Config cfg) {
+        String out = "";
+        for (char c : replacePunctWithSpace(s).toCharArray()) {
+            if(cfg.isTokenChar(c)) {
+                out += ' ';
+                out += c;
+            } else {
+                out += c;
             }
         }
         return out;

@@ -21,7 +21,14 @@ package ie.tcd.slscs.kfclone;
  * DEALINGS IN THE SOFTWARE.
  */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Config {
+    Config() {
+        tokenchars = new ArrayList<Character>();
+        setKeepAsToken();
+    }
     private boolean case_sensitive = false;
     public boolean isCaseSensitive() {
         return case_sensitive;
@@ -43,5 +50,25 @@ public class Config {
     }
     public void setReplaceAllNumbers(boolean rep) {
         replace_all_numbers = rep;
+    }
+
+    private boolean use_keep_as_token = false;
+    private String keep_as_token = ".:;!¡?¿©";
+    private List<Character> tokenchars;
+    public void useKeepAsToken(boolean b) {
+        use_keep_as_token = b;
+    }
+    private void setKeepAsToken() {
+        tokenchars.clear();
+        for (Character c : keep_as_token.toCharArray()) {
+            tokenchars.add(c);
+        }
+    }
+    public void setKeepAsToken(String s) {
+        keep_as_token = s;
+        setKeepAsToken();
+    }
+    public boolean isTokenChar(char c) {
+        return tokenchars.contains(c);
     }
 }
