@@ -96,4 +96,22 @@ public class StringUtils {
         String keep = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØŒÙÚÛÜÝŸÞßªàáâãäåæçèéêëìíîïðñºòóôõöøœùúûüýþÿŠŽšž©";
         return getIndexString(s, keep);
     }
+
+    public static String stripSpace(String s) {
+        StringBuilder sb = new StringBuilder();
+        boolean sawspace = false;
+        for(char c : s.toCharArray()) {
+            if(sawspace && c == ' ') {
+                continue;
+            } else {
+                sb.append(c);
+                if(c == ' ') {
+                    sawspace = true;
+                } else {
+                    sawspace = false;
+                }
+             }
+        }
+        return sb.toString();
+    }
 }

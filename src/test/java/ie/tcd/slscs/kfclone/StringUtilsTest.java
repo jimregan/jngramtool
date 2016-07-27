@@ -61,4 +61,12 @@ public class StringUtilsTest {
         assertEquals(out1, exp1);
         assertEquals(out2, exp2);
     }
+
+    @Test
+    public void testStripSpace() throws Exception {
+        String inp = "this   has a  few    stray spaces";
+        String exp = "this has a few stray spaces";
+        String out = StringUtils.stripSpace(inp);
+        assertEquals(exp, out);
+    }
 }
