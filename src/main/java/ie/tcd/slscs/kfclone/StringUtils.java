@@ -171,4 +171,43 @@ public class StringUtils {
         s = stripSpace(s);
         return s;
     }
+
+    public static List<Integer> getRange(String s) {
+        List<Integer> out = new ArrayList<Integer>();
+        String cur = "";
+        int last = 0;
+        boolean isRange = false;
+        for (char c : s.toCharArray()) {
+            if(c == '-') {
+                isRange = true;
+                last = Integer.parseInt(cur);
+                cur = "";
+            } else if(c == ',') {
+                int tmp = Integer.parseInt(cur);
+                if(isRange) {
+                    for(int i=last; i<=tmp; i++) {
+                        out.add(i);
+                    }
+                    isRange = false;
+                } else {
+                    out.add(tmp);
+                }
+                cur = "";
+            } else if(isNum(c)) {
+                cur += c;
+            } else {
+                continue;
+            }
+        }
+        int tmp = Integer.parseInt(cur);
+        if(isRange) {
+            for(int i=last; i<=tmp; i++) {
+                out.add(i);
+            }
+            isRange = false;
+        } else {
+            out.add(tmp);
+        }
+        return out;
+    }
 }
