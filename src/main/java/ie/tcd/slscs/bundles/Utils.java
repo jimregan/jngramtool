@@ -112,6 +112,9 @@ public class Utils {
                 .replaceAll(" !/", "‒")
                 .replaceAll("\\*", "‒")
                 .replaceAll("sˇ", "š")
+                .replaceAll("o¨", "ö")
+                .replaceAll("u¨", "ü")
+                .replaceAll("a¨", "ä")
                 .replaceAll("\\.\\.\\.", "…")
                 .replaceAll("\\. \\. \\. \\.", "…")
                 .replaceAll("\\. \\. \\.", "…");
