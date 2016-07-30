@@ -95,4 +95,15 @@ public class Utils {
         }
         return ret;
     }
+    public static List<String> getSubSentences(List<String> l) {
+        return getSubSentences(l, ",;()‘’“”\"");
+    }
+    public static String fix2000sPDF(String s) {
+        return s.replaceAll("eÎ", "ę")
+                .replaceAll("oÂ", "ó")
+                .replaceAll("¯", "fl")
+                .replaceAll("oÈ", "ö")
+                .replaceAll("®", "fi")
+                .replaceAll("±", "–");
+    }
 }
