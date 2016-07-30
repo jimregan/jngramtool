@@ -49,7 +49,7 @@ public class StringUtils {
         String out = "";
         char[] chars = s.toCharArray();
         int len = chars.length;
-        for (int i = 0; i <=len; i++) {
+        for (int i = 0; i < len; i++) {
             if(hyphen && chars[i] == '-') {
                 continue;
             }
