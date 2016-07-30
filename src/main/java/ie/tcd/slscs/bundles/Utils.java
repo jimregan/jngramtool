@@ -106,4 +106,14 @@ public class Utils {
                 .replaceAll("®", "fi")
                 .replaceAll("±", "–");
     }
+    public static String fix2010sPDF(String s) {
+        return s.replaceAll("e˛", "ę")
+                .replaceAll("a˛", "ą")
+                .replaceAll(" !/", "‒")
+                .replaceAll("\\*", "‒")
+                .replaceAll("sˇ", "š")
+                .replaceAll("\\.\\.\\.", "…")
+                .replaceAll("\\. \\. \\. \\.", "…")
+                .replaceAll("\\. \\. \\.", "…");
+    }
 }
