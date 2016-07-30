@@ -101,13 +101,13 @@ public class StringUtils {
         return out;
     }
 
-    public static String replaceAllNumbers(String s) {
+    public static String replaceAllNumbers(String s, char replacement) {
         String out = "";
         boolean numberSeen = false;
         for (char c : s.toCharArray()) {
             if (isNum(c)) {
                 if (!numberSeen) {
-                    out += '#';
+                    out += replacement;
                     numberSeen = true;
                 } else {
                     continue;
@@ -118,6 +118,9 @@ public class StringUtils {
             }
         }
         return out;
+    }
+    public static String replaceAllNumbers(String s) {
+        return replaceAllNumbers(s, '#');
     }
 
     public static String getIndexString(String s, String keep) {
