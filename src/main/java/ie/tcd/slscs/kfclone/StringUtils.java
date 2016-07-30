@@ -55,9 +55,13 @@ public class StringUtils {
             } else if (isPunct(chars[i], !hyphen)) {
                 if (i == 0 || i == len-1) {
                     out += ' ';
-                } else if ((chars[i-1] == ' ') && (chars[i+1] == ' ')) {
+                } else if (chars[i-1] == ' ') {
                     out += ' ';
-                } else if ((chars[i-1] == ' ') && isPunct(chars[i+1], true)) {
+                } else if (chars[i+1] == ' ') {
+                    out += ' ';
+                } else if (isPunct(chars[i-1], true)) {
+                    out += ' ';
+                } else if (isPunct(chars[i+1], true)) {
                     out += ' ';
                 } else {
                     out += chars[i];
