@@ -52,11 +52,12 @@ public class StringUtils {
         for (int i = 0; i < len; i++) {
             if(hyphen && chars[i] == '-') {
                 continue;
-            }
-            if (isPunct(chars[i], !hyphen)) {
-                if (i == 0 || i == len) {
+            } else if (isPunct(chars[i], !hyphen)) {
+                if (i == 0 || i == len-1) {
                     out += ' ';
-                } else if ((chars[i-1] == ' ') && (chars[i+i] == ' ' || isPunct(chars[i+1], true))) {
+                } else if ((chars[i-1] == ' ') && (chars[i+1] == ' ')) {
+                    out += ' ';
+                } else if ((chars[i-1] == ' ') && isPunct(chars[i+1], true)) {
                     out += ' ';
                 } else {
                     out += chars[i];
