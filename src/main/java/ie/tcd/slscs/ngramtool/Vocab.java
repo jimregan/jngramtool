@@ -74,7 +74,7 @@ public class Vocab {
         charset = cs;
     }
 
-    void load(String filename) throws IOException{
+    void load(String filename) throws IOException {
         String line;
         InputStream fis = new FileInputStream(filename);
         InputStreamReader isr = new InputStreamReader(fis, Charset.forName(charset));

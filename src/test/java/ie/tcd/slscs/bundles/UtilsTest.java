@@ -72,4 +72,16 @@ public class UtilsTest {
         List<String> out = Utils.getSubSentences(inp, ",;()");
         assertEquals(exp.toString(), out.toString());
     }
+
+    @Test
+    public void testAddOrIncrement() throws Exception {
+        Map<String, Integer> inp = new HashMap<String, Integer>();
+        Map<String, Integer> exp = new HashMap<String, Integer>();
+        inp.put("test", 2);
+        Utils.addOrIncrement(inp, "test");
+        Utils.addOrIncrement(inp, "new");
+        exp.put("test", 3);
+        exp.put("new", 1);
+        assertEquals(inp, exp);
+    }
 }

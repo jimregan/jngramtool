@@ -98,6 +98,15 @@ public class Utils {
     public static List<String> getSubSentences(List<String> l) {
         return getSubSentences(l, ",;()‘’“”\"");
     }
+
+    public static void addOrIncrement(Map<String, Integer> m, String s) {
+        if(m.get(s) == null) {
+            m.put(s, 1);
+        } else {
+            m.put(s, m.get(s) + 1);
+        }
+    }
+
     public static String fix2000sPDF(String s) {
         return s.replaceAll("eÎ", "ę")
                 .replaceAll("oÂ", "ó")
