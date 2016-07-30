@@ -101,7 +101,7 @@ public class StringUtils {
         return out;
     }
     public static String replaceNumbers(String s) {
-        replaceNumbers(s, '#');
+        return replaceNumbers(s, '#');
     }
 
     public static String replaceAllNumbers(String s, char replacement) {
