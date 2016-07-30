@@ -89,16 +89,19 @@ public class StringUtils {
         }
     }
 
-    public static String replaceNumbers(String s) {
+    public static String replaceNumbers(String s, char replacement) {
         String out = "";
         for (char c : s.toCharArray()) {
             if (isNum(c)) {
-                out += '#';
+                out += replacement;
             } else {
                 out += c;
             }
         }
         return out;
+    }
+    public static String replaceNumbers(String s) {
+        replaceNumbers(s, '#');
     }
 
     public static String replaceAllNumbers(String s, char replacement) {
