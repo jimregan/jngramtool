@@ -33,10 +33,14 @@ package ie.tcd.slscs.ngramtool;
 public class NGram {
     String text;
     int count;
+    private String[] tokens;
+    private int arity;
 
     public NGram(String t, int c) {
         text = t;
         count = c;
+        tokens = t.split(" ");
+        arity = tokens.length;
     }
     public int getCount() {
         return count;
@@ -54,5 +58,22 @@ public class NGram {
         out += getCount();
         out += '"';
         return out;
+    }
+
+    public int getArity() {
+        return arity;
+    }
+
+    public String[] getTokens() {
+        return tokens;
+    }
+    public String getFirst() {
+        return tokens[0];
+    }
+    public String getLast() {
+        return tokens[arity-1];
+    }
+    public String getToken(int idx) {
+        return tokens[idx];
     }
 }

@@ -141,7 +141,13 @@ public class NaiveSyntax implements Classifier {
         dets.add("your");
     }
     public String classify(NGram n) {
-        return "FIXME";
+        String out = "";
+        out = isMWPrep(n);
+        if(out != "") {
+            out += "/";
+        }
+        out += isNPLike(n);
+        return out;
     }
     public String isMWPrep(NGram n) {
         String[] ss = n.getText().split(" ");

@@ -23,6 +23,10 @@ package ie.tcd.slscs.kfclone;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class StringUtilsTest {
@@ -89,5 +93,17 @@ public class StringUtilsTest {
         String out2 = StringUtils.replaceNonInternalPunctWithSpace(inp, true);
         assertEquals(out1, exp1);
         assertEquals(out2, exp2);
+    }
+
+    @Test
+    public void testGetRange() {
+        String inp = "1-3, 5, 7-10";
+        int[] tmp = new int[] {1, 2, 3, 5, 7, 8, 9, 10};
+        List<Integer> exp = new ArrayList<Integer>();
+        for(Integer i : tmp) {
+            exp.add(i);
+        }
+        List<Integer> out = StringUtils.getRange(inp);
+        assertEquals(exp, out);
     }
 }
