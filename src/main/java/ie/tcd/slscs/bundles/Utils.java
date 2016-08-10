@@ -120,11 +120,18 @@ public class Utils {
         }
     }
 
+    public static boolean isAnyWhitespace(char c) {
+        if(c == '\u00A0' || c == '\u2007' || c == '\u202F') {
+            return true;
+        } else {
+            return Character.isWhitespace(c);
+        }
+    }
     public static String stripSpace(String s) {
         StringBuilder sb = new StringBuilder();
         boolean sawspace = false;
         for(char c : s.toCharArray()) {
-            if(sawspace && Character.isWhitespace(c)) {
+            if(sawspace && isAnyWhitespace(c)) {
                 continue;
             } else {
                 sb.append(c);
