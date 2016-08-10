@@ -1,5 +1,6 @@
 package ie.tcd.slscs.tools;
 
+import ie.tcd.slscs.bundles.Utils;
 import ie.tcd.slscs.ngramtool.NGram;
 
 import java.util.ArrayList;
@@ -71,6 +72,14 @@ public class AKEntry {
         sb.append(authors.size());
         sb.append('\t');
         sb.append(fields.size());
+        return sb.toString();
+    }
+    public String summariseAuthorFieldExt() {
+        StringBuilder sb = new StringBuilder(summariseAuthorField());
+        sb.append('\t');
+        sb.append(Utils.join(authors, ","));
+        sb.append('\t');
+        sb.append(Utils.join(fields, ","));
         return sb.toString();
     }
     public static AKEntry entryFromLine(String s) {

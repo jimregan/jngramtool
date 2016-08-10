@@ -50,9 +50,11 @@ public class AKBundleMerge {
             BufferedWriter bw = new BufferedWriter(osw);
             for(String s : entries.keySet()) {
                 AKEntry e = entries.get(s);
-                bw.write(e.summariseAuthorField());
+                bw.write(e.summariseAuthorFieldExt());
                 bw.newLine();
             }
+            bw.newLine();
+            bw.close();
         } catch (Exception e) {
             System.err.println(e.getStackTrace());
         }
