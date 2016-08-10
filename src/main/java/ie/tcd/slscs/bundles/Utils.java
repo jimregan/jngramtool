@@ -42,6 +42,19 @@ public class Utils {
         }
         return sb.toString();
     }
+    public static String join(String[] a, String joiner) {
+        StringBuilder sb = new StringBuilder();
+        boolean start = true;
+        for (String s : a) {
+            if (start) {
+                start = false;
+            } else {
+                sb.append(joiner);
+            }
+            sb.append(s);
+        }
+        return sb.toString();
+    }
     public static String trim(String s) {
         char[] chars = s.toCharArray();
         int start = 0;
