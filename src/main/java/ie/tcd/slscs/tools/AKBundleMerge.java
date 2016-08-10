@@ -32,7 +32,7 @@ public class AKBundleMerge {
         try {
             String line;
             InputStream fis = new FileInputStream(args[0]);
-            InputStreamReader isr = new InputStreamReader(fis, Charset.forName("CP1252"));
+            InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
             BufferedReader br = new BufferedReader(isr);
 
             while ((line = br.readLine()) != null) {
