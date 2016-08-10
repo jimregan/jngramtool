@@ -61,8 +61,12 @@ public class AKEntry {
         freq += f;
         languages.add(l);
         years.add(y);
-        fields.add(fi);
-        authors.add(a);
+        if(!fields.contains(fi)) {
+            fields.add(fi);
+        }
+        if(!fields.contains(a)) {
+            authors.add(a);
+        }
     }
     public String summariseAuthorField() {
         StringBuilder sb = new StringBuilder(bundle);
