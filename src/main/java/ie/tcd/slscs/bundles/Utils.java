@@ -120,6 +120,24 @@ public class Utils {
         }
     }
 
+    public static String stripSpace(String s) {
+        StringBuilder sb = new StringBuilder();
+        boolean sawspace = false;
+        for(char c : s.toCharArray()) {
+            if(sawspace && Character.isWhitespace(c)) {
+                continue;
+            } else {
+                sb.append(c);
+                if(Character.isWhitespace(c)) {
+                    sawspace = true;
+                } else {
+                    sawspace = false;
+                }
+            }
+        }
+        return sb.toString();
+    }
+
     public static String fix2000sPDF(String s) {
         return s.replaceAll("eÎ", "ę")
                 .replaceAll("oÂ", "ó")
