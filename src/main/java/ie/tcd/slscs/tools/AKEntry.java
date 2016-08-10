@@ -1,4 +1,4 @@
-package ie.tcd.slscs.ie.tcd.slscs.tools;
+package ie.tcd.slscs.tools;
 
 import ie.tcd.slscs.ngramtool.NGram;
 

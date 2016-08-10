@@ -1,4 +1,4 @@
-package ie.tcd.slscs.ie.tcd.slscs.tools;
+package ie.tcd.slscs.tools;
 
 import java.io.*;
 import java.nio.charset.Charset;
