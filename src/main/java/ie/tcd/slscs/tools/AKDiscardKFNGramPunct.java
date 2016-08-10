@@ -26,33 +26,33 @@ import java.util.Map;
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-public class AKBundleMerge {
+public class AKDiscardKFNGramPunct {
     public static void main(String[] args) {
-        Map<String, AKEntry> entries = new HashMap<String, AKEntry>();
         try {
             String line;
             InputStream fis = new FileInputStream(args[0]);
-            InputStreamReader isr = new InputStreamReader(fis, Charset.forName("CP1252"));
+            InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
             BufferedReader br = new BufferedReader(isr);
 
+            OutputStream fos = new FileOutputStream(args[0] + ".filt.txt");
+            OutputStreamWriter osw = new OutputStreamWriter(fos, Charset.forName("UTF-8"));
+            BufferedWriter bw = new BufferedWriter(osw);
+
             while ((line = br.readLine()) != null) {
-                String[] tmp = line.split("\\t");
-                if(entries.containsKey(tmp[0])) {
-                    AKEntry t = entries.get(tmp[0]);
-                    t.update(Integer.parseInt(tmp[1]), tmp[2], tmp[3], tmp[4], tmp[5]);
-                } else {
-                    entries.put(tmp[0], new AKEntry(tmp));
+                boolean has_punct = false;
+                String[] tmpa = line.split("\\t");
+                String[] tmpb = tmpa[0].split(" ");
+                for (String s : tmpb) {
+                    if(s == "." || s == "!" || s == "?" || s == ":" || s == ";") {
+                        has_punct = true;
+                    }
+                }
+                if(!has_punct) {
+                    bw.write(line);
+                    bw.newLine();
                 }
             }
 
-            OutputStream fos = new FileOutputStream(args[0] + ".summ.txt");
-            OutputStreamWriter osw = new OutputStreamWriter(fos, Charset.forName("UTF-8"));
-            BufferedWriter bw = new BufferedWriter(osw);
-            for(String s : entries.keySet()) {
-                AKEntry e = entries.get(s);
-                bw.write(e.summariseAuthorFieldExt());
-                bw.newLine();
-            }
             bw.close();
         } catch (Exception e) {
             System.err.println(e.getStackTrace());
