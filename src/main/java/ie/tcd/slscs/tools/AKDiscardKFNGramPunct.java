@@ -43,7 +43,7 @@ public class AKDiscardKFNGramPunct {
                 String[] tmpa = line.split("\\t");
                 String[] tmpb = tmpa[0].split(" ");
                 for (String s : tmpb) {
-                    if(s == "." || s == "!" || s == "?" || s == ":" || s == ";") {
+                    if(s.equals(".") || s.equals("!") || s.equals("?") || s.equals(":") || s.equals(";")) {
                         has_punct = true;
                     }
                 }
