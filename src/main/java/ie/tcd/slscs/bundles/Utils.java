@@ -109,9 +109,80 @@ public class Utils {
         return ret;
     }
     public static List<String> getSubSentences(List<String> l) {
-        return getSubSentences(l, ",;()‘’“”\"");
+        return getSubSentences(l, ",;()‘’“”\"–—");
     }
 
+    public static List<String> getSafeSubSentences(List<String> sentences, String split, String conditional) {
+        List<Character> chars = new ArrayList<Character>();
+        List<Character> cond = new ArrayList<Character>();
+        List<String> ret = new ArrayList<String>();
+        String cur = "";
+        for(char c : conditional.toCharArray()) {
+            cond.add(c);
+        }
+        for(char c : split.toCharArray()) {
+            chars.add(c);
+        }
+        for (String sent : sentences) {
+            boolean last_alphanum = false;
+            boolean last_s = false;
+            char[] chara = sent.toCharArray();
+            for (int i = 0; i < chara.length; i++) {
+                if(i < chara.length-1) {
+                    if(chars.contains(chara[i]) {
+                        ret.add(cur);
+                        last_s = last_alphanum = false;
+                        cur = "";
+                    } else if(Character.isLetterOrDigit(chara[i-1]) && cond.contains(chara[i]) && Character.isLetterOrDigit(chara[i+1])) {
+                        cur += chara[i];
+                        last_s = last_alphanum = false;
+                    } else if(chara[i] == 's') {
+                        last_s = last_alphanum = true;
+                    } else if(last_s && (chara[i] == '’' || chara[i] == '\'')) {
+                        last_s = last_alphanum = false;
+                        cur += '\'';
+                    }
+                }
+                char c = chara[i];
+                if(cond.contains(c)) {
+                    if(last_s) {
+                        if {
+                            cur += '\'';
+                        } else {
+                            cur += c;
+                        }
+                    }
+                }
+                // Check if is alpha/digit
+                if(c == 's') {
+                    last_s = true;
+                    last_alphanum = true;
+                } else if (Character.isLetterOrDigit(c)) {
+                    last_alphanum = true;
+                }
+                if(chars.contains(c)) {
+                    if(cur != "") {
+                        ret.add(trim(cur));
+                        cur = "";
+                    }
+                } else {
+                    if(cur == "" && c == ' ') {
+                        continue;
+                    } else {
+                        cur += c;
+                    }
+                }
+            }
+            if(cur != "") {
+                ret.add(trim(cur));
+                cur = "";
+            }
+        }
+        if(cur != "") {
+            ret.add(trim(cur));
+        }
+        return ret;
+    }
     public static void addOrIncrement(Map<String, Integer> m, String s) {
         if(m.get(s) == null) {
             m.put(s, 1);
