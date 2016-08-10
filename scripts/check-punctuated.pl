@@ -7,7 +7,7 @@ my %without = ();
 my %with = ();
 my %kfnum = ();
 
-my $lang = 'en';
+my $lang = 'pl';
 my $bundle_file = "/tmp/bundles.$lang.tsv.filt.txt";
 
 open(LIST, "<", "/tmp/listing") or die "$!";
@@ -40,16 +40,16 @@ for my $f (@files) {
     while(<$file>) {
         for my $b (@bundles) {
             my $a = $b;
-            $a =~ s/#/[0-9]*/;
-            if (/$a/) {
+            $a =~ s/#/[0-9]+/g;
+            if (/$a/i) {
                 if (exists $with{$b}) {
                     $with{$b}++;
                 } else {
                     $with{$b} = 1;
                 }
             } else {
-                $a =~ s/ /[\.,!']? /g;
-                if (/($a)/) {
+                $a =~ s/ /\[-\.,!';\]? */g;
+                if (/($a)/i) {
                     print ALTS "$b\t$1\n";
                     if (exists $with{$b}) {
                         $without{$b}++;
