@@ -7,7 +7,7 @@ my %without = ();
 my %with = ();
 my %kfnum = ();
 
-my $lang = 'pl';
+my $lang = 'en';
 my $bundle_file = "/tmp/bundles.$lang.tsv.filt.txt";
 
 open(LIST, "<", "/tmp/listing") or die "$!";
@@ -62,7 +62,7 @@ for my $f (@files) {
     }
 }
 
-print "BUNDLE\tORIG\tWITH\tWITHOUT\n";
+print "BUNDLE\tORIG\tWITHOUT PUNCTUATION\tWITH PUNCTUATION\n";
 for my $bun (@bundles) {
     print $bun;
     print "\t";
