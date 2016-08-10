@@ -50,6 +50,8 @@ public class AKDiscardKFNGramPunct {
                 if(!has_punct) {
                     bw.write(line);
                     bw.newLine();
+                } else {
+                    has_punct = false;
                 }
             }
 
