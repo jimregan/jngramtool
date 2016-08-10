@@ -128,49 +128,46 @@ public class Utils {
             boolean last_s = false;
             char[] chara = sent.toCharArray();
             for (int i = 0; i < chara.length; i++) {
-                if(i < chara.length-1) {
-                    if(chars.contains(chara[i]) {
-                        ret.add(cur);
-                        last_s = last_alphanum = false;
+                if(Character.isLetterOrDigit(chara[i])) {
+                    last_alphanum = true;
+                    cur += chara[i];
+                    if(chara[i] == 's') {
+                        last_s = true;
+                    }
+                } else if(chars.contains(chara[i]) {
+                    if(chara[i] == '[' && i < chara.length-3 && Character.isLetterOrDigit(chara[i+1]) && chara[i+2] == ']') {
+                        cur += chara[i+1];
+                        i += 2;
+                        last_alphanum = true;
+                        if(chara[i+1] == 's') {
+                            last_s = true;
+                        }
+                    } else {
+                        if(cur != "") {
+                            ret.add(trim(cur));
+                            cur = "";
+                        }
                         cur = "";
-                    } else if(Character.isLetterOrDigit(chara[i-1]) && cond.contains(chara[i]) && Character.isLetterOrDigit(chara[i+1])) {
+                        last_s = last_alphanum = false;
+                    }
+                } else if(cond.contains(chara[i]) {
+                    if(i < chara.length-1 && Character.isLetterOrDigit(chara[i-1]) && Character.isLetterOrDigit(chara[i+1])) {
                         cur += chara[i];
                         last_s = last_alphanum = false;
-                    } else if(chara[i] == 's') {
-                        last_s = last_alphanum = true;
                     } else if(last_s && (chara[i] == '’' || chara[i] == '\'')) {
                         last_s = last_alphanum = false;
                         cur += '\'';
-                    }
-                }
-                char c = chara[i];
-                if(cond.contains(c)) {
-                    if(last_s) {
-                        if {
-                            cur += '\'';
-                        } else {
-                            cur += c;
+                    } else {
+                        if(cur != "") {
+                            ret.add(trim(cur));
+                            cur = "";
                         }
-                    }
-                }
-                // Check if is alpha/digit
-                if(c == 's') {
-                    last_s = true;
-                    last_alphanum = true;
-                } else if (Character.isLetterOrDigit(c)) {
-                    last_alphanum = true;
-                }
-                if(chars.contains(c)) {
-                    if(cur != "") {
-                        ret.add(trim(cur));
                         cur = "";
+                        last_s = last_alphanum = false;
                     }
                 } else {
-                    if(cur == "" && c == ' ') {
-                        continue;
-                    } else {
-                        cur += c;
-                    }
+                    cur += chara[i];
+                    last_s = last_alphanum = false;
                 }
             }
             if(cur != "") {
