@@ -125,12 +125,13 @@ public class Utils {
             chars.add(c);
         }
         for (String sent : sentences) {
+            if("".equals(sent)) {
+                continue;
+            }
             boolean last_alphanum = false;
             boolean last_s = false;
             char[] chara = sent.toCharArray();
             for (int i = 0; i < chara.length; i++) {
-System.err.println("for: " + cur + " " + ret.size());
-
                 if(Character.isLetterOrDigit(chara[i])) {
                     last_alphanum = true;
                     cur += chara[i];
