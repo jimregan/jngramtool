@@ -5,6 +5,8 @@ import ie.tcd.slscs.ngramtool.NGram;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 /*
  * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>
@@ -32,14 +34,14 @@ public class AKEntry {
     int freq;
     List<String> languages;
     List<String> years;
-    List<String> fields;
-    List<String> authors;
+    Set<String> fields;
+    Set<String> authors;
 
     AKEntry() {
         languages = new ArrayList<String>();
         years = new ArrayList<String>();
-        fields = new ArrayList<String>();
-        authors = new ArrayList<String>();
+        fields = new HashSet<String>();
+        authors = new HashSet<String>();
     }
 
     AKEntry(String b, int f, String l, String y, String fi, String a) {
@@ -61,12 +63,8 @@ public class AKEntry {
         freq += f;
         languages.add(l);
         years.add(y);
-        if(!fields.contains(fi)) {
-            fields.add(fi);
-        }
-        if(!fields.contains(Utils.trim(a.toLowerCase()))) {
-            authors.add(a);
-        }
+        fields.add(fi);
+        authors.add(Utils.trim(a.toLowerCase()));
     }
     public String summariseAuthorField() {
         StringBuilder sb = new StringBuilder(bundle);

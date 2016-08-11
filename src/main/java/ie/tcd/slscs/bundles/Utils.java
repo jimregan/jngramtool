@@ -27,10 +27,24 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 import java.util.Arrays;
 
 public class Utils {
     public static String join(List<String> l, String joiner) {
+        StringBuilder sb = new StringBuilder();
+        boolean start = true;
+        for (String s : l) {
+            if (start) {
+                start = false;
+            } else {
+                sb.append(joiner);
+            }
+            sb.append(s);
+        }
+        return sb.toString();
+    }
+    public static String join(Set<String> l, String joiner) {
         StringBuilder sb = new StringBuilder();
         boolean start = true;
         for (String s : l) {
