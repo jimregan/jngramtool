@@ -75,7 +75,11 @@ public class Utils {
                 break;
             }
         }
-        return s.substring(start, end+1);
+        if(end <= 0) {
+            return "";
+        } else {
+            return s.substring(start, end+1);
+        }
     }
     public static List<String> getSubSentences(List<String> sentences, String split) {
         List<Character> chars = new ArrayList<Character>();
@@ -132,6 +136,7 @@ public class Utils {
             boolean last_s = false;
             char[] chara = sent.toCharArray();
             for (int i = 0; i < chara.length; i++) {
+
                 if(Character.isLetterOrDigit(chara[i])) {
                     last_alphanum = true;
                     cur += chara[i];
@@ -157,14 +162,22 @@ public class Utils {
                         if(!"".equals(trim(cur))) {
                             ret.add(trim(cur));
                             cur = "";
+                        }
+                        cur = "";
+                        continue;
+                    }
+                } else if(cond.contains(chara[i])) {
+                    if(chara[i-1] == ' ') {
+                        last_s = last_alphanum = false;
+                        if(!"".equals(trim(cur))) {
+                            ret.add(trim(cur));
+                            cur = "";
                         } else {
                             if(!"".equals(cur)) {
                                 cur = "";
                             }
                         }
-                    }
-                } else if(cond.contains(chara[i])) {
-                    if(i < chara.length-1 && Character.isLetterOrDigit(chara[i-1]) && Character.isLetterOrDigit(chara[i+1])) {
+                    } else if(i < chara.length-1 && Character.isLetterOrDigit(chara[i-1]) && Character.isLetterOrDigit(chara[i+1])) {
                         if(chara[i] == '’') {
                             cur += '\'';
                         } else {

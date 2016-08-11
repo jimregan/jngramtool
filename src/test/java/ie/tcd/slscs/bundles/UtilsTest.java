@@ -55,6 +55,10 @@ public class UtilsTest {
         String exp1 = "test";
         String out1 = Utils.trim(inp1);
         assertEquals(exp1, out1);
+        String inp2 = "    ";
+        String exp2 = "";
+        String out2 = Utils.trim(inp2);
+        assertEquals(exp2, out2);
     }
 
     @Test
