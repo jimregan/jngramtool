@@ -41,7 +41,7 @@ for my $f (@files) {
         for my $b (@bundles) {
             my $a = $b;
             $a =~ s/#/[0-9]+/g;
-            if (/$a/i) {
+            if (/\b($a)\b/i) {
                 if (exists $with{$b}) {
                     $with{$b}++;
                 } else {
@@ -49,7 +49,7 @@ for my $f (@files) {
                 }
             } else {
                 $a =~ s/ /\[-\.,!';\]? */g;
-                if (/($a)/i) {
+                if (/\b($a)\b/i) {
                     print ALTS "$b\t$1\n";
                     if (exists $with{$b}) {
                         $without{$b}++;
