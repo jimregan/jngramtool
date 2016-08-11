@@ -158,6 +158,13 @@ public class Utils {
                     if(i < chara.length-1 && Character.isLetterOrDigit(chara[i-1]) && Character.isLetterOrDigit(chara[i+1])) {
                         cur += chara[i];
                         last_s = last_alphanum = false;
+                    } else if(!last_s && (chara[i] == '’' || chara[i] == '\'')) {
+                        last_s = last_alphanum = false;
+                        if(cur != "") {
+                            ret.add(trim(cur));
+                            cur = "";
+                        }
+                        cur = "";
                     } else if(last_s && (chara[i] == '’' || chara[i] == '\'')) {
                         last_s = last_alphanum = false;
                         cur += '\'';
