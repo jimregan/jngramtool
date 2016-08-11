@@ -129,6 +129,8 @@ public class Utils {
             boolean last_s = false;
             char[] chara = sent.toCharArray();
             for (int i = 0; i < chara.length; i++) {
+System.err.println("for: " + cur + " " + ret.size());
+
                 if(Character.isLetterOrDigit(chara[i])) {
                     last_alphanum = true;
                     cur += chara[i];
@@ -147,34 +149,43 @@ public class Utils {
                         cur += '-';
                         last_s = last_alphanum = false;
                     } else {
-                        if(cur != "") {
+                        last_s = last_alphanum = false;
+                        if(!"".equals(cur)) {
                             ret.add(trim(cur));
                             cur = "";
+                        } else {
+                            continue;
                         }
-                        cur = "";
-                        last_s = last_alphanum = false;
                     }
                 } else if(cond.contains(chara[i])) {
                     if(i < chara.length-1 && Character.isLetterOrDigit(chara[i-1]) && Character.isLetterOrDigit(chara[i+1])) {
-                        cur += chara[i];
+                        if(chara[i] == '’') {
+                            cur += '\'';
+                        } else {
+                            cur += chara[i];
+                        }
                         last_s = last_alphanum = false;
+System.err.println("last_s && ': " + cur);
                     } else if(!last_s && (chara[i] == '’' || chara[i] == '\'')) {
+System.err.println("!last_s && ': " + cur);
                         last_s = last_alphanum = false;
-                        if(cur != "") {
+                        if(!"".equals(cur)) {
                             ret.add(trim(cur));
                             cur = "";
+                        } else {
+                            continue;
                         }
-                        cur = "";
                     } else if(last_s && (chara[i] == '’' || chara[i] == '\'')) {
                         last_s = last_alphanum = false;
                         cur += '\'';
                     } else {
-                        if(cur != "") {
+                        last_s = last_alphanum = false;
+                        if(!"".equals(cur)) {
                             ret.add(trim(cur));
                             cur = "";
+                        } else {
+                            continue;
                         }
-                        cur = "";
-                        last_s = last_alphanum = false;
                     }
                 } else {
                     cur += chara[i];
