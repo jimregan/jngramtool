@@ -134,7 +134,7 @@ public class Utils {
                     if(chara[i] == 's') {
                         last_s = true;
                     }
-                } else if(chars.contains(chara[i]) {
+                } else if(chars.contains(chara[i])) {
                     if(chara[i] == '[' && i < chara.length-3 && Character.isLetterOrDigit(chara[i+1]) && chara[i+2] == ']') {
                         cur += chara[i+1];
                         i += 2;
@@ -142,6 +142,9 @@ public class Utils {
                         if(chara[i+1] == 's') {
                             last_s = true;
                         }
+                    } else if(Character.getType(chara[i]) == Character.DASH_PUNCTUATION && Character.isDigit(chara[i-1]) && i < chara.length-2 && Character.isDigit(chara[i+1])) {
+                        cur += '-';
+                        last_s = last_alphanum = false;
                     } else {
                         if(cur != "") {
                             ret.add(trim(cur));
@@ -150,7 +153,7 @@ public class Utils {
                         cur = "";
                         last_s = last_alphanum = false;
                     }
-                } else if(cond.contains(chara[i]) {
+                } else if(cond.contains(chara[i])) {
                     if(i < chara.length-1 && Character.isLetterOrDigit(chara[i-1]) && Character.isLetterOrDigit(chara[i+1])) {
                         cur += chara[i];
                         last_s = last_alphanum = false;

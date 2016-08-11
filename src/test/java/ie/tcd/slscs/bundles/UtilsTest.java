@@ -74,6 +74,23 @@ public class UtilsTest {
     }
 
     @Test
+    public void testGetSafeSubSentences() throws Exception {
+        List<String> inp = new ArrayList<String>();
+        inp.add("one sentence, [w]hich has (among others); a few n-grams");
+        inp.add("and another; this–also has a few 1–2 things");
+        List<String> exp = new ArrayList<String>();
+        exp.add("one sentence");
+        exp.add("which has");
+        exp.add("among others");
+        exp.add("a few n-grams");
+        exp.add("and another");
+        exp.add("this");
+        exp.add("also has a few 1-2 things");
+        List<String> out = Utils.getSafeSubSentences(inp, ";()[]–—", ",.'");
+        assertEquals(exp.toString(), out.toString());
+    }
+
+    @Test
     public void testAddOrIncrement() throws Exception {
         Map<String, Integer> inp = new HashMap<String, Integer>();
         Map<String, Integer> exp = new HashMap<String, Integer>();
