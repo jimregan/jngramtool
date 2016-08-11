@@ -224,8 +224,8 @@ public class Utils {
             if(words.length < arity) {
                 continue;
             }
-            for(int i=0; i < words.length-arity; i++) {
-                String[] tmp = Arrays.copyOfRange(words, i, i+arity+1);
+            for(int i=0; i < words.length-arity+1; i++) {
+                String[] tmp = Arrays.copyOfRange(words, i, i+arity);
                 ret.add(join(tmp, " "));
             }
         }
