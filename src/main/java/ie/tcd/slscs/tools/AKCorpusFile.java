@@ -33,11 +33,11 @@ import java.nio.charset.Charset;
  */
 
 public class AKCorpusFile {
-    String filename;
-    String author;
-    String language;
-    String year;
-    String field;
+    public String filename;
+    public String author;
+    public String language;
+    public String year;
+    public String field;
 
     List<String> text;
 

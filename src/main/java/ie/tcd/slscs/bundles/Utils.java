@@ -173,13 +173,14 @@ public class Utils {
                     cur += chara[i];
                     last_s = last_alphanum = false;
                 }
+
             }
-            if(cur != "") {
+            if(!"".equals(cur)) {
                 ret.add(trim(cur));
                 cur = "";
             }
         }
-        if(cur != "") {
+        if(!"".equals(cur)) {
             ret.add(trim(cur));
         }
         return ret;

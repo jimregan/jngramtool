@@ -38,7 +38,8 @@ public class AKReader {
         String path = args[0];
         try {
             corp.read();
-            corp.printDetails();
+            corp.getBundles(path);
+            corp.writeBundles();
         } catch (Exception e) {
 
         }

@@ -10,7 +10,7 @@ binmode STDOUT, ":utf8";
 open(LIST, "<", "/tmp/listing") or die "$!";
 binmode LIST, ":utf8";
 
-my $tlang = 'en';
+my $tlang = 'pl';
 
 while(<LIST>) {
     my $file = '';

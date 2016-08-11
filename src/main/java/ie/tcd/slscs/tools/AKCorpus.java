@@ -5,6 +5,8 @@ import ie.tcd.slscs.ngramtool.NGram;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -35,8 +37,10 @@ import java.nio.charset.Charset;
 public class AKCorpus {
     List<AKCorpusFile> file;
     String filename;
+    private Map<String, AKEntry> bundles;
     AKCorpus() {
         file = new ArrayList<AKCorpusFile>();
+        bundles = new HashMap<String, AKEntry>();
     }
     AKCorpus(String s) {
         this();
@@ -60,6 +64,35 @@ public class AKCorpus {
     public void printDetails() {
         for (AKCorpusFile f : file) {
             System.out.println(f.toString());
+        }
+    }
+    public void getBundles(String path) throws IOException {
+        for(AKCorpusFile f : file) {
+            f.read(path);
+            List<String> normed = new ArrayList<String>();
+            for(String s : f.getText()) {
+                normed.add(Utils.stripSpace(s));
+            }
+            f.clearText();
+            List<String> subsent = Utils.getSafeSubSentences(normed, ";:()[]–—−‒\u2012\u2022\u202F\uF0B7\uF0A7\uF02D\u00A0\u2002\u2003‘“”‟\"", "-,.'’/");
+            normed.clear();
+            List<String> newbundles = Utils.getBundles(subsent, 4);
+            subsent.clear();
+            for(String s : newbundles) {
+                if(bundles.get(s) == null) {
+                    bundles.put(s, new AKEntry(s, 1, f.language, f.year, f.field, f.author));
+                } else {
+                    AKEntry tmpe = bundles.get(s);
+                    tmpe.update(1, f.language, f.year, f.field, f.author);
+                }
+            }
+            newbundles.clear();
+        }
+    }
+    public void writeBundles() throws IOException {
+        for(String s : bundles.keySet()) {
+            AKEntry e = bundles.get(s);
+            System.out.println(e.summariseAuthorFieldExt());
         }
     }
 }
