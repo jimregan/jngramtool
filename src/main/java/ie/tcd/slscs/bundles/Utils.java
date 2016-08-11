@@ -138,6 +138,9 @@ public class Utils {
                     if(chara[i] == 's') {
                         last_s = true;
                     }
+                } else if(chara[i] == ' ') {
+                        cur += ' ';
+                        last_s = last_alphanum = false;
                 } else if(chars.contains(chara[i])) {
                     if(chara[i] == '[' && i < chara.length-3 && Character.isLetterOrDigit(chara[i+1]) && chara[i+2] == ']') {
                         cur += chara[i+1];
@@ -155,7 +158,9 @@ public class Utils {
                             ret.add(trim(cur));
                             cur = "";
                         } else {
-                            continue;
+                            if(!"".equals(cur)) {
+                                cur = "";
+                            }
                         }
                     }
                 } else if(cond.contains(chara[i])) {
@@ -172,7 +177,9 @@ public class Utils {
                             ret.add(trim(cur));
                             cur = "";
                         } else {
-                            continue;
+                            if(!"".equals(cur)) {
+                                cur = "";
+                            }
                         }
                     } else if(last_s && (chara[i] == '’' || chara[i] == '\'')) {
                         last_s = last_alphanum = false;
@@ -183,7 +190,9 @@ public class Utils {
                             ret.add(trim(cur));
                             cur = "";
                         } else {
-                            continue;
+                            if(!"".equals(cur)) {
+                                cur = "";
+                            }
                         }
                     }
                 } else {
