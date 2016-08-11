@@ -49,7 +49,7 @@ public class AKEntry {
         languages.add(l);
         years.add(y);
         fields.add(fi);
-        authors.add(a);
+        authors.add(Utils.trim(a.toLowerCase()));
     }
     AKEntry(String[] tmp) {
         this(tmp[0], Integer.parseInt(tmp[1]), tmp[2], tmp[3], tmp[4], tmp[5]);
@@ -64,7 +64,7 @@ public class AKEntry {
         if(!fields.contains(fi)) {
             fields.add(fi);
         }
-        if(!fields.contains(a)) {
+        if(!fields.contains(Utils.trim(a.toLowerCase()))) {
             authors.add(a);
         }
     }
