@@ -150,7 +150,7 @@ System.err.println("for: " + cur + " " + ret.size());
                         last_s = last_alphanum = false;
                     } else {
                         last_s = last_alphanum = false;
-                        if(!"".equals(cur)) {
+                        if(!"".equals(trim(cur))) {
                             ret.add(trim(cur));
                             cur = "";
                         } else {
@@ -169,7 +169,7 @@ System.err.println("last_s && ': " + cur);
                     } else if(!last_s && (chara[i] == '’' || chara[i] == '\'')) {
 System.err.println("!last_s && ': " + cur);
                         last_s = last_alphanum = false;
-                        if(!"".equals(cur)) {
+                        if(!"".equals(trim(cur))) {
                             ret.add(trim(cur));
                             cur = "";
                         } else {
@@ -180,7 +180,7 @@ System.err.println("!last_s && ': " + cur);
                         cur += '\'';
                     } else {
                         last_s = last_alphanum = false;
-                        if(!"".equals(cur)) {
+                        if(!"".equals(trim(cur))) {
                             ret.add(trim(cur));
                             cur = "";
                         } else {
@@ -193,12 +193,12 @@ System.err.println("!last_s && ': " + cur);
                 }
 
             }
-            if(!"".equals(cur)) {
+            if(!"".equals(trim(cur))) {
                 ret.add(trim(cur));
                 cur = "";
             }
         }
-        if(!"".equals(cur)) {
+        if(!"".equals(trim(cur))) {
             ret.add(trim(cur));
         }
         return ret;
