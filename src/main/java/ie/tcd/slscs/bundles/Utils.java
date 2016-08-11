@@ -136,7 +136,6 @@ public class Utils {
             boolean last_s = false;
             char[] chara = sent.toCharArray();
             for (int i = 0; i < chara.length; i++) {
-
                 if(Character.isLetterOrDigit(chara[i])) {
                     last_alphanum = true;
                     cur += chara[i];
@@ -147,7 +146,10 @@ public class Utils {
                         cur += ' ';
                         last_s = last_alphanum = false;
                 } else if(chars.contains(chara[i])) {
-                    if(chara[i] == '[' && i < chara.length-3 && Character.isLetterOrDigit(chara[i+1]) && chara[i+2] == ']') {
+                    if(i == 0) {
+                        last_s = last_alphanum = false;
+                        continue;
+                    } else if(chara[i] == '[' && i < chara.length-3 && Character.isLetterOrDigit(chara[i+1]) && chara[i+2] == ']') {
                         cur += chara[i+1];
                         i += 2;
                         last_alphanum = true;
@@ -164,10 +166,11 @@ public class Utils {
                             cur = "";
                         }
                         cur = "";
+                        if (i == chara.length-1)
                         continue;
                     }
                 } else if(cond.contains(chara[i])) {
-                    if(chara[i-1] == ' ') {
+                    if(i == 0 || i == chara.length || chara[i-1] == ' ') {
                         last_s = last_alphanum = false;
                         if(!"".equals(trim(cur))) {
                             ret.add(trim(cur));
@@ -217,6 +220,7 @@ public class Utils {
             if(!"".equals(trim(cur))) {
                 ret.add(trim(cur));
                 cur = "";
+                continue;
             }
         }
         if(!"".equals(trim(cur))) {
