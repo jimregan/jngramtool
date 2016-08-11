@@ -74,7 +74,7 @@ public class AKCorpus {
                 normed.add(Utils.stripSpace(s).toLowerCase());
             }
             f.clearText();
-            List<String> subsent = Utils.getSafeSubSentences(normed, ";:()[]–—−‒\u2012\u2022\u202F\uF0B7\uF0A7\uF02D\u00A0\u2002\u2003‘“”‟\"!?", "-,.'’/");
+            List<String> subsent = Utils.getSafeSubSentences(normed, ";:()[]–—−‒\u2012\u2022\u202F\uF0B7\uF0A7\uF02D\u00A0\u2002\u2003‘“”‟\"!?\u0008", "-,.'’/");
             normed.clear();
             List<String> newbundles = Utils.getBundles(subsent, 4);
             subsent.clear();
