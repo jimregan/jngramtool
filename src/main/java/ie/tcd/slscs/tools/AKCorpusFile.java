@@ -56,25 +56,6 @@ public class AKCorpusFile {
     AKCorpusFile(String[] a) {
         this(a[0], a[1], a[2]);
     }
-    AKCorpusFile(String s) {
-        this();
-        this.filename = s;
-        String ps = "([a-z][-a-z]*)(\\d\\d\\d\\d)\\.txt";
-        Pattern p = Pattern.compile(ps);
-        String[] tmp = filename.split("\\/");
-        this.field = tmp[0];
-        this.language = tmp[1];
-        if(tmp[2].matches("\\-\\d\\d\\d\\d\\-")) {
-            String[] tmpa = tmp[2].split("-");
-            this.author = tmpa[0].toLowerCase();
-            this.year = tmpa[1];
-        } else if(s.matches(ps)) {
-            Matcher m = p.matcher(s);
-            m.find();
-            this.author = m.group(1).toLowerCase();
-            this.year = m.group(2);
-        }
-    }
     public void read(String path) throws IOException {
         String line;
         String fullfile = path + filename;

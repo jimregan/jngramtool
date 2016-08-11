@@ -52,8 +52,6 @@ public class AKCorpus {
             String[] tmp = line.split("\\t");
             if(tmp.length == 3) {
                 file.add(new AKCorpusFile(tmp));
-            } else if (tmp.length == 1) {
-                file.add(new AKCorpusFile(line));
             } else {
                 System.err.println("Error with line: " + line);
             }
