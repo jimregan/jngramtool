@@ -71,7 +71,7 @@ public class AKCorpus {
             f.read(path);
             List<String> normed = new ArrayList<String>();
             for(String s : f.getText()) {
-                normed.add(Utils.stripSpace(s));
+                normed.add(Utils.stripSpace(s).toLowerCase());
             }
             f.clearText();
             List<String> subsent = Utils.getSafeSubSentences(normed, ";:()[]–—−‒\u2012\u2022\u202F\uF0B7\uF0A7\uF02D\u00A0\u2002\u2003‘“”‟\"", "-,.'’/");
