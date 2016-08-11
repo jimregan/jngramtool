@@ -91,6 +91,20 @@ public class UtilsTest {
     }
 
     @Test
+    public void testGetBundles() throws Exception {
+        List<String> inp = new ArrayList<String>();
+        inp.add("not long enough");
+        inp.add("just about long enough");
+        inp.add("this is definitely long enough");
+        List<String> exp = new ArrayList<String>();
+        exp.add("just about long enough");
+        exp.add("this is definitely long");
+        exp.add("is definitely long enough");
+        List<String> out = Utils.getBundles(inp, 4);
+        assertEquals(exp.toString(), out.toString());
+    }
+
+    @Test
     public void testAddOrIncrement() throws Exception {
         Map<String, Integer> inp = new HashMap<String, Integer>();
         Map<String, Integer> exp = new HashMap<String, Integer>();

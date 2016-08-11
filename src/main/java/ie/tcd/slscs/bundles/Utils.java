@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Arrays;
 
 public class Utils {
     public static String join(List<String> l, String joiner) {
@@ -214,6 +215,21 @@ public class Utils {
             }
         }
         return sb.toString();
+    }
+
+    public static List<String> getBundles(List<String> subsentences, int arity) {
+        List<String> ret = new ArrayList<String>();
+        for(String s : subsentences) {
+            String[] words = s.split(" ");
+            if(words.length < arity) {
+                continue;
+            }
+            for(int i=0; i < words.length-arity; i++) {
+                String[] tmp = Arrays.copyOfRange(words, i, i+arity+1);
+                ret.add(join(tmp, " "));
+            }
+        }
+        return ret;
     }
 
     public static String fix2000sPDF(String s) {
