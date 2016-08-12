@@ -541,7 +541,7 @@ public class Biber1999Academic implements Classifier {
         String out = bundles.get(n.getText());
         String ret = "";
         if(out != null) {
-            return out;
+            return out + " (" + sections.get(out) + ")";
         } else {
             String tmp[] = n.getText().split(" ");
             if(tmp.length > 5) {
