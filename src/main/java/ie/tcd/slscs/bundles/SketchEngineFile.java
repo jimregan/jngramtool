@@ -71,7 +71,7 @@ public class SketchEngineFile {
             for(String t : text) {
                 String tmp = Utils.markMatches(t, bundle, "<b>", "</b>");
                 if(!t.equals(tmp)) {
-                    lines.add("<p>" + tmp + "</p>);
+                    lines.add("<p>" + tmp + "</p>");
                 }
             }
         }
