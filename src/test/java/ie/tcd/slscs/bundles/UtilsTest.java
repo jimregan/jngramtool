@@ -119,4 +119,20 @@ public class UtilsTest {
         exp.put("new", 1);
         assertEquals(inp, exp);
     }
+
+    @Test
+    public void testGetPreGram() throws Exception {
+        String inp = "this is a test";
+        String exp = "this is a";
+        String out = Utils.getPreGram(inp, 3);
+        assertEquals(exp, out);
+    }
+
+    @Test
+    public void testGetPostGram() throws Exception {
+        String inp = "this is a test";
+        String exp = "is a test";
+        String out = Utils.getPostGram(inp, 3);
+        assertEquals(exp, out);
+    }
 }

@@ -290,6 +290,29 @@ public class Utils {
         return ret;
     }
 
+    public static String getPreGram(String[] s, int arity) {
+        if(arity > s.length) {
+            return null;
+        }
+        return Utils.join(Arrays.copyOfRange(s, 0, arity), " ");
+    }
+
+    public static String getPreGram(String s, int arity) {
+        String grams[] = s.split(" ");
+        return getPreGram(grams, arity);
+    }
+
+    public static String getPostGram(String[] s, int arity) {
+        if(arity > s.length) {
+            return null;
+        }
+        return Utils.join(Arrays.copyOfRange(s, s.length-arity+1, arity), " ");
+    }
+    public static String getPostGram(String s, int arity) {
+        String grams[] = s.split(" ");
+        return getPostGram(grams, arity);        
+    }
+
     public static String fix2000sPDF(String s) {
         return s.replaceAll("eÎ", "ę")
                 .replaceAll("oÂ", "ó")
