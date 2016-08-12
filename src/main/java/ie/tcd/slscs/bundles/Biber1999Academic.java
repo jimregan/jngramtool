@@ -312,13 +312,13 @@ public class Biber1999Academic implements Classifier {
         if(pre || post) {
             out.append(" (");
         }
-        if(pre) {
+        if(post) {
             out.append('+');
         }
         if(pre || post) {
             out.append(bundle);
         }
-        if(post) {
+        if(pre) {
             out.append('+');
         }
         if(pre || post) {
