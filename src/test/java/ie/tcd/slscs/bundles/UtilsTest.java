@@ -143,4 +143,12 @@ public class UtilsTest {
         String out1 = Utils.getPostGram(inp1, 4);
         assertEquals(exp1, out1);
     }
+
+    @Test
+    public void testMarkMatches() throws Exception {
+        String inp = "test this test is a test testtest";
+        String exp = ">test< this >test< is a >test< >test<>test<";
+        String out = Utils.markMatches(inp, "test", ">", "<");
+        assertEquals(exp, out);
+    }
 }

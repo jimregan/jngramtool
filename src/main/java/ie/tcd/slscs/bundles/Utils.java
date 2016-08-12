@@ -313,6 +313,22 @@ public class Utils {
         return getPostGram(grams, arity);        
     }
 
+    public static String markMatches(String s, String find, String pre, String post) {
+        StringBuilder out = new StringBuilder();
+        int len = s.length();
+        int pos = -1;
+        int lastpos = 0;
+        while((pos = s.indexOf(find, pos+1)) != -1) {
+            out.append(s.substring(lastpos, pos));
+            out.append(pre);
+            out.append(s.substring(pos, pos+find.length()));
+            out.append(post);
+            pos += find.length()-1;
+            lastpos = pos+1;
+        }
+        return out.toString();
+    }
+
     public static String fix2000sPDF(String s) {
         return s.replaceAll("eÎ", "ę")
                 .replaceAll("oÂ", "ó")
