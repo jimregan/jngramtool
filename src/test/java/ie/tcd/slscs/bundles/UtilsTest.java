@@ -126,6 +126,10 @@ public class UtilsTest {
         String exp = "this is a";
         String out = Utils.getPreGram(inp, 3);
         assertEquals(exp, out);
+        String inp1 = "this is a longer test";
+        String exp1 = "this is a longer";
+        String out1 = Utils.getPreGram(inp1, 4);
+        assertEquals(exp1, out1);
     }
 
     @Test
@@ -134,5 +138,9 @@ public class UtilsTest {
         String exp = "is a test";
         String out = Utils.getPostGram(inp, 3);
         assertEquals(exp, out);
+        String inp1 = "this is a longer test";
+        String exp1 = "is a longer test";
+        String out1 = Utils.getPostGram(inp1, 4);
+        assertEquals(exp1, out1);
     }
 }

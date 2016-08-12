@@ -306,7 +306,7 @@ public class Utils {
         if(arity > s.length) {
             return null;
         }
-        return Utils.join(Arrays.copyOfRange(s, s.length-arity+1, arity), " ");
+        return Utils.join(Arrays.copyOfRange(s, s.length-arity, arity+1), " ");
     }
     public static String getPostGram(String s, int arity) {
         String grams[] = s.split(" ");
