@@ -36,7 +36,7 @@ public class Biber1999AcademicTest {
     public void classifierTest() throws Exception {
         Classifier biber = new Biber1999Academic();
         NGram inp1 = new NGram("similar to that of", 2);
-        NGram inp2 = new NGram("results similar to that of", 2);
+        NGram inp2 = new NGram("somewhat similar to that of", 2);
 
         String out1 = biber.classify(inp1);
         String out2 = biber.classify(inp2);
