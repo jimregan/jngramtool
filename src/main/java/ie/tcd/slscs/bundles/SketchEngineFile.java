@@ -65,7 +65,16 @@ public class SketchEngineFile {
     }
     public List<String> markupMatches(List<String> bundles) {
         setupText();
-        List<String> matches = new ArrayList<String>();
-        return matches;
+        List<String> lines = new ArrayList<String>();
+        for(String bundle : bundles) {
+            lines.add("<h3>" + bundle + "</h3>");
+            for(String t : text) {
+                String tmp = Utils.markMatches(t, bundle, "<b>", "</b>");
+                if(!t.equals(tmp)) {
+                    lines.add("<p>" + tmp + "</p>);
+                }
+            }
+        }
+        return lines;
     }
 }
