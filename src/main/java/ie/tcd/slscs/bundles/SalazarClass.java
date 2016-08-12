@@ -40,8 +40,7 @@ public class SalazarClass {
     }
 
     public String toString() {
-        return  bundle + "\t"
-                + keyword + "\t"
+        return  keyword + "\t"
                 + structure + "\t"
                 + function1 + "\t"
                 + function2 + "\t"
