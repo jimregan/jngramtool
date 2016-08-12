@@ -151,4 +151,12 @@ public class UtilsTest {
         String out = Utils.markMatches(inp, "test", ">", "<");
         assertEquals(exp, out);
     }
+
+    @Test
+    public void testMarkBundleMatches() throws Exception {
+        String inp = "a test tha test a test";
+        String exp = ">a test< tha test >a test<";
+        String out = Utils.markBundleMatches(inp, "a test", ">", "<");
+        assertEquals(exp, out);
+    }
 }

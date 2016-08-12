@@ -329,6 +329,28 @@ public class Utils {
         return out.toString();
     }
 
+    public static String markBundleMatches(String s, String find, String pre, String post) {
+        StringBuilder out = new StringBuilder();
+        int len = s.length();
+        int pos = -1;
+        int lastpos = 0;
+        while((pos = s.toLowerCase().indexOf(find.toLowerCase(), pos+1)) != -1) {
+            int last_match = s.length() - find.length() - 1;
+            if(((pos == 0) || (pos > 0 && s.charAt(pos-1) == ' ')) 
+              || ((pos == last_match) || (pos < last_match && s.charAt(pos+find.length()+1) == ' '))) {
+                out.append(s.substring(lastpos, pos));
+                out.append(pre);
+                out.append(s.substring(pos, pos+find.length()));
+                out.append(post);
+                pos += find.length()-1;
+                lastpos = pos+1;
+            } else {
+                continue;
+            }
+        }
+        return out.toString();
+    }
+
     public static String fix2000sPDF(String s) {
         return s.replaceAll("eÎ", "ę")
                 .replaceAll("oÂ", "ó")
