@@ -235,6 +235,50 @@ public class Biber1999Academic implements Classifier {
         addEntry("similar to that of the", "PP+of", false, false);
         addEntry("similar to those of the", "PP+of", false, false);
         addEntry("from the point of view of", "PP+of", false, false);
+
+        addEntry("as in the case", "other PP", false, true);
+        addEntry("at the same time", "other PP", true, true);
+        addEntry("between the two groups", "other PP", false, false);
+        addEntry("by the fact that", "other PP", false, false);
+        addEntry("for the first time", "other PP", false, false);
+        addEntry("from the fact that", "other PP", false, false);
+        addEntry("in such a way", "other PP", false, true);
+        addEntry("in the same way", "other PP", false, true);
+        addEntry("in the present study", "other PP", false, false);
+        addEntry("in a way that", "other PP", false, false);
+        addEntry("in addition to the", "other PP", false, false);
+        addEntry("in an attempt to", "other PP", false, false);
+        addEntry("in contrast to the", "other PP", false, false);
+        addEntry("in relation to the", "other PP", false, false);
+        addEntry("in the early stages", "other PP", false, true);
+        addEntry("in the first place", "other PP", false, false);
+        addEntry("in the next chapter", "other PP", false, false);
+        addEntry("in the next section", "other PP", false, false);
+        addEntry("in the nineteenth century", "other PP", false, false);
+        addEntry("in the sense that", "other PP", false, false);
+        addEntry("in this case the", "other PP", false, false);
+        addEntry("in the United States", "other PP", false, false);
+        addEntry("in England and Wales", "other PP", false, false);
+        addEntry("in the United Kingdom", "other PP", false, false);
+        addEntry("of the fact that", "other PP", false, false);
+        addEntry("of the most important", "other PP", true, false);
+        addEntry("of the nineteenth century", "other PP", false, false);
+        addEntry("on the other hand", "other PP", false, false);
+        addEntry("on the one hand", "other PP", false, true);
+        addEntry("on the grounds that", "other PP", false, false);
+        addEntry("similar to that of", "other PP", true, true);
+        addEntry("similar to those of", "other PP", false, true);
+        addEntry("to the extent that", "other PP", false, false);
+        addEntry("to the fact that", "other PP", false, false);
+        addEntry("with respect to the", "other PP", false, false);
+        addEntry("and at the same time", "other PP", false, false);
+        addEntry("at the same time as", "other PP", false, false);
+        addEntry("in the same way as", "other PP", false, false);
+        addEntry("in such a way that", "other PP", false, false);
+        addEntry("in such a way as", "other PP", false, true);
+        addEntry("of the way in which", "other PP", false, false);
+        addEntry("on the one hand and", "other PP", false, false);
+        addEntry("in such a way as to", "other PP", false, false);
     }
     private void addEntry(String bundle, String cls, boolean pre, boolean post) {
         bundles.put(bundle, cls);
@@ -263,35 +307,64 @@ public class Biber1999Academic implements Classifier {
         return "Classification";
     }
 
+    private String getPrePostString(String bundle, boolean pre, boolean post) {
+        StringBuilder out = new StringBuilder("");
+        if(pre || post) {
+            out.append(" (");
+        }
+        if(pre) {
+            out.append('+');
+        }
+        if(pre || post) {
+            out.append(bundle);
+        }
+        if(post) {
+            out.append('+');
+        }
+        if(pre || post) {
+            out.append(')');
+        }
+        return out.toString();
+    }
+    private String doPrePost(String s, int n) {
+        String pre = Utils.getPreGram(s, n);
+        String post = Utils.getPostGram(s, n);
+        boolean ckpre = pre4gram.contains(pre);
+        boolean ckpost = post4gram.contains(post);
+        String prepost = "";
+        if(pre.equals(post)) {
+            prepost = bundles.get(pre);
+            prepost += getPrePostString(pre, ckpre, ckpost);
+        } else if(ckpre && ckpost) {
+            prepost = bundles.get(pre);
+            prepost += getPrePostString(pre, true, false) + ", " + getPrePostString(post, false, true);
+        } else if(ckpre) {
+            prepost = bundles.get(pre);
+            prepost += getPrePostString(pre, true, false);
+        } else if(ckpost) {
+            prepost = bundles.get(post);
+            prepost += getPrePostString(post, false, true);
+        } else {
+            prepost += "";
+        }
+        return prepost;
+    }
+
     public String classify(NGram n) {
-        String out = bundles.get(n);
+        String out = bundles.get(n.getText());
+        String ret = "";
         if(out != null) {
             return out;
         } else {
             String tmp[] = n.getText().split(" ");
-            if(tmp.length > 4) {
-                String pre = Utils.getPreGram(tmp, 4);
-                String post = Utils.getPostGram(tmp, 4);
-                if(pre4gram.contains(pre)) {
-                    return bundles.get(pre) + " (+" + pre + ")";
-                } else if(pre4gram.contains(post)) {
-                    return bundles.get(post) + " (" + post + "+)";
-                } else {
-                    return "Unknown";
-                }
-            } else if(tmp.length > 5) {
-                String pre = Utils.getPreGram(tmp, 5);
-                String post = Utils.getPostGram(tmp, 5);
-                if(pre5gram.contains(pre)) {
-                    return bundles.get(pre) + " (+" + pre + ")";
-                } else if(pre5gram.contains(post)) {
-                    return bundles.get(post) + " (" + post + "+)";
-                } else {
-                    return "Unknown";
-                }
+            if(tmp.length > 5) {
+                ret = doPrePost(n.getText(), 5);
+            } else if("".equals(ret) && tmp.length > 4) {
+                ret = doPrePost(n.getText(), 4);
             } else {
-                return "Unknown";
+                ret = "";
             }
         }
+        return ret;
     }
 }
