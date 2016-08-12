@@ -38,5 +38,9 @@ public class SketchEngineTokenTest {
         assertEquals("neighbourhoods", inp1.getSurface());
         assertEquals("NNS", inp1.getTag());
         assertEquals("neighbourhood", inp1.getLemma());
+        SketchEngineToken inp2 = new SketchEngineToken("-", ":", "--x");
+        assertEquals("-", inp2.getSurface());
+        assertEquals(":", inp2.getTag());
+        assertEquals("-", inp2.getLemma());
     }
 }
