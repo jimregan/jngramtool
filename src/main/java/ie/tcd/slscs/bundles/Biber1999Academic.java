@@ -40,14 +40,33 @@ public class Biber1999Academic implements Classifier {
     private Set<String> post4gram;
     private Set<String> pre5gram;
     private Set<String> post5gram;
+    private Map<String, String> sections;
 
     public Biber1999Academic() {
         bundles = new HashMap<String, String>();
+        sections = new HashMap<String, String>();
         pre4gram = new HashSet<String>();
         post4gram = new HashSet<String>();
         pre5gram = new HashSet<String>();
         post5gram = new HashSet<String>();
         init_bundles();
+        init_sections();
+    }
+    private void init_sections() {
+        sections.put("NP+of", "13.2.4.1");
+        sections.put("other NP", "13.2.4.2");
+        sections.put("PP+of", "13.2.4.3");
+        sections.put("other PP", "13.2.4.4");
+        sections.put("anticipatory it", "13.2.4.5");
+        sections.put("anticipatory it + adjective phrase", "13.2.4.5");
+        sections.put("anticipatory it + verb phrase", "13.2.4.5");
+        sections.put("passive verb + PP", "13.2.4.6");
+        sections.put("copula be +noun phrase", "13.2.4.7");
+        sections.put("copula be +adjective phrase", "13.2.4.7");
+        sections.put("copula be +noun/adjective phrase", "13.2.4.7");
+        sections.put("verb phrase + that clause", "13.2.4.8");
+        sections.put("that clause", "13.2.4.8");
+        sections.put("noun + verb phrase + that clause", "13.2.4.8");
     }
     private void init_bundles() {
         addEntry("the end of the", "NP+of", true, false);
@@ -279,6 +298,102 @@ public class Biber1999Academic implements Classifier {
         addEntry("of the way in which", "other PP", false, false);
         addEntry("on the one hand and", "other PP", false, false);
         addEntry("in such a way as to", "other PP", false, false);
+
+        addEntry("it is possible to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is possible that", "anticipatory it + adjective phrase", false, true);
+        addEntry("it is not possible", "anticipatory it + adjective phrase", false, true);
+        addEntry("it is impossible to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is likely that", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is unlikely that", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is important to", "anticipatory it + adjective phrase", true, false);
+        addEntry("it is important that", "anticipatory it + adjective phrase", false, true);
+        addEntry("it is necessary to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is interesting to", "anticipatory it + adjective phrase", false, true);
+        addEntry("it is clear that", "anticipatory it + adjective phrase", false, true);
+        addEntry("it is not clear", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is difficult to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is easy to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is not surprising", "anticipatory it + adjective phrase", false, true);
+        addEntry("it is true that", "anticipatory it + adjective phrase", false, false);
+        addEntry("it can be seen", "anticipatory it + verb phrase", false, true);
+        addEntry("it should be noted", "anticipatory it + verb phrase", false, true);
+        addEntry("it has been shown", "anticipatory it + verb phrase", false, true);
+        addEntry("it has been suggested", "anticipatory it + verb phrase", false, true);
+        addEntry("it has also been", "anticipatory it + verb phrase", false, false);
+        addEntry("it is to be", "anticipatory it + verb phrase", false, false);
+        addEntry("it may be that", "anticipatory it + verb phrase", false, false);
+        addEntry("it was found that", "anticipatory it + verb phrase", false, false);
+        addEntry("it is not possible to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it may be possible to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it should be possible to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is also possible to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is possible that the", "anticipatory it + adjective phrase", false, false);
+        addEntry("it may be necessary to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is not necessary to", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is interesting to note", "anticipatory it + adjective phrase", false, true);
+        addEntry("it is clear that the", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is important that the", "anticipatory it + adjective phrase", false, false);
+        addEntry("it is not surprising that", "anticipatory it + adjective phrase", false, false);
+        addEntry("it should be noted that", "anticipatory it + verb phrase", false, true);
+        addEntry("it may be noted that", "anticipatory it + verb phrase", false, false);
+        addEntry("it has been sugested that", "anticipatory it + verb phrase", false, false);
+        addEntry("it has been shown that", "anticipatory it + verb phrase", false, false);
+        addEntry("it can be shown that", "anticipatory it + verb phrase", false, false);
+        addEntry("it can be seen that", "anticipatory it + verb phrase", false, false);
+        addEntry("it has been argued that", "anticipatory it + verb phrase", false, false);
+        addEntry("it has been found that", "anticipatory it + verb phrase", false, false);
+        addEntry("it is interesting to note that", "anticipatory it", false, false);
+        addEntry("it should be noted that the", "anticipatory it", false, false);
+
+        addEntry("is shown in figure", "passive verb + PP", false, false);
+        addEntry("is shown in fig.", "passive verb + PP", false, false);
+        addEntry("are shown in table", "passive verb + PP", false, false);
+        addEntry("is based on the", "passive verb + PP", false, false);
+        addEntry("be found in the", "passive verb + PP", true, false);
+        addEntry("can be found in", "passive verb + PP", false, false);
+        addEntry("is referred to as", "passive verb + PP", false, false);
+        addEntry("referred to as the", "passive verb + PP", false, false);
+        addEntry("be related to the", "passive verb + PP", false, false);
+        addEntry("is related to the", "passive verb + PP", false, false);
+        addEntry("be taken into account", "passive verb + PP", true, false);
+        addEntry("be thought of as", "passive verb + PP", false, false);
+        addEntry("be used as a", "passive verb + PP", false, false);
+        addEntry("can be seen as", "passive verb + PP", false, false);
+        addEntry("is given by the", "passive verb + PP", false, false);
+        addEntry("is known as the", "passive verb + PP", false, false);
+        addEntry("was approved by the", "passive verb + PP", false, false);
+        addEntry("is to be found in", "passive verb + PP", false, false);
+
+        addEntry("is one of the", "copula be +noun phrase", true, true);
+        addEntry("are a number of", "copula be +noun phrase", true, false);
+        addEntry("is part of the", "copula be +noun phrase", false, false);
+        addEntry("be the result of", "copula be +noun phrase", false, false);
+        addEntry("is a matter of", "copula be +noun phrase", false, false);
+        addEntry("is the same as", "copula be +noun phrase", false, false);
+        addEntry("was no significant difference", "copula be +noun phrase", true, false);
+        addEntry("is due to the", "copula be +adjective phrase", false, false);
+        addEntry("may be due to", "copula be +adjective phrase", false, false);
+        addEntry("is equal to the", "copula be +adjective phrase", false, false);
+        addEntry("is similar to that", "copula be +adjective phrase", false, true);
+        addEntry("is one of the most", "copula be +noun/adjective phrase", false, false);
+        addEntry("was no significant difference between", "copula be +noun/adjective phrase", true, false);
+        addEntry("is similar to that of", "copula be +noun/adjective phrase", false, false);
+        addEntry("may or may not be", "copula be +noun/adjective phrase", false, false);
+
+        addEntry("should be noted that", "verb phrase + that clause", true, true);
+        addEntry("be noted that the", "verb phrase + that clause", true, false);
+        addEntry("has been shown that", "verb phrase + that clause", true, false);
+        addEntry("has been suggested that", "verb phrase + that clause", true, false);
+        addEntry("can be seen that", "verb phrase + that clause", true, false);
+        addEntry("does not mean that", "verb phrase + that clause", true, false);
+        addEntry("is that it is", "verb phrase + that clause", false, false);
+        addEntry("that there is a", "that clause", false, false);
+        addEntry("that there is no", "that clause", false, false);
+        addEntry("that it is a", "that clause", false, false);
+        addEntry("that it is not", "that clause", false, false);
+        addEntry("that it is the", "that clause", false, false);
+        addEntry("studies have shown that", "noun + verb phrase + that clause", false, false);
+        addEntry("should be noted that the", "verb phrase + that clause", true, true);
     }
     private void addEntry(String bundle, String cls, boolean pre, boolean post) {
         bundles.put(bundle, cls);
