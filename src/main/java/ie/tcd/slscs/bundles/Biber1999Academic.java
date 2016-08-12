@@ -69,6 +69,14 @@ public class Biber1999Academic implements Classifier {
         sections.put("verb phrase + that clause", "13.2.4.8");
         sections.put("that clause", "13.2.4.8");
         sections.put("noun + verb phrase + that clause", "13.2.4.8");
+        sections.put("predicative adjective + to-clause", "13.2.4.9");
+        sections.put("verb phrase + to-clause", "13.2.4.9");
+        sections.put("to-clause", "13.2.4.9");
+        sections.put("adverbial clause", "13.2.4.10");
+        sections.put("pronoun/noun phrase + be", "13.2.4.11");
+        sections.put("this + be", "13.2.4.11");
+        sections.put("there + be", "13.2.4.11");
+        sections.put("other expressions", "13.2.4.12");
     }
     private void init_bundles() {
         addEntry("the end of the", "NP+of", true, false);
@@ -396,6 +404,68 @@ public class Biber1999Academic implements Classifier {
         addEntry("that it is the", "that clause", false, false);
         addEntry("studies have shown that", "noun + verb phrase + that clause", false, false);
         addEntry("should be noted that the", "verb phrase + that clause", true, true);
+
+        addEntry("are likely to be", "predicative adjective + to-clause", false, false);
+        addEntry("is likely to be", "predicative adjective + to-clause", false, false);
+        addEntry("more likely to be", "predicative adjective + to-clause", false, false);
+        addEntry("are more likely to", "predicative adjective + to-clause", false, false);
+        addEntry("may be able to", "predicative adjective + to-clause", false, false);
+        addEntry("should be able to", "predicative adjective + to-clause", false, false);
+        addEntry("will be able to", "predicative adjective + to-clause", false, false);
+        addEntry("is not possible to", "predicative adjective + to-clause", true, false);
+        addEntry("has been shown to", "verb phrase + to-clause", false, true);
+        addEntry("been shown to be", "verb phrase + to-clause", true, false);
+        addEntry("hove been shown to", "verb phrase + to-clause", false, false);
+        addEntry("can be used to", "verb phrase + to-clause", false, false);
+        addEntry("may be used to", "verb phrase + to-clause", false, false);
+        addEntry("is said to be", "verb phrase + to-clause", false, false);
+        addEntry("does not seem to", "verb phrase + to-clause", false, true);
+        addEntry("was found to be", "verb phrase + to-clause", false, false);
+        addEntry("would have to be", "verb phrase + to-clause", false, false);
+        addEntry("to be able to", "to-clause", false, false);
+        addEntry("to ensure that the", "to-clause", false, false);
+        addEntry("to be found in", "to-clause", true, true);
+        addEntry("to be the most", "to-clause", false, false);
+        addEntry("to deal with the", "to-clause", false, false);
+        addEntry("to do with the", "to-clause", false, false);
+        addEntry("to say that the", "to-clause", false, false);
+        addEntry("is not to say that", "to-clause", true, false);
+        addEntry("is interesting to note that", "to-clause", true, false);
+        addEntry("can also be used to", "to-clause", false, false);
+        addEntry("has been shown to be", "to-clause", false, false);
+        addEntry("does not seem to be", "to-clause", false, false);
+        addEntry("to be found in the", "to-clause", false, false);
+        addEntry("to be taken into account", "to-clause", false, false);
+
+        addEntry("as shown in figure", "adverbial clause", false, false);
+        addEntry("as shown in fig.", "adverbial clause", false, false);
+        addEntry("as we have seen", "adverbial clause", false, false);
+        addEntry("as we shall see", "adverbial clause", false, false);
+        addEntry("if there is a", "adverbial clause", false, false);
+
+        addEntry("this is not the", "this + be", false, false);
+        addEntry("this is not to", "this + be", false, true);
+        addEntry("there was no significant", "there + be", false, true);
+        addEntry("there are a number", "there + be", false, true);
+        addEntry("there has been a", "there + be", false, false);
+        addEntry("this does not mean that", "pronoun/noun phrase + be", false, false);
+        addEntry("this is not to say", "pronoun/noun phrase + be", false, true);
+        addEntry("there was no signficant difference", "pronoun/noun phrase + be", false, true);
+        addEntry("there were no significant differences", "pronoun/noun phrase + be", false, false);
+        addEntry("there was no correlation between", "pronoun/noun phrase + be", false, false);
+        addEntry("there are a number of", "pronoun/noun phrase + be", false, false);
+        addEntry("there is no doubt that", "pronoun/noun phrase + be", false, false);
+        addEntry("aim of this study was", "pronoun/noun phrase + be", true, false);
+        addEntry("it is one of the", "pronoun/noun phrase + be", false, false);
+        addEntry("this is not to say that", "pronoun/noun phrase + be", false, false);
+        addEntry("there was no significant difference between", "pronoun/noun phrase + be", false, false);
+        addEntry("the aim of this study was", "pronoun/noun phrase + be", false, false);
+
+        addEntry("as well as the", "other expressions", false, false);
+        addEntry("as well as in", "other expressions", false, false);
+        addEntry("than that of the", "other expressions", false, false);
+        addEntry("may or may not", "other expressions", false, true);
+        addEntry("the presence or absence", "other expressions", false, false);
     }
     private void addEntry(String bundle, String cls, boolean pre, boolean post) {
         bundles.put(bundle, cls);
