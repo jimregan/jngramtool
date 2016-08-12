@@ -55,6 +55,8 @@ public class Biber1999Academic implements Classifier {
     private void init_sections() {
         sections.put("NP+of", "13.2.4.1");
         sections.put("other NP", "13.2.4.2");
+        sections.put("other NP + post nominal clause", "13.2.4.2");
+        sections.put("other NP + PP", "13.2.4.2");
         sections.put("PP+of", "13.2.4.3");
         sections.put("other PP", "13.2.4.4");
         sections.put("anticipatory it", "13.2.4.5");
@@ -146,21 +148,21 @@ public class Biber1999Academic implements Classifier {
         addEntry("the rate of change of", "NP+of", false, false);
         addEntry("one of the most important", "NP+of", false, false);
 
-        addEntry("the way in which", "other NP", false, true);
-        addEntry("the ways in which", "other NP", false, false);
-        addEntry("way in which the", "other NP", true, false);
-        addEntry("such a way that", "other NP", true, false);
-        addEntry("the extent to which", "other NP", true, true);
-        addEntry("extent to which the", "other NP", true, false);
-        addEntry("the fact that the", "other NP", false, false);
-        addEntry("the fact that it", "other NP", false, false);
-        addEntry("the degree to which", "other NP", false, false);
-        addEntry("the relationship between the", "other NP", false, false);
-        addEntry("the difference between the", "other NP", false, false);
-        addEntry("an important part in", "other NP", false, false);
-        addEntry("an important role in", "other NP", false, false);
-        addEntry("an increase in the", "other NP", false, false);
-        addEntry("the same way as", "other NP", true, false);
+        addEntry("the way in which", "other NP + post nominal clause", false, true);
+        addEntry("the ways in which", "other NP + post nominal clause", false, false);
+        addEntry("way in which the", "other NP + post nominal clause", true, false);
+        addEntry("such a way that", "other NP + post nominal clause", true, false);
+        addEntry("the extent to which", "other NP + post nominal clause", true, true);
+        addEntry("extent to which the", "other NP + post nominal clause", true, false);
+        addEntry("the fact that the", "other NP + post nominal clause", false, false);
+        addEntry("the fact that it", "other NP + post nominal clause", false, false);
+        addEntry("the degree to which", "other NP + post nominal clause", false, false);
+        addEntry("the relationship between the", "other NP + PP", false, false);
+        addEntry("the difference between the", "other NP + PP", false, false);
+        addEntry("an important part in", "other NP + PP", false, false);
+        addEntry("an important role in", "other NP + PP", false, false);
+        addEntry("an increase in the", "other NP + PP", false, false);
+        addEntry("the same way as", "other NP + PP", true, false);
         addEntry("the way in which the", "other NP", false, false);
         addEntry("such a way as to", "other NP", true, false);
         addEntry("the extent to which the", "other NP", false, false);
