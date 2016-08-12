@@ -24,11 +24,24 @@ package ie.tcd.slscs.bundles;
 
 import java.util.ArrayList;
 import java.util.List;
+import ie.tcd.slscs.bundles.Utils;
+import ie.tcd.slscs.bundles.SketchEngineToken;
 
 public class SketchEngineFragment {
     private List<SketchEngineToken> tokens;
 
     SketchEngineFragment() {
         tokens = new ArrayList<SketchEngineToken>();
+    }
+
+    public void add(SketchEngineToken t) {
+        tokens.add(t);
+    }
+    public String getText() {
+        List<String> tmp = new ArrayList<String>();
+        for(SketchEngineToken t : tokens) {
+            tmp.add(t.getSurface());
+        }
+        return Utils.join(tmp, " ");
     }
 }
