@@ -40,7 +40,7 @@ public class Biber1999AcademicTest {
 
         String out1 = biber.classify(inp1);
         String out2 = biber.classify(inp2);
-        assertEquals("other PP", out1);
+        assertEquals("other PP (13.2.4.4)", out1);
         assertEquals("other PP (+similar to that of)", out2);
     }
 
