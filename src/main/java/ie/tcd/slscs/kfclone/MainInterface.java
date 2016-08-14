@@ -9,10 +9,17 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import java.awt.Choice;
 
 public class MainInterface {
 
 	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -42,7 +49,7 @@ public class MainInterface {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 673, 485);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -67,6 +74,7 @@ public class MainInterface {
 		mnFile.add(mntmNewMenuItem_1);
 		
 		JMenu mnTools = new JMenu("Tools");
+		mnTools.setMnemonic('T');
 		menuBar.add(mnTools);
 		
 		JMenuItem mntmGetWordgrams = new JMenuItem("Get Wordgrams");
@@ -110,6 +118,52 @@ public class MainInterface {
 		JMenuItem mntmConvertSgml = new JMenuItem("Convert SGML / XML to Text");
 		mntmConvertSgml.setEnabled(false);
 		mnTools.add(mntmConvertSgml);
+		
+		JMenu mnOptions = new JMenu("Options");
+		mnOptions.setMnemonic('O');
+		menuBar.add(mnOptions);
+		
+		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Edit Options");
+		mntmNewMenuItem_4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK));
+		mnOptions.add(mntmNewMenuItem_4);
+		
+		JCheckBoxMenuItem chckbxmntmNewCheckItem = new JCheckBoxMenuItem("Advanced");
+		chckbxmntmNewCheckItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.ALT_MASK));
+		mnOptions.add(chckbxmntmNewCheckItem);
+		
+		JMenu mnHelp = new JMenu("Help");
+		mnHelp.setMnemonic('H');
+		menuBar.add(mnHelp);
+		
+		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Help");
+		mntmNewMenuItem_5.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
+		mnHelp.add(mntmNewMenuItem_5);
+		
+		JMenuItem mntmAbout = new JMenuItem("About");
+		mnHelp.add(mntmAbout);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("nGrams (e.g. 1-3, 5, 10)");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(0, 0, 131, 28);
+		frame.getContentPane().add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(129, 0, 120, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblFloor = new JLabel("Floor");
+		lblFloor.setBounds(259, 7, 46, 14);
+		frame.getContentPane().add(lblFloor);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(290, 4, 46, 20);
+		frame.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		Choice choice = new Choice();
+		choice.setBounds(342, 0, 82, 20);
+		frame.getContentPane().add(choice);
 	}
-
 }
