@@ -167,5 +167,46 @@ public class MainInterface {
 		choice.addItem("Don't show");
 		choice.addItem("Show n-grams");
 		frame.getContentPane().add(choice);
+		
+		JLabel lblNewLabel_1 = new JLabel("Chars to sort");
+		lblNewLabel_1.setBounds(424, 3, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		Choice choice_1 = new Choice();
+		choice_1.setBounds(476, 0, 28, 20);
+		choice_1.addItem("128");
+		choice_1.addItem("256");
+		choice_1.addItem("512");
+		choice_1.addItem("1024");
+		choice_1.addItem("2048");
+		frame.getContentPane().add(choice_1);
+		
+		Choice choice_2 = new Choice();
+		choice_2.setBounds(0, 26, 119, 20);
+		choice_2.addItem("not case-sensitive");
+		choice_2.addItem("Case sensitive");
+		frame.getContentPane().add(choice_2);
+		
+		Choice choice_3 = new Choice();
+		choice_3.setBounds(125, 26, 124, 20);
+		choice_3.addItem("Observe TreatAsToken");
+		choice_3.addItem("Punct. as in KeepChars");
+		choice_3.addItem("Replace . , - ' with space");
+		choice_3.addItem("Keep internal . , - '");
+		choice_3.addItem("Delete internal - keep  . , '");
+		frame.getContentPane().add(choice_3);
+		
+		Choice choice_4 = new Choice();
+		choice_4.setBounds(252, 26, 94, 20);
+		choice_4.addItem("Alphabetical Sort");
+		choice_4.addItem("Frequency Sort");
+		frame.getContentPane().add(choice_4);
+		
+		Choice choice_5 = new Choice();
+		choice_5.setBounds(424, 26, 80, 20);
+		choice_5.addItem("Retain numerals");
+		choice_5.addItem("Change numerals to #");
+		choice_5.addItem("Make all numbers #");
+		frame.getContentPane().add(choice_5);
 	}
 }
