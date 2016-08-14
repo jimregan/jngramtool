@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.Choice;
+import javax.swing.JButton;
 
 public class MainInterface {
 
@@ -208,5 +209,21 @@ public class MainInterface {
 		choice_5.addItem("Change numerals to #");
 		choice_5.addItem("Make all numbers #");
 		frame.getContentPane().add(choice_5);
+		
+		JButton btnNewButton = new JButton("Add Source Files");
+		btnNewButton.setBounds(10, 94, 82, 75);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setBounds(0, 180, 82, 75);
+		frame.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Source files");
+		lblNewLabel_2.setBounds(10, 69, 46, 14);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		Choice choice_6 = new Choice();
+		choice_6.setBounds(0, 277, 28, 20);
+		frame.getContentPane().add(choice_6);
 	}
 }
