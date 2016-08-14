@@ -29,6 +29,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This classifier checks if an n-gram is present in the list of
+ * excluded items from Salazar 2011, Appendix 4, returning the 
+ * classifications from that appendix.
+ *
+ * <pre>
+ * @phdthesis{salazar2011lexical,
+ * title={Lexical bundles in scientific English: A corpus-based study of native and 
+ * non-native writing},
+ * author={Salazar, Danica Joy Lorenzo},
+ * year={2011},
+ * school={Universitat de Barcelona}
+ * }
+ * </pre>
+ */
 public class SalazarClassify implements Classifier {
     private Map<String, SalazarClass> bundles;
     public SalazarClassify() {
