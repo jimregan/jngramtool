@@ -145,7 +145,7 @@ public class MainInterface {
 		
 		JLabel lblNewLabel = new JLabel("nGrams (e.g. 1-3, 5, 10)");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(0, 0, 131, 28);
+		lblNewLabel.setBounds(0, 0, 128, 20);
 		frame.getContentPane().add(lblNewLabel);
 		
 		textField = new JTextField();
@@ -154,16 +154,18 @@ public class MainInterface {
 		textField.setColumns(10);
 		
 		JLabel lblFloor = new JLabel("Floor");
-		lblFloor.setBounds(259, 7, 46, 14);
+		lblFloor.setBounds(259, 0, 46, 20);
 		frame.getContentPane().add(lblFloor);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(290, 4, 46, 20);
+		textField_1.setBounds(290, 0, 46, 20);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
 		Choice choice = new Choice();
 		choice.setBounds(342, 0, 82, 20);
+		choice.addItem("Don't show");
+		choice.addItem("Show n-grams");
 		frame.getContentPane().add(choice);
 	}
 }
