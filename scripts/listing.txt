@@ -1,0 +1,162 @@
+anthropology/en/Adams-2009-Journal_of_the_Royal_Anthropological_Institute.txt
+anthropology/en/Campbell-2015-Journal_of_the_Royal_Anthropological_Institute.txt
+anthropology/en/Coleman-2015-Journal_of_the_Royal_Anthropological_Institute.txt
+anthropology/en/Hart-2007-Journal_of_the_Royal_Anthropological_Institute.txt
+anthropology/en/Moore-2016-Journal_of_the_Royal_Anthropological_Institute.txt
+anthropology/en/O'Reilly-2016-Journal_of_the_Royal_Anthropological_Institute.txt
+anthropology/en/Reed-2008-Journal_of_the_Royal_Anthropological_Institute.txt
+anthropology/pl/anre-2015-0018.txt	tobiasz-adamczyk	2015
+anthropology/pl/anre-2015-0021.txt	wozniak	2015
+anthropology/pl/anre-2016-0010.txt	chmielewski	2016
+anthropology/pl/anre-2016-0015.txt	burdukiewicz	2016
+anthropology/pl/v10044-008-0001-9.txt	koscinski	2007
+anthropology/pl/v10044-008-0010-8.txt	kaczmarek	2008
+anthropology/pl/v10044-008-0013-5.txt	szostek	2009
+anthropology/pl/v10044-008-0019-z.txt	liczbinska	2010
+anthropology/pl/v10044-010-0007-y.txt	koscinski	2011
+childhood/en/anning1998.txt
+childhood/en/atmore1998.txt
+childhood/en/bennett1993.txt
+childhood/en/dunphy2009.txt
+childhood/en/gilbert1998.txt
+childhood/en/peters1998.txt
+childhood/en/smith1993.txt
+childhood/en/stephen2001.txt
+childhood/en/willan2009.txt
+childhood/en/woodhead1998.txt
+childhood/en/young2005.txt
+childhood/pl/10.1080@0966976930010102.txt	Karwowska-Struczyk	1993
+childhood/pl/10.1080@0966976930010204.txt	Karwowska-Struczyk	1993
+childhood/pl/10.1080@0966976980060208.txt	Karwowska-Struczyk	1998
+childhood/pl/Artistic and Verbal Creative Capacity of 6 year old Children and their Psychopedagogic and Social Conditioning.txt	Uszyńska	1998
+childhood/pl/hajnicz1998.txt
+childhood/pl/kienig1998.txt
+childhood/pl/mroz2006.txt
+childhood/pl/paprotna1998.txt
+childhood/pl/piwowarski1998.txt
+childhood/pl/uszynska1998.txt
+childhood/pl/waloszek1998.txt
+history/en/Enemies_and_Friends_Arendt_on_the_Imperi.txt	Bates	2010
+history/en/macvarish2005.txt
+history/en/mcdonald2001.txt
+history/en/Ontology and law in the early Poulantzas.txt	Martin	2009
+history/en/perkins1990.txt
+history/en/smyth1995.txt
+history/pl/10.1016@0191-65999290062-H.txt	Czaplinski	1992
+history/pl/balus1993.txt
+history/pl/drabek1992.txt
+history/pl/gogolewski1991.txt
+history/pl/lukowski1990.txt
+history/pl/mucha1995.txt
+history/pl/nawojczyk1994.txt
+history/pl/pekacz1995.txt
+history/pl/przybylska-kapuscinska1994.txt
+history/pl/rachwal1995.txt
+history/pl/rokicki1995.txt	rokicki	1995
+history/pl/surazska1992.txt	surazska	1992
+history/pl/szahaj1995.txt	szahaj	1995
+history/pl/wiszniowska1995.txt	wiszniowska	1995
+management/en/Clark_et_al-2013-Journal_of_Management_Studies.txt	Clark	2013
+management/en/Cohen-2012-Journal_of_Management_Studies.txt	Cohen	2012
+management/en/Crilly-2013-Journal_of_Management_Studies.txt	Crilly	2013
+management/en/Delbridge-2014-Journal_of_Management_Studies.txt	Delbridge	2014
+management/en/Hardy_et_al-2014-Journal_of_Management_Studies.txt	Hardy	2014
+management/en/Hodgson-2012-Journal_of_Management_Studies.txt	Hodgson	2012
+management/en/Hunton_et_al-2011-Journal_of_Management_Studies.txt	Hunton	2011
+management/en/Lucas-2015-Journal_of_Management_Studies.txt	Lucas	2015
+management/en/Winter-2012-Journal_of_Management_Studies.txt	Winter	2012
+management/en/pfeffer2016.txt
+management/pl/kurowska-pysz2014.txt
+management/pl/dziadkiewicz2011.txt
+management/pl/purgal-popiela2015.txt
+management/pl/golebiowski2015.txt
+management/pl/dziadkiewicz2012.txt
+management/pl/danik2015.txt
+management/pl/Wieczorek-Kosmala2014.txt	Wieczorek-Kosmala	2014
+management/pl/sliwinski2016.txt
+management/pl/gorynia2015.txt
+management/pl/jasiecki2008.txt
+migration/en/boswell2008.txt
+migration/en/bowen2009.txt
+migration/en/butcher2009.txt
+migration/en/duke1996.txt
+migration/en/mcdowell2009.txt
+migration/en/morris2002.txt
+migration/en/richmond2000.txt
+migration/en/white2009.txt
+migration/pl/10.1080@1369183032000149604.txt	galasinska	2003
+migration/pl/10.1080@13691830500109787.txt	grzymala	2005
+migration/pl/10.1080@13691831003643363.txt	galasinska	2010
+migration/pl/iglicka2000.txt
+migration/pl/iglicka2001.txt
+migration/pl/kupiszewski2002.txt
+migration/pl/romaniszyn1996.txt
+migration/pl/skrobanek2009.txt
+migration/pl/The Recognition Politics of Polish Radio MultiKulti in Berlin.txt	morawska	2008
+planning/en/cooke2008.txt
+planning/en/meegan1994.txt
+planning/en/newman2008.txt
+planning/en/norris2009.txt
+planning/en/sweet2009.txt
+planning/pl/10.1080@09654310802081086.txt	smetkowski	2008
+planning/pl/10.1080@09654319408720264.txt	kuklinski	1994
+planning/pl/churski2002.txt
+planning/pl/churski2005.txt
+planning/pl/churski2008.txt
+planning/pl/parysek1993 (1).txt	parysek	1993
+planning/pl/parysek1994.txt
+politics/en/download.txt	Kenny	2015
+politics/en/download2011.txt	Green	2011
+politics/en/download2011x.txt	Hopkins	2011
+politics/en/download2011xx.txt	Johnson	2011
+politics/en/downloadccc.txt	Hopkins	2015
+politics/en/downloadpppp.txt	Heath	2015
+politics/en/downloadxxxxxxxxxxxx.txt	Gough	2015
+politics/pl/ppsy2011009.txt	Los-Nowak	2011
+politics/pl/ppsy2011011.txt	Gardocki	2011
+politics/pl/ppsy2011012.txt	Burdelski	2011
+politics/pl/ppsy2013001.txt	Chodubski	2013
+politics/pl/ppsy2013006.txt	Plecka	2013
+politics/pl/ppsy2013015.txt	Ronek	2013
+politics/pl/ppsy2015004.txt	Ociepa	2015
+politics/pl/ppsy2015014.txt	Lipska-Sondecka	2015
+politics/pl/ppsy2015015.txt	Kobiernacka	2015
+psychology/en/294-310-1-PB.txt	Barry	2012
+psychology/en/461-1329-1-PB.txt	Edwards	2012
+psychology/en/815-3493-4-PB.txt	Hunter	2014
+psychology/en/818-3240-2-PB.txt	Cann	2014
+psychology/en/ContentServer.txt	Hughes	2015
+psychology/en/ContentServer2.txt	Kilburg	2016
+psychology/en/ContentServer3.txt	Brand	2016
+psychology/en/ContentServer4.txt	Corrie	2016
+psychology/en/ContentServer5.txt	Baddeley	2013
+psychology/en/ContentServer6.txt	Steffen	2014
+psychology/en/ContentServerxx2016.txt	Ballinger	2016
+psychology/en/ContentServerxxxxxxx2016.txt	Woods	2016
+psychology/pl/%D8ukasz Baka, Romuald Derbis-2012-10-2-7.txt	Baka	2012
+psychology/pl/Anna Juszkiewicz, Urszula De_bska-2015-13-3-4.txt	Juszkiewicz	2015
+psychology/pl/babiak2014.txt
+psychology/pl/banka2016.txt
+psychology/pl/bartosz2014.txt
+psychology/pl/debek2015.txt
+psychology/pl/Ma%EAgorzata Gambin, Ma%EAgorzata S_wie_cicka-2015-13-1-2.txt	Gambin	2015
+psychology/pl/Marta Kochan-Wo_jcik-2012-10-2-5.txt	Kochan-Wójcik	2012
+psychology/pl/Nina Ogin_ska-Bulik, Magdalena Zadworna-Cies_lak-2015-13-2-1.txt	Ogińska-Bulik	2015
+psychology/pl/slowinska2015.txt
+sociology/en/Allen-2011-The_British_journal_of_sociology.txt
+sociology/en/Atkinson-2013-The_British_Journal_of_Sociology.txt
+sociology/en/Black-2013-The_British_Journal_of_Sociology (1).txt
+sociology/en/Bone_et_al-2010-The_British_Journal_of_Sociology.txt	Bone	2010
+sociology/en/Delanty-2011-The_British_Journal_of_Sociology.txt
+sociology/en/Gilroy-2010-The_British_Journal_of_Sociology.txt
+sociology/en/Halewood-2012-The_British_Journal_of_Sociology.txt
+sociology/en/Levy-2010-The_British_Journal_of_Sociology.txt
+sociology/en/Walter-2012-The_British_Journal_of_Sociology.txt
+sociology/pl/10.2307@24371560.txt	Kaminski	2013
+sociology/pl/10.2307@24371561.txt	Sulek	2013
+sociology/pl/10.2307@41275136.txt	Nowak	2010
+sociology/pl/10.2307@41275183.txt	Raciborkski	2011
+sociology/pl/10.2307@41478893.txt	Wróbel	2011
+sociology/pl/10.2307@41478922.txt	Buchner	2012
+sociology/pl/Aging_in_Poland_at_the_Dawn_of_the_21st (1).txt	Mucha	2010
+sociology/pl/uex.txt	Nowosielski	2012
