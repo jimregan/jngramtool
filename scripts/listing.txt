@@ -123,7 +123,11 @@ politics/pl/ppsy2015014.txt	Lipska-Sondecka	2015
 politics/pl/ppsy2015015.txt	Kobiernacka	2015
 psychology/en/294-310-1-PB.txt	Barry	2012
 psychology/en/461-1329-1-PB.txt	Edwards	2012
-psychology/en/ContentServerxxxxxxx2016.txt	Woods	2016
+psychology/en/ContentServer2015x.txt	Owens	2015
+psychology/en/ContentServer2015xxxxxxxxxxxx.txt	Morris	2015
+psychology/en/ContentServer2013p.txt	Carton	2013
+psychology/en/ContentServer2014.txt	Matthews	2014
+psychology/en/ContentServer2015.txt	Williams	2015
 psychology/pl/%D8ukasz Baka, Romuald Derbis-2012-10-2-7.txt	Baka	2012
 psychology/pl/Anna Juszkiewicz, Urszula De_bska-2015-13-3-4.txt	Juszkiewicz	2015
 psychology/pl/babiak2014.txt
