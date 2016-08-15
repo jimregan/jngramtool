@@ -31,6 +31,12 @@ import java.util.Set;
 import java.util.Arrays;
 
 public class Utils {
+	/**
+	 * join a string list into a single string
+	 * @param l list to be joined
+	 * @param joiner separator string
+	 * @return joined string
+	 */
     public static String join(List<String> l, String joiner) {
         StringBuilder sb = new StringBuilder();
         boolean start = true;
@@ -44,6 +50,12 @@ public class Utils {
         }
         return sb.toString();
     }
+	/**
+	 * join a string set into a single string
+	 * @param l set to be joined
+	 * @param joiner separator string
+	 * @return joined string
+	 */
     public static String join(Set<String> l, String joiner) {
         StringBuilder sb = new StringBuilder();
         boolean start = true;
@@ -57,6 +69,12 @@ public class Utils {
         }
         return sb.toString();
     }
+	/**
+	 * join a string array into a single string
+	 * @param a array to be joined
+	 * @param joiner separator string
+	 * @return joined string
+	 */
     public static String join(String[] a, String joiner) {
         StringBuilder sb = new StringBuilder();
         boolean start = true;
@@ -70,6 +88,11 @@ public class Utils {
         }
         return sb.toString();
     }
+    /**
+     * trim spaces from start and end of a string
+     * @param s input string
+     * @return string with leading and trailing spaces removed
+     */
     public static String trim(String s) {
         char[] chars = s.toCharArray();
         int start = 0;

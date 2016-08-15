@@ -43,10 +43,6 @@ public class SketchEngineVerticalReader {
 
     public void read(BufferedReader br) throws IOException {
         String line;
-        InputStream fis = new FileInputStream(fromfile);
-        InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
-        BufferedReader br = new BufferedReader(isr);
-
         SketchEngineFile file = null;
         SketchEngineSentence sent = null;
         SketchEngineFragment phrase = null;
@@ -90,23 +86,23 @@ public class SketchEngineVerticalReader {
         }
     }
     public void read(InputStreamReader isr) throws IOException {
-        return read(new BufferedReader(isr));
+        read(new BufferedReader(isr));
     }
 
     public void read(FileInputStream isr, String cs) throws IOException {
-        return read(new InputStreamReader(isr, Charset.forName(cs)));
+        read(new InputStreamReader(isr, Charset.forName(cs)));
     }
 
     public void read(FileInputStream isr) throws IOException {
-        return read(new InputStreamReader(isr, Charset.forName("UTF-8")));
+        read(new InputStreamReader(isr, Charset.forName("UTF-8")));
     }
 
     public void read(String s, String cs) throws IOException {
-        return read(new FileInputStream(s), cs);
+        read(new FileInputStream(s), cs);
     }
 
     public void read(String s) throws IOException {
-        return read(new FileInputStream(s), "UTF-8");
+        read(new FileInputStream(s), "UTF-8");
     }
 
     public SketchEngineCorpus getCorpus() {

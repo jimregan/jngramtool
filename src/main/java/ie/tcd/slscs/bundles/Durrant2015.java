@@ -63,6 +63,11 @@ public class Durrant2015 implements Classifier {
         setField(true, true);
     }
 
+    /**
+     * Select whether to use bundles for humanities, science/technology, or both
+     * @param humanities
+     * @param science_tech
+     */
     public void setField(boolean humanities, boolean science_tech) {
         ngramMap.clear();
         if(!humanities && !science_tech) {

@@ -36,7 +36,8 @@ import java.util.List;
  *
  * <pre>
  * @phdthesis{salazar2011lexical,
- * title={Lexical bundles in scientific English: A corpus-based study of native and non-native writing},
+ * title={Lexical bundles in scientific English: A corpus-based study of native and 
+ * non-native writing},
  * author={Salazar, Danica Joy Lorenzo},
  * year={2011},
  * school={Universitat de Barcelona}

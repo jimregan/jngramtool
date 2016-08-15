@@ -27,6 +27,11 @@ import java.util.List;
 import ie.tcd.slscs.bundles.Utils;
 import ie.tcd.slscs.bundles.SketchEngineFile;
 
+/**
+ * Simple container for the collection of files in a Sketch Engine exported corpus.
+ * @author jaoregan
+ *
+ */
 public class SketchEngineCorpus {
     List<SketchEngineFile> files;
 
