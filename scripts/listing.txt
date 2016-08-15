@@ -28,7 +28,7 @@ childhood/en/young2005.txt
 childhood/pl/10.1080@0966976930010102.txt	Karwowska-Struczyk	1993
 childhood/pl/10.1080@0966976930010204.txt	Karwowska-Struczyk	1993
 childhood/pl/10.1080@0966976980060208.txt	Karwowska-Struczyk	1998
-childhood/pl/Artistic and Verbal Creative Capacity of 6 year old Children and their Psychopedagogic and Social Conditioning.txt	Uszyńska	1998
+childhood/pl/Artistic and Verbal Creative Capacity of 6 year old Children and their Psychopedagogic and Social Conditioning.txt	Uszynska	1998
 childhood/pl/hajnicz1998.txt
 childhood/pl/kienig1998.txt
 childhood/pl/mroz2006.txt
@@ -140,8 +140,8 @@ psychology/pl/banka2016.txt
 psychology/pl/bartosz2014.txt
 psychology/pl/debek2015.txt
 psychology/pl/Ma%EAgorzata Gambin, Ma%EAgorzata S_wie_cicka-2015-13-1-2.txt	Gambin	2015
-psychology/pl/Marta Kochan-Wo_jcik-2012-10-2-5.txt	Kochan-Wójcik	2012
-psychology/pl/Nina Ogin_ska-Bulik, Magdalena Zadworna-Cies_lak-2015-13-2-1.txt	Ogińska-Bulik	2015
+psychology/pl/Marta Kochan-Wo_jcik-2012-10-2-5.txt	Kochan-Wojcik	2012
+psychology/pl/Nina Ogin_ska-Bulik, Magdalena Zadworna-Cies_lak-2015-13-2-1.txt	Oginska-Bulik	2015
 psychology/pl/slowinska2015.txt
 sociology/en/Allen-2011-The_British_journal_of_sociology.txt
 sociology/en/Atkinson-2013-The_British_Journal_of_Sociology.txt
@@ -156,7 +156,7 @@ sociology/pl/10.2307@24371560.txt	Kaminski	2013
 sociology/pl/10.2307@24371561.txt	Sulek	2013
 sociology/pl/10.2307@41275136.txt	Nowak	2010
 sociology/pl/10.2307@41275183.txt	Raciborkski	2011
-sociology/pl/10.2307@41478893.txt	Wróbel	2011
+sociology/pl/10.2307@41478893.txt	Wrobel	2011
 sociology/pl/10.2307@41478922.txt	Buchner	2012
 sociology/pl/Aging_in_Poland_at_the_Dawn_of_the_21st (1).txt	Mucha	2010
 sociology/pl/uex.txt	Nowosielski	2012
