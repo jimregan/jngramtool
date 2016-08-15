@@ -28,7 +28,7 @@ childhood/en/young2005.txt
 childhood/pl/10.1080@0966976930010102.txt	Karwowska-Struczyk	1993
 childhood/pl/10.1080@0966976930010204.txt	Karwowska-Struczyk	1993
 childhood/pl/10.1080@0966976980060208.txt	Karwowska-Struczyk	1998
-childhood/pl/Artistic and Verbal Creative Capacity of 6 year old Children and their Psychopedagogic and Social Conditioning.txt	Uszynska	1998
+childhood/pl/Artistic and Verbal Creative Capacity of 6 year old Children and their Psychopedagogic and Social Conditioning.txt	Uszyńska	1998
 childhood/pl/hajnicz1998.txt
 childhood/pl/kienig1998.txt
 childhood/pl/mroz2006.txt
