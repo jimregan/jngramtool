@@ -28,34 +28,35 @@ while(<LIST>) {
     push @files, $l[0];
 }
 
-for my $f (@files) {
-    open(my $file, "<", "$f.sent") or die "$!";
-    binmode $file, ":utf8";
-    while(<$file>) {
-        chomp;
-        s/\x{202F}/ /g;
-        s/\x{F0B7}/ /g;
-        s/\x{F0A7}/ /g;
-        s/\x{F02D}/ /g;
-        s/\x{00A0}/ /g;
-        s/\x{2002}/ /g;
-        s/\x{2003}/ /g;
+for my $b (@bundles) {
+    my $total = 0;
+    print OUT "\n\n<h3>$b</h3>\n";
 
-        s/‘/'/g;
-        s/’/'/g;
-        s/“/"/g;
-        s/”/"/g;
-        s/‟/"/g;
+    for my $f (@files) {
+        open(my $file, "<", "$f.sent") or die "$!";
+        binmode $file, ":utf8";
+        while(<$file>) {
+            chomp;
+            s/\x{202F}/ /g;
+            s/\x{F0B7}/ /g;
+            s/\x{F0A7}/ /g;
+            s/\x{F02D}/ /g;
+            s/\x{00A0}/ /g;
+            s/\x{2002}/ /g;
+            s/\x{2003}/ /g;
 
-        s/–/-/g;
-        s/—/-/g;
-        s/−/-/g;
-        s/—/-/g;
-        s/‒/-/g;
+            s/‘/'/g;
+            s/’/'/g;
+            s/“/"/g;
+            s/”/"/g;
+            s/‟/"/g;
 
-        for my $b (@bundles) {
-            my $total = 0;
-            print OUT "\n\n<h3>$b</h3>\n";
+            s/–/-/g;
+            s/—/-/g;
+            s/−/-/g;
+            s/—/-/g;
+            s/‒/-/g;
+
             if(/(^$b\b|\b$b\b|\b$b$)/i) {
                 my $m = $1;
                 my $s = $_;
@@ -63,7 +64,7 @@ for my $f (@files) {
                 print OUT "<p>$s</p>\n";
                 $total++;
             }
-            print OUT "<p>Total: $total</p>\n";
         }
     }
+    print OUT "<p>Total: $total</p>\n";
 }
