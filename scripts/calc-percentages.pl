@@ -31,6 +31,13 @@ my %cat_totals_nn = ();
 
 my %raw_cat = ();
 
+my %typemap_n = ();
+my %typemap_nn = ();
+my %typecnt_n = ();
+my %typecnt_nn = ();
+my %typeocc_n = ();
+my %typeocc_nn = ();
+
 open(NATIVE, "<", $ARGV[0]) or die "$!";
 open(NONNATIVE, "<", $ARGV[1]) or die "$!";
 open(OUT, ">", "bundle-comparison.tsv") or die "$!";
@@ -71,6 +78,17 @@ while(<NATIVE>) {
     } else {
         $narrow_n{$l[5]} += $l[1];
     }
+    $typemap_n{$l[0]} = $l[5];
+    if (!exists $typeocc_n{$l[5]}) {
+        $typeocc_n{$l[5]} = $l[1];
+    } else {
+        $typeocc_n{$l[5]} += $l[1];
+    }
+    if (!exists $typecnt_n{$l[5]}) {
+        $typecnt_n{$l[5]} = 1;
+    } else {
+        $typecnt_n{$l[5]}++;
+    }
 }
 
 while(<NONNATIVE>) {
@@ -95,30 +113,47 @@ while(<NONNATIVE>) {
     } else {
         $narrow_nn{$l[5]} += $l[1];
     }
+    $typemap_nn{$l[0]} = $l[5];
+    if (!exists $typeocc_nn{$l[5]}) {
+        $typeocc_nn{$l[5]} = $l[1];
+    } else {
+        $typeocc_nn{$l[5]} += $l[1];
+    }
+    if (!exists $typecnt_nn{$l[5]}) {
+        $typecnt_nn{$l[5]} = 1;
+    } else {
+        $typecnt_nn{$l[5]}++;
+    }
 }
 
 my %both = ();
 
 my @singleton = ();
 my %npct = ();
+my %ncpct = ();
 for my $nb (keys %nbundles) {
     my $pct = ($nbundles{$nb} * 1.0) / $token_total_n * 100;
+    my $cat = $typemap_n{$nb};
+    my $napct = ($nbundles{$nb} * 1.0) / $typeocc_n{$cat} * 100;
     $npct{$nb} = $pct;
+    $ncpct{$nb} = $napct;
     my $raw = $raw_cat{$nb};
     if(!exists $nnbundles{$nb}) {
-        push @singleton, "$nb\t$nbundles{$nb}\t$npct{$nb}\t-\t-\t-\t$raw_cat{$nb}\t$catmap{$raw}\n";
+        push @singleton, "$nb\t$nbundles{$nb}\t$npct{$nb}\t$napct\t-\t-\t-\t-\t$raw_cat{$nb}\t$catmap{$raw}\n";
     }
 }
-print OUT "BUNDLE\tNATIVE COUNT\tNATIVE %\tNON-NATIVE COUNT\tNON-NATIVE %\tDIFFERENCE %\tCATEGORY\tBROAD\n";
+print OUT "BUNDLE\tNATIVE COUNT\tNATIVE %\tCATEGORY %\tNON-NATIVE COUNT\tNON-NATIVE %\tCATEGORY %\tDIFFERENCE %\tCATEGORY\n";
 
 for my $b (keys %nnbundles) {
     my $pct = ($nnbundles{$b} * 1.0) / $token_total_nn * 100;
+    my $cat = $typemap_nn{$b};
+    my $napct = ($nnbundles{$b} * 1.0) / $typeocc_nn{$cat} * 100;
     my $raw = $raw_cat{$b};
     if(!exists $nbundles{$b}) {
-        push @singleton, "$b\t-\t-\t$nnbundles{$b}\t$pct\t-\t$raw_cat{$b}\t$catmap{$raw}\n";
+        push @singleton, "$b\t-\t-\t-\t$nnbundles{$b}\t$pct\t$napct\t$raw_cat{$b}\t$catmap{$raw}\n";
     } else {
         my $diff = $npct{$b} - $pct;
-        print OUT "$b\t$nbundles{$b}\t$npct{$b}\t$nnbundles{$b}\t$pct\t$diff\t$raw_cat{$b}\t$catmap{$raw}\n";
+        print OUT "$b\t$nbundles{$b}\t$npct{$b}\t$ncpct{$b}\t$nnbundles{$b}\t$pct\t$napct\t$diff\t$raw_cat{$b}\t$catmap{$raw}\n";
     }
 }
 
