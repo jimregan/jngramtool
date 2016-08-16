@@ -170,9 +170,9 @@ for my $s (@singleton) {
 
 print BOUT "BROAD\tNative Count\tPercent\tNon-native Count\tPercent\n";
 for my $m (keys %broad_n) {
-    my $npct = ($broad_n{$m} * 1.0) / $type_total_n * 100;
+    my $npct = ($broad_n{$m} * 1.0) / $token_total_n * 100;
     if(exists $broad_nn{$m}) {
-        my $nnpct = ($broad_nn{$m} * 1.0) / $type_total_nn * 100;
+        my $nnpct = ($broad_nn{$m} * 1.0) / $token_total_nn * 100;
         print BOUT "$m\t$broad_n{$m}\t$npct\t$broad_nn{$m}\t$nnpct\n";
     } else {
         print BOUT "$m\t$broad_n{$m}\t$npct\n";
