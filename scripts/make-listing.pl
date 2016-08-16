@@ -7,12 +7,9 @@ use utf8;
 binmode STDIN, ":utf8";
 binmode STDOUT, ":utf8";
 
-open(LIST, "<", "/tmp/listing") or die "$!";
-binmode LIST, ":utf8";
+my $tlang = 'en';
 
-my $tlang = 'pl';
-
-while(<LIST>) {
+while(<>) {
     my $file = '';
     my $name = '';
     my $year = '';
