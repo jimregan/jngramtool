@@ -38,6 +38,7 @@ public class AKCorpus {
     List<AKCorpusFile> file;
     String filename;
     private Map<String, AKEntry> bundles;
+    boolean verbose = true;
     AKCorpus() {
         file = new ArrayList<AKCorpusFile>();
         bundles = new HashMap<String, AKEntry>();
@@ -56,6 +57,9 @@ public class AKCorpus {
             String[] tmp = line.split("\\t");
             if(tmp.length == 3) {
                 file.add(new AKCorpusFile(tmp));
+                if(verbose) {
+                    System.err.println("Adding file: " + tmp[0] + " (" + tmp[1] + ", " + tmp[2] + ")");
+                }
             } else {
                 System.err.println("Error with line: " + line);
             }
