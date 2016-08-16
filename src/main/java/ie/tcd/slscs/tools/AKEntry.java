@@ -44,7 +44,7 @@ public class AKEntry {
         authors = new HashSet<String>();
     }
 
-    AKEntry(String b, int f, String l, String y, String fi, String a) {
+    AKEntry(String b, int f, String l, String y, String a, String fi) {
         this();
         bundle = b;
         freq = f;
@@ -59,7 +59,7 @@ public class AKEntry {
     AKEntry(String s) {
         this(s.split("\t"));
     }
-    public void update(int f, String l, String y, String fi, String a) {
+    public void update(int f, String l, String y, String a, String fi) {
         freq += f;
         languages.add(l);
         years.add(y);
