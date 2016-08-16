@@ -63,12 +63,8 @@ public class AKEntry {
         freq += f;
         languages.add(l);
         years.add(y);
-        for (String tmpf : fi.split(",")) {
-            fields.add(tmpf);
-        }
-        for (String tmpa : a.split(",")) {
-            authors.add(Utils.trim(a.toLowerCase()));
-        }
+        fields.add(fi);
+        authors.add(Utils.trim(a.toLowerCase()));
     }
     public String summariseAuthorField() {
         StringBuilder sb = new StringBuilder(bundle);
