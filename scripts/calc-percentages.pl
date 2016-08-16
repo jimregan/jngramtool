@@ -20,6 +20,7 @@ my %catmap = (
     "other expression" => "other",
     "passive verb + PP" => "VP",
     "!!adverbial clause" => "Adv",
+    "adverbial clause" => "Adv",
     "(V/A)+to type 9" => "VP",
 );
 
@@ -169,20 +170,22 @@ for my $s (@singleton) {
 
 print BOUT "BROAD\tNative Count\tPercent\tNon-native Count\tPercent\n";
 for my $m (keys %broad_n) {
-    my $npct = ($broad_n{$m} * 1.0) / $token_total_n * 100;
+    my $npct = ($broad_n{$m} * 1.0) / $type_total_n * 100;
     if(exists $broad_nn{$m}) {
-        my $nnpct = ($broad_nn{$m} * 1.0) / $token_total_nn * 100;
+        my $nnpct = ($broad_nn{$m} * 1.0) / $type_total_nn * 100;
         print BOUT "$m\t$broad_n{$m}\t$npct\t$broad_nn{$m}\t$nnpct\n";
     } else {
         print BOUT "$m\t$broad_n{$m}\t$npct\n";
     }
 }
 
-print NOUT "\tNATIVE COUNT\tNATIVE OCCURRENCES\tNON-NATIVE COUNT\tNON-NATIVE OCCURRENCES\n";
+print NOUT "\tNATIVE COUNT\tNATIVE %\tNON-NATIVE COUNT\tNON-NATIVE %\n";
 for my $nar (keys %typecnt_n) {
-    print NOUT "$nar\t$typecnt_n{$nar}\t$typeocc_n{$nar}\t";
+    my $perc = ($typecnt_n{$nar} * 1.0) / $type_total_n * 100;
+    print NOUT "$nar\t$typecnt_n{$nar}\t$perc\t";
     if(exists $typecnt_nn{$nar}) {
-        print NOUT "$typecnt_nn{$nar}\t$typeocc_nn{$nar}\n";
+        my $percnn = ($typecnt_nn{$nar} * 1.0) / $type_total_nn * 100;
+        print NOUT "$typecnt_nn{$nar}\t$percnn\n";
     } else {
         print NOUT "-\t-\n";
     }
@@ -190,6 +193,7 @@ for my $nar (keys %typecnt_n) {
 
 for my $nn (keys %typecnt_nn) {
     if (!exists $typecnt_n{$nn}) {
-        print NOUT "$nn\t-\t-\t$typecnt_nn{$nn}\t$typeocc_nn{$nn}\n";
+        my $percnn = ($typecnt_nn{$nn} * 1.0) / $type_total_nn * 100;
+        print NOUT "$nn\t-\t-\t$typecnt_nn{$nn}\t$percnn\n";
     }
 }
