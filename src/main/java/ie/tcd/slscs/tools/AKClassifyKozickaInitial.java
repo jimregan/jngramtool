@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import ie.tcd.slscs.ngramtool.NGram;
 import ie.tcd.slscs.bundles.Classifier;
-import ie.tcd.slscs.bundles.Kozicka2016Initial;
+import ie.tcd.slscs.bundles.Kozicka2016Second;
 import ie.tcd.slscs.bundles.Utils;
 
 /*
@@ -42,7 +42,7 @@ public class AKClassifyKozickaInitial {
             OutputStreamWriter osw = new OutputStreamWriter(fos, Charset.forName("UTF-8"));
             BufferedWriter bw = new BufferedWriter(osw);
 
-            Classifier cls = new Kozicka2016Initial();
+            Classifier cls = new Kozicka2016Second();
             while ((line = br.readLine()) != null) {
                 String[] tmp = line.split("\\t");
                 NGram ng = new NGram(tmp[0], Integer.parseInt(tmp[1]));
