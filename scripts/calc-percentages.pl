@@ -46,10 +46,14 @@ binmode NONNATIVE, ":utf8";
 binmode OUT, ":utf8";
 open(BOUT, ">", "broad-comparison.tsv") or die "$!";
 binmode BOUT, ":utf8";
+open(NOUT, ">", "narrow-comparison.tsv") or die "$!";
+binmode NOUT, ":utf8";
 
 
 my $token_total_n = 0;
 my $token_total_nn = 0;
+my $type_total_n = 0;
+my $type_total_nn = 0;
 
 my %broad_n = ();
 my %broad_nn = ();
@@ -61,6 +65,7 @@ while(<NATIVE>) {
     my @l = split/\t/;
     $nbundles{$l[0]} = $l[1];
     $token_total_n += $l[1];
+    $type_total_n++;
     $raw_cat{$l[0]} = $l[5];
     my $mapping = $catmap{$l[5]};
     if (!exists $cat_totals_n{$mapping}) {
@@ -96,6 +101,7 @@ while(<NONNATIVE>) {
     my @l = split/\t/;
     $nnbundles{$l[0]} = $l[1];
     $token_total_nn += $l[1];
+    $type_total_nn++;
     $raw_cat{$l[0]} = $l[5];
     my $mapping = $catmap{$l[5]};
     if (!exists $cat_totals_nn{$mapping}) {
@@ -161,12 +167,29 @@ for my $s (@singleton) {
     print OUT $s;
 }
 
+print BOUT "BROAD\tNative Count\tPercent\tNon-native Count\tPercent\n";
 for my $m (keys %broad_n) {
     my $npct = ($broad_n{$m} * 1.0) / $token_total_n * 100;
     if(exists $broad_nn{$m}) {
         my $nnpct = ($broad_nn{$m} * 1.0) / $token_total_nn * 100;
-        print BOUT "$m\t$broad_n{$m}\t$broad_nn{$m}\n";
+        print BOUT "$m\t$broad_n{$m}\t$npct\t$broad_nn{$m}\t$nnpct\n";
     } else {
-        print BOUT "$m\t$broad_n{$m}\n";
+        print BOUT "$m\t$broad_n{$m}\t$npct\n";
+    }
+}
+
+print NOUT "\tNATIVE COUNT\tNATIVE OCCURRENCES\tNON-NATIVE COUNT\tNON-NATIVE OCCURRENCES\n";
+for my $nar (keys %typecnt_n) {
+    print NOUT "$nar\t$typecnt_n{$nar}\t$typeocc_n{$nar}\t";
+    if(exists $typecnt_nn{$nar}) {
+        print NOUT "$typecnt_nn{$nar}\t$typeocc_nn{$nar}\n";
+    } else {
+        print NOUT "-\t-\n";
+    }
+}
+
+for my $nn (keys %typecnt_nn) {
+    if (!exists $typecnt_n{$nn}) {
+        print NOUT "$nn\t-\t-\t$typecnt_nn{$nn}\t$typeocc_nn{$nn}\n";
     }
 }
