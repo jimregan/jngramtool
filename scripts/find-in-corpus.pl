@@ -18,9 +18,12 @@ binmode OUT, ":utf8";
 my @files = ();
 my @bundles = ();
 
+my %exp = ();
+
 while(<BUNDLES>) {
     my @l = split/\t/;
     push @bundles, $l[0];
+    $exp{$l[0]} = $l[1];
 }
 
 while(<LIST>) {
@@ -51,12 +54,6 @@ for my $b (@bundles) {
             s/”/"/g;
             s/‟/"/g;
 
-            s/–/-/g;
-            s/—/-/g;
-            s/−/-/g;
-            s/—/-/g;
-            s/‒/-/g;
-
             if(/(^$b\b|\b$b\b|\b$b$)/i) {
                 my $m = $1;
                 my $s = $_;
@@ -66,5 +63,5 @@ for my $b (@bundles) {
             }
         }
     }
-    print OUT "<p>Total: $total</p>\n";
+    print OUT "<p>Total: $total (expected: $exp{$b})</p>\n";
 }
