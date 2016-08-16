@@ -63,31 +63,21 @@ public class AKEntry {
         freq += f;
         languages.add(l);
         years.add(y);
-        fields.add(fi);
-        authors.add(Utils.trim(a.toLowerCase()));
-    }
-    private int authors_size() {
-        int ret = 0;
-        for(String s : authors) {
-            ret++;
+        for (String tmpf : fi.split(",")) {
+            fields.add(tmpf);
         }
-        return ret;
-    }
-    private int fields_size() {
-        int ret = 0;
-        for(String s : fields) {
-            ret++;
+        for (String tmpa : a.split(",")) {
+            authors.add(Utils.trim(a.toLowerCase()));
         }
-        return ret;
     }
     public String summariseAuthorField() {
         StringBuilder sb = new StringBuilder(bundle);
         sb.append('\t');
         sb.append(freq);
         sb.append('\t');
-        sb.append(authors_size());
+        sb.append(authors.size());
         sb.append('\t');
-        sb.append(fields_size());
+        sb.append(fields.size());
         return sb.toString();
     }
     public String summariseAuthorFieldExt() {
