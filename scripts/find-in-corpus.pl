@@ -26,10 +26,20 @@ while(<BUNDLES>) {
     $exp{$l[0]} = $l[1];
 }
 
+my %det = ();
+
 while(<LIST>) {
+    chomp;
     my @l = split/\t/;
     push @files, $l[0];
+    $det{$l[0]} = $l[1] . ", " . $l[2];
 }
+
+print OUT "<html>\n";
+print OUT "<head>\n";
+print OUT "<meta http-equiv=\"Content-Type\" content=\"text/html;charset=UTF-8\">\n";
+print OUT "</head>\n";
+print OUT "<body>\n";
 
 for my $b (@bundles) {
     my $total = 0;
@@ -57,11 +67,14 @@ for my $b (@bundles) {
             if(/(^$b\b|\b$b\b|\b$b$)/i) {
                 my $m = $1;
                 my $s = $_;
-                $s =~ s!$m!<b>$m</b>!;
+                next if($s =~ /$b'/);
+                $total += () = $s =~ s!$m!<b>$m</b>!g;
                 print OUT "<p>$s</p>\n";
-                $total++;
+                print OUT "<p>(<i>$f</i>, $det{$f})</p>\n";
             }
         }
     }
     print OUT "<p>Total: $total (expected: $exp{$b})</p>\n";
 }
+print OUT "</body>\n";
+print OUT "</html>\n";

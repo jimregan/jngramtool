@@ -44,6 +44,11 @@ binmode BOUT, ":utf8";
 my $token_total_n = 0;
 my $token_total_nn = 0;
 
+my %broad_n = ();
+my %broad_nn = ();
+my %narrow_n = ();
+my %narrow_nn = ();
+
 while(<NATIVE>) {
     chomp;
     my @l = split/\t/;
@@ -55,6 +60,16 @@ while(<NATIVE>) {
         $cat_totals_n{$mapping} = $l[1];
     } else {
         $cat_totals_n{$mapping} += $l[1];
+    }
+    if (!exists $broad_n{$mapping}) {
+        $broad_n{$mapping} = $l[1];
+    } else {
+        $broad_n{$mapping} += $l[1];
+    }
+    if (!exists $narrow_n{$l[5]}) {
+        $narrow_n{$l[5]} = $l[1];
+    } else {
+        $narrow_n{$l[5]} += $l[1];
     }
 }
 
@@ -69,6 +84,16 @@ while(<NONNATIVE>) {
         $cat_totals_nn{$mapping} = $l[1];
     } else {
         $cat_totals_nn{$mapping} += $l[1];
+    }
+    if (!exists $broad_nn{$mapping}) {
+        $broad_nn{$mapping} = $l[1];
+    } else {
+        $broad_nn{$mapping} += $l[1];
+    }
+    if (!exists $narrow_nn{$l[5]}) {
+        $narrow_nn{$l[5]} = $l[1];
+    } else {
+        $narrow_nn{$l[5]} += $l[1];
     }
 }
 
@@ -99,4 +124,14 @@ for my $b (keys %nnbundles) {
 
 for my $s (@singleton) {
     print OUT $s;
+}
+
+for my $m (keys %broad_n) {
+    my $npct = ($broad_n{$m} * 1.0) / $token_total_n * 100;
+    if(exists $broad_nn{$m}) {
+        my $nnpct = ($broad_nn{$m} * 1.0) / $token_total_nn * 100;
+        print BOUT "$m\t$broad_n{$m}\t$broad_nn{$m}\n";
+    } else {
+        print BOUT "$m\t$broad_n{$m}\n";
+    }
 }
