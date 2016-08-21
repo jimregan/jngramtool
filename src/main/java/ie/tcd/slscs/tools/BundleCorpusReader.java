@@ -32,6 +32,30 @@ import java.util.regex.Matcher;
 import java.io.*;
 import java.nio.charset.Charset;
 
+/**
+ * This tool reads a tab-delimited text file that describes a corpus from which
+ * to extract lexical bundles.
+ * 
+ * <p>
+ * The text file should contain 5 entries:
+ * <ul>
+ * <li>filename</li>
+ * <li>author</li>
+ * <li>year</li>
+ * </ul>
+ * 
+ * <p>
+ * The filename is expected to be contained in a directory structure 
+ * organised by field, and by native language: e.g., 
+ * <pre>linguistics/fr/author1.txt</pre>
+ * 
+ * <p>
+ * The tool takes two options, the path to the directory that contains the 
+ * corpus, and the file that describes the corpus.
+ * 
+ * @author jaoregan
+ *
+ */
 public class BundleCorpusReader {
     public static void main(String[] args) {
         AKCorpus corp = new AKCorpus(args[1]);
