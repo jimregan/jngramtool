@@ -26,7 +26,7 @@ import java.util.Map;
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-public class AKBundleMerge {
+public class KFBundleMerge {
     public static void main(String[] args) {
         Map<String, AKEntry> entries = new HashMap<String, AKEntry>();
         try {

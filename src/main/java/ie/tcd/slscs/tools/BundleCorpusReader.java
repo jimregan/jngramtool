@@ -32,7 +32,7 @@ import java.util.regex.Matcher;
 import java.io.*;
 import java.nio.charset.Charset;
 
-public class AKReader {
+public class BundleCorpusReader {
     public static void main(String[] args) {
         AKCorpus corp = new AKCorpus(args[1]);
         String path = args[0];
