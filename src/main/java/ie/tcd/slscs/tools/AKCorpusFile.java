@@ -58,7 +58,7 @@ public class AKCorpusFile {
     }
     public void read(String path) throws IOException {
         String line;
-        String fullfile = path + filename + ".sent";
+        String fullfile = path + filename;
         InputStream fis = new FileInputStream(fullfile);
         InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
         BufferedReader br = new BufferedReader(isr);
