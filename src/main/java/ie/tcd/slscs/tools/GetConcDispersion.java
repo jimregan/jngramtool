@@ -44,6 +44,7 @@ public class GetConcDispersion {
                 bw.write(tmp);
                 bw.newLine();
             }
+            bw.close();
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

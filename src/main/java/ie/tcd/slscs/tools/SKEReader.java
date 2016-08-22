@@ -33,7 +33,6 @@ public class SKEReader {
         if(args.length > 1) {
             try {
                 reader.read(args[0]);
-                System.err.println("Reading");
                 Map<String, String> map = reader.getCorpus().getIDtoFilenameMap();
                 for(Map.Entry<String, String> e : map.entrySet()) {
                     System.err.println(e.getKey() + " " + e.getValue());

@@ -59,7 +59,7 @@ public class SketchEngineConcTextReader {
                 last = cur_bundle;
             }
         }
-        return "Bundle: " + last + "; texts: " + ids.size();
+        return "Bundle\t" + last + "\ttexts\t" + ids.size();
     }
     public String read(InputStreamReader isr) throws IOException {
         return read(new BufferedReader(isr));
