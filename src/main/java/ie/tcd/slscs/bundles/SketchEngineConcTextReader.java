@@ -44,8 +44,14 @@ public class SketchEngineConcTextReader {
             } else if(line.contains("\t")) {
                 String[] sa = line.split("\\t");
                 ids.add(sa[0]);
-                int bundle_start = sa[1].indexOf("< ", 1) + 2;
-                int bundle_end = sa[1].indexOf(" >", bundle_start);
+                int bundle_start = sa[1].indexOf('<', 1)+1;
+                if(sa[1].charAt(bundle_start) == ' ') {
+                    bundle_start += 1;
+                }
+                int bundle_end = sa[1].indexOf('>', bundle_start);
+                if(sa[1].charAt(bundle_end-1) == ' ') {
+                    bundle_end -= 1;
+                }
                 String cur_bundle = sa[1].substring(bundle_start, bundle_end);
                 if(!"".equals(last) && !last.toLowerCase().equals(cur_bundle.toLowerCase())) {
                     System.err.println("Error: current bundle (" + cur_bundle + ") does not match last (" + last + ")");
