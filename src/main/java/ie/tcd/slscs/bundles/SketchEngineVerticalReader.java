@@ -50,12 +50,15 @@ public class SketchEngineVerticalReader {
         while ((line = br.readLine()) != null) {
             if(line.startsWith("<file ")) {
                 int parent_beg = line.indexOf("parent_folder=\"", 5);
+                parent_beg += 14;
                 int parent_end = line.indexOf('"', parent_beg+1);
-                String parent = line.substring(parent_beg, parent_end);
+                String parent = line.substring(parent_beg+1, parent_end);
                 int id_beg = line.indexOf(" id=\"", 5);
+                id_beg += 5;
                 int id_end = line.indexOf('"', id_beg+1);
                 String id = line.substring(id_beg, id_end);
                 int filename_beg = line.indexOf(" filename=\"", 5);
+                filename_beg += 11;
                 int filename_end = line.indexOf('"', filename_beg+1);
                 String filename = line.substring(filename_beg, filename_end);
                 file = new SketchEngineFile(parent, id, filename);
@@ -82,6 +85,7 @@ public class SketchEngineVerticalReader {
             } else if(line.matches("\\t")) {
                 String[] tmp = line.split("\\t");
                 phrase.add(new SketchEngineToken(tmp[0], tmp[1], tmp[2]));
+System.err.println("Add: " + tmp[0] + " " + tmp[1] + " "  + tmp[2]);
             }
         }
     }
