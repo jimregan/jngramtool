@@ -63,7 +63,7 @@ public class BundleCorpusReader {
         try {
             corp.read();
             corp.getBundles(path);
-            corp.writeBundles(corp + "-bundles.txt");
+            corp.writeBundles(args[1] + "-bundles.txt");
         } catch (IOException io) {
             System.err.println("IOException: " + io.getMessage());
         } catch (Exception e) {
