@@ -31,7 +31,7 @@ import java.util.Set;
 
 public class SketchEngineConcTextReader {
 
-    public void read(BufferedReader br) throws IOException {
+    public String read(BufferedReader br) throws IOException {
         String line;
         SketchEngineFile file = null;
         SketchEngineSentence sent = null;
@@ -53,25 +53,25 @@ public class SketchEngineConcTextReader {
                 last = cur_bundle;
             }
         }
-        System.out.println("Bundle: " + last + "; texts: " + ids.size());
+        return "Bundle: " + last + "; texts: " + ids.size();
     }
-    public void read(InputStreamReader isr) throws IOException {
-        read(new BufferedReader(isr));
-    }
-
-    public void read(FileInputStream isr, String cs) throws IOException {
-        read(new InputStreamReader(isr, Charset.forName(cs)));
+    public String read(InputStreamReader isr) throws IOException {
+        return read(new BufferedReader(isr));
     }
 
-    public void read(FileInputStream isr) throws IOException {
-        read(new InputStreamReader(isr, Charset.forName("UTF-8")));
+    public String read(FileInputStream isr, String cs) throws IOException {
+        return read(new InputStreamReader(isr, Charset.forName(cs)));
     }
 
-    public void read(String s, String cs) throws IOException {
-        read(new FileInputStream(s), cs);
+    public String read(FileInputStream isr) throws IOException {
+        return read(new InputStreamReader(isr, Charset.forName("UTF-8")));
     }
 
-    public void read(String s) throws IOException {
-        read(new FileInputStream(s), "UTF-8");
+    public String read(String s, String cs) throws IOException {
+        return read(new FileInputStream(s), cs);
+    }
+
+    public String read(String s) throws IOException {
+        return read(new FileInputStream(s), "UTF-8");
     }
 }

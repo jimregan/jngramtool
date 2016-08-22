@@ -1,8 +1,14 @@
 package ie.tcd.slscs.tools;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.util.Map;
 
-import ie.tcd.slscs.bundles.SketchEngineVerticalReader;
+import ie.tcd.slscs.bundles.SketchEngineConcTextReader;
 
 /*
  * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>
@@ -26,21 +32,21 @@ import ie.tcd.slscs.bundles.SketchEngineVerticalReader;
  * DEALINGS IN THE SOFTWARE.
  */
 
-public class SKEReader {
+public class GetConcDispersion {
     public static void main(String[] args) {
-        System.err.println("Starting");
-        SketchEngineVerticalReader reader = new SketchEngineVerticalReader();
-        if(args.length > 1) {
-            try {
-                reader.read(args[0]);
-                System.err.println("Reading");
-                Map<String, String> map = reader.getCorpus().getIDtoFilenameMap();
-                for(Map.Entry<String, String> e : map.entrySet()) {
-                    System.err.println(e.getKey() + " " + e.getValue());
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        SketchEngineConcTextReader reader = new SketchEngineConcTextReader();
+        try {
+            OutputStream fos = new FileOutputStream("dispersion.txt");
+            OutputStreamWriter osw = new OutputStreamWriter(fos, Charset.forName("UTF-8"));
+            BufferedWriter bw = new BufferedWriter(osw);
+            for(String s : args) {
+                String tmp = reader.read(s);
+                bw.write(tmp);
+                bw.newLine();
             }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 }
