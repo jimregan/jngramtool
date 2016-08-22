@@ -99,4 +99,15 @@ public class AKCorpus {
             System.out.println(e.summariseAuthorFieldExt());
         }
     }
+
+    public void writeBundles(String filename) throws IOException {
+        OutputStream os = new FileOutputStream(filename);
+        OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
+        BufferedWriter bw = new BufferedWriter(osw);
+        for(String s : bundles.keySet()) {
+            AKEntry e = bundles.get(s);
+            bw.write(e.summariseAuthorFieldExt());
+            bw.newLine();
+        }
+    }
 }
