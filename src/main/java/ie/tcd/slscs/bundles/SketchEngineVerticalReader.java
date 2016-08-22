@@ -37,7 +37,7 @@ import ie.tcd.slscs.bundles.SketchEngineFragment;
 
 public class SketchEngineVerticalReader {
     SketchEngineCorpus corpus;
-    SketchEngineVerticalReader() {
+    public SketchEngineVerticalReader() {
         corpus = new SketchEngineCorpus();
     }
 
