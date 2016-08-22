@@ -23,7 +23,10 @@ package ie.tcd.slscs.bundles;
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import ie.tcd.slscs.bundles.Utils;
 import ie.tcd.slscs.bundles.SketchEngineFile;
 
@@ -40,5 +43,12 @@ public class SketchEngineCorpus {
     }
     public void add(SketchEngineFile f) {
         files.add(f);
+    }
+    public Map<String, String> getIDtoFilenameMap() {
+        HashMap<String, String> out = new HashMap<String, String>();
+        for (SketchEngineFile file : files) {
+            out.put(file.getId(), file.getFilename());
+        }
+        return out;
     }
 }

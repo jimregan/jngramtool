@@ -45,6 +45,12 @@ public class SketchEngineFile {
         id = fid;
     }
 
+    public String getId() {
+        return id;
+    }
+    public String getFilename() {
+        return filename;
+    }
     public void add(SketchEngineSentence t) {
         sentences.add(t);
     }
