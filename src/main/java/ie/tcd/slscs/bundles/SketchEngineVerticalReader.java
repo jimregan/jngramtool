@@ -85,7 +85,6 @@ public class SketchEngineVerticalReader {
             } else if(line.matches("\\t")) {
                 String[] tmp = line.split("\\t");
                 phrase.add(new SketchEngineToken(tmp[0], tmp[1], tmp[2]));
-System.err.println("Add: " + tmp[0] + " " + tmp[1] + " "  + tmp[2]);
             }
         }
     }
