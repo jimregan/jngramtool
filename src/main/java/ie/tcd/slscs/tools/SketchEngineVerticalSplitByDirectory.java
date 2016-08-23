@@ -39,56 +39,56 @@ import ie.tcd.slscs.bundles.Utils;
 
 public class SketchEngineVerticalSplitByDirectory {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String line;
 
-        InputStream fis = new FileInputStream(args[0]);
-        InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
-        BufferedReader br = new BufferedReader(isr);
-        OutputStream fos;
-        OutputStreamWriter osw;
-        BufferedWriter bw;
-        String lastpath = "";
-        while ((line = br.readLine()) != null) {
-            if(line.startsWith("<file ")) {
-                int parent_beg = line.indexOf("parent_folder=\"", 5);
-                parent_beg += 14;
-                int parent_end = line.indexOf('"', parent_beg+1);
-                String folder = line.substring(parent_beg+1, parent_end);
-                int filename_beg = line.indexOf(" filename=\"", 5);
-                filename_beg += 11;
-                int filename_end = line.indexOf('"', filename_beg+1);
-                String filename = line.substring(filename_beg, filename_end);
-                int dir_end = filename.lastIndexOf('/');
-                String directory = filename.substring(0, dir_end);
-                
-                if(directory != lastpath) {
-                    File dirs = new File(directory);
-                    if(!dirs.exists()) {
-                        dirs.mkdirs();
+        try {
+            InputStream fis = new FileInputStream(args[0]);
+            InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
+            BufferedReader br = new BufferedReader(isr);
+            OutputStream fos;
+            OutputStreamWriter osw;
+            BufferedWriter bw;
+            String lastpath = "";
+            while ((line = br.readLine()) != null) {
+                if(line.startsWith("<file ")) {
+                    int parent_beg = line.indexOf("parent_folder=\"", 5);
+                    parent_beg += 14;
+                    int parent_end = line.indexOf('"', parent_beg+1);
+                    String folder = line.substring(parent_beg+1, parent_end);
+                    int filename_beg = line.indexOf(" filename=\"", 5);
+                    filename_beg += 11;
+                    int filename_end = line.indexOf('"', filename_beg+1);
+                    String filename = line.substring(filename_beg, filename_end);
+                    int dir_end = filename.lastIndexOf('/');
+                    String directory = filename.substring(0, dir_end);
+                    
+                    if(directory != lastpath) {
+                        if(bw != null) {
+                            bw.flush();
+                            bw.close();
+                        }
+                        fos = new FileOutputStream(directory.replaceAll("/", "_") + "merged.vert");
+                        osw = new OutputStreamWriter(fos, Charset.forName("UTF-8"));
+                        bw = new BufferedWriter(osw);
+                        lastpath = directory;
                     }
-                    if(bw != null) {
-                        bw.flush();
-                        bw.close();
-                    }
-                    fos = new FileOutputStream(directory + "merged.vert");
-                    osw = new OutputStreamWriter(fos, Charset.forName("UTF-8"));
-                    bw = new BufferedWriter(osw);
-                    lastpath = directory;
-                }
-                bw.write(line);
-                bw.newLine();
-
-            } else {
-                if(bw != null) {
                     bw.write(line);
                     bw.newLine();
+
+                } else {
+                    if(bw != null) {
+                        bw.write(line);
+                        bw.newLine();
+                    }
                 }
             }
-        }
-        if(bw != null) {
-            bw.flush();
-            bw.close();
+            if(bw != null) {
+                bw.flush();
+                bw.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
