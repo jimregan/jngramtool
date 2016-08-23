@@ -12,24 +12,6 @@ import java.nio.charset.Charset;
 
 public class SketchEngineWordcount {
 
-    public static boolean counts(String s) {
-        if(!s.contains("\t")) {
-            return false;
-        }
-        if(!s.endsWith("-x")) {
-            return true;
-        }
-        if(s.startsWith("a\t") || s.startsWith("the\t")) {
-            return true;
-        }
-        if(s.endsWith("[number]-x")) {
-            return false;
-        }
-        if(Character.isAlphabetic(s.charAt(0))) {
-            return true;
-        }
-        return false;
-    }
     public static void main(String[] args) {
         String line;
 
