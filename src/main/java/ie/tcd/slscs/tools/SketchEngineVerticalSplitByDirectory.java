@@ -1,4 +1,4 @@
-package ie.tcd.slscs.bundles;
+package ie.tcd.slscs.tools;
 
 /*
  * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>
@@ -46,9 +46,9 @@ public class SketchEngineVerticalSplitByDirectory {
             InputStream fis = new FileInputStream(args[0]);
             InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
             BufferedReader br = new BufferedReader(isr);
-            OutputStream fos;
-            OutputStreamWriter osw;
-            BufferedWriter bw;
+            OutputStream fos = null;
+            OutputStreamWriter osw = null;
+            BufferedWriter bw = null;
             String lastpath = "";
             while ((line = br.readLine()) != null) {
                 if(line.startsWith("<file ")) {
@@ -63,7 +63,9 @@ public class SketchEngineVerticalSplitByDirectory {
                     int dir_end = filename.lastIndexOf('/');
                     String directory = filename.substring(0, dir_end);
                     
-                    if(directory != lastpath) {
+                    System.err.println("File: " + filename);
+                    if(!directory.equals(lastpath)) {
+                        System.err.println("DIR: " + directory);
                         if(bw != null) {
                             bw.flush();
                             bw.close();
