@@ -79,6 +79,7 @@ public class SketchEngineVerticalReader {
                 }
             } else if("<g/>".equals(line)) {
                 if(phrase != null) {
+                    phrase.setGroup(true);
                     sent.add(phrase);
                 }
                 phrase = new SketchEngineFragment();

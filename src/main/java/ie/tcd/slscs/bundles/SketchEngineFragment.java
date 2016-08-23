@@ -29,6 +29,7 @@ import ie.tcd.slscs.bundles.SketchEngineToken;
 
 public class SketchEngineFragment {
     private List<SketchEngineToken> tokens;
+    private boolean hasGroup = false;
 
     SketchEngineFragment() {
         tokens = new ArrayList<SketchEngineToken>();
@@ -39,9 +40,20 @@ public class SketchEngineFragment {
     }
     public String getText() {
         List<String> tmp = new ArrayList<String>();
+        String ret = "";
         for(SketchEngineToken t : tokens) {
             tmp.add(t.getSurface());
         }
-        return Utils.join(tmp, " ");
+        ret = Utils.join(tmp, "\n");
+        if(hasGroup) {
+            ret += "<g/>\n";
+        }
+        return ret;
+    }
+    public void setGroup(boolean b) {
+        hasGroup = b;
+    }
+    public boolean getGroup() {
+        return hasGroup;
     }
 }
