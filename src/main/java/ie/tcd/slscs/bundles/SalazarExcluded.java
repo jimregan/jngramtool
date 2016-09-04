@@ -981,7 +981,7 @@ public class SalazarExcluded implements Classifier {
         ngrams.add("is not the");
     }
     public String classify(NGram n) {
-        if(ngrams.contains(n.getText())) {
+        if(ngrams.contains(StringUtils.replaceAllNumbers(n.getText()))) {
             return "Excluded";
         } else {
             return "Unknown";
