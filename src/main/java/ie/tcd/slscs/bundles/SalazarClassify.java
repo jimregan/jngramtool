@@ -371,7 +371,7 @@ public class SalazarClassify implements Classifier {
         bundles.put("in order to", new SalazarClass("in order to", "order", "others", "objective", "", ""));
         bundles.put("in response to", new SalazarClass("in response to", "response", "other PP", "causative", "", ""));
         bundles.put("in some cases", new SalazarClass("in some cases", "case", "other PP", "framing", "", ""));
-        bundles.put("in support of this", new SalazarClass("in support of this", "support", "other PP", "inferential", "", ""));
+        //bundles.put("in support of this", new SalazarClass("in support of this", "support", "other PP", "inferential", "", ""));
         bundles.put("in support of this", new SalazarClass("in support of this", "support", "PP+of", "inferential", "", "in support of"));
         bundles.put("in support of", new SalazarClass("in support of", "support", "PP+of", "inferential", "", ""));
         bundles.put("in table 1", new SalazarClass("in table 1", "table", "other PP", "structuring", "", ""));
@@ -387,7 +387,6 @@ public class SalazarClassify implements Classifier {
         bundles.put("in the context of", new SalazarClass("in the context of", "context", "PP+of", "framing", "", ""));
         bundles.put("in the control", new SalazarClass("in the control", "control", "other PP", "procedure", "", ""));
         bundles.put("in the dark", new SalazarClass("in the dark", "dark", "other PP", "location", "", ""));
-        bundles.put("in the experimental section", new SalazarClass("in the experimental section", "section", "other PP", "structuring", "", ""));
         bundles.put("in the experimental section", new SalazarClass("in the experimental section", "section", "other PP", "structuring", "", "in the materials and methods section"));
         bundles.put("in the formation of", new SalazarClass("in the formation of", "formation", "PP+of", "procedure", "", ""));
         bundles.put("in the materials and methods section", new SalazarClass("in the materials and methods section", "section", "other PP", "structuring", "", ""));
@@ -475,8 +474,7 @@ public class SalazarClassify implements Classifier {
         bundles.put("is shown in table 1", new SalazarClass("is shown in table 1", "table", "passive+PP", "structuring", "", "shown in table"));
         bundles.put("is shown in table 2", new SalazarClass("is shown in table 2", "table", "passive+PP", "structuring", "", "shown in table"));
         bundles.put("is shown in table 3", new SalazarClass("is shown in table 3", "table", "passive+PP", "structuring", "", "shown in table"));
-        bundles.put("is shown in", new SalazarClass("is shown in", "figure", "passive+PP", "structuring", "", ""));
-        bundles.put("is shown in", new SalazarClass("is shown in", "table", "passive+PP", "structuring", "", ""));
+        bundles.put("is shown in", new SalazarClass("is shown in", "show", "passive+PP", "structuring", "", ""));
         bundles.put("is similar to that observed", new SalazarClass("is similar to that observed", "similar", "other AP", "comparative", "", "similar to that"));
         bundles.put("is similar to that seen", new SalazarClass("is similar to that seen", "similar", "other AP", "comparative", "", "similar to that"));
         bundles.put("is similar to", new SalazarClass("is similar to", "similar", "be+AP", "comparative", "", ""));
@@ -487,7 +485,6 @@ public class SalazarClassify implements Classifier {
         bundles.put("is summarized in table 3", new SalazarClass("is summarized in table 3", "table", "passive+PP", "structuring", "", "shown in table"));
         bundles.put("is supported by", new SalazarClass("is supported by", "support", "passive+PP", "inferential", "acknowledgment", ""));
         bundles.put("is supported in part by", new SalazarClass("is supported in part by", "support", "passive+PP", "inferential", "acknowledgment", "is supported by"));
-        bundles.put("is thought to be", new SalazarClass("is thought to be", "think", "V/A+to", "generalization", "inferential", ""));
         bundles.put("is thought to be", new SalazarClass("is thought to be", "think", "V/A+to", "generalization", "inferential", "is thought to"));
         bundles.put("is thought to", new SalazarClass("is thought to", "think", "V/A+to", "generalization", "inferential", ""));
         bundles.put("is unlikely to be", new SalazarClass("is unlikely to be", "unlikely", "V/A+to", "stance", "inferential", "is unlikely to"));
@@ -635,7 +632,6 @@ public class SalazarClassify implements Classifier {
         bundles.put("similar results were obtained", new SalazarClass("similar results were obtained", "result", "other passive", "comparative", "", ""));
         bundles.put("similar results were", new SalazarClass("similar results were", "result", "other NP", "comparative", "", ""));
         bundles.put("similar to that of", new SalazarClass("similar to that of", "similar", "other AP", "comparative", "", ""));
-        bundles.put("similar to that", new SalazarClass("similar to that", "observe", "other AP", "comparative", "", ""));
         bundles.put("similar to that", new SalazarClass("similar to that", "similar", "other AP", "comparative", "", ""));
         bundles.put("similar to those", new SalazarClass("similar to those", "similar", "other AP", "comparative", "", ""));
         bundles.put("small number of", new SalazarClass("small number of", "number", "NP+of", "quantification", "", ""));
@@ -707,7 +703,6 @@ public class SalazarClassify implements Classifier {
         bundles.put("the combination of", new SalazarClass("the combination of", "combination", "NP+of", "grouping", "", ""));
         bundles.put("the conclusion that", new SalazarClass("the conclusion that", "conclusion", "V/N+that cl", "inferential", "", ""));
         bundles.put("the context of", new SalazarClass("the context of", "context", "NP+of", "framing", "", ""));
-        bundles.put("the context of", new SalazarClass("the context of", "contrast", "NP+of", "framing", "", ""));
         bundles.put("the control of", new SalazarClass("the control of", "control", "NP+of", "procedure", "", ""));
         bundles.put("the course of", new SalazarClass("the course of", "course", "NP+of", "framing", "", ""));
         bundles.put("the degree of", new SalazarClass("the degree of", "degree", "NP+of", "description", "", ""));
@@ -715,7 +710,6 @@ public class SalazarClassify implements Classifier {
         bundles.put("the development of", new SalazarClass("the development of", "development", "NP+of", "procedure", "", ""));
         bundles.put("the difference between", new SalazarClass("the difference between", "difference", "NP+other", "comparative", "", ""));
         bundles.put("the difference in", new SalazarClass("the difference in", "difference", "NP+other", "comparative", "", ""));
-        bundles.put("the differences in", new SalazarClass("the differences in", "difference", "NP+other", "comparative", "", ""));
         bundles.put("the differences in", new SalazarClass("the differences in", "difference", "NP+other", "comparative", "", "the difference in"));
         bundles.put("the distribution of", new SalazarClass("the distribution of", "distribution", "NP+of", "grouping", "", ""));
         bundles.put("the effect of", new SalazarClass("the effect of", "effect", "NP+of", "causative", "", ""));
@@ -771,11 +765,10 @@ public class SalazarClassify implements Classifier {
         bundles.put("the position of", new SalazarClass("the position of", "position", "NP+of", "location", "", ""));
         bundles.put("the positions of", new SalazarClass("the positions of", "position", "NP+of", "location", "", ""));
         bundles.put("the possibility of", new SalazarClass("the possibility of", "exclude", "NP+of", "inferential", "engagement", ""));
-        bundles.put("the possibility that", new SalazarClass("the possibility that", "exclude", "V/N+that cl", "inferential", "engagement", ""));
+        //bundles.put("the possibility that", new SalazarClass("the possibility that", "exclude", "V/N+that cl", "inferential", "engagement", ""));
         bundles.put("the possibility that", new SalazarClass("the possibility that", "possibility", "V/N+that cl", "stance", "inferential", ""));
         bundles.put("the presence of", new SalazarClass("the presence of", "presence", "NP+of", "description", "", ""));
-        bundles.put("the present study", new SalazarClass("the present study", "present", "other NP", "structuring", "", ""));
-        bundles.put("the present study", new SalazarClass("the present study", "study", "other NP", "structuring", "", ""));
+        bundles.put("the present study", new SalazarClass("the present study", "present/study", "other NP", "structuring", "", ""));
         bundles.put("the present work", new SalazarClass("the present work", "work", "other NP", "structuring", "", ""));
         bundles.put("the process of", new SalazarClass("the process of", "process", "NP+of", "procedure", "", ""));
         bundles.put("the product of", new SalazarClass("the product of", "product", "NP+of", "causative", "", ""));
@@ -830,9 +823,7 @@ public class SalazarClassify implements Classifier {
         bundles.put("these data indicate that", new SalazarClass("these data indicate that", "indicate", "V/N+that cl", "inferential", "", ""));
         bundles.put("these data strongly suggest that", new SalazarClass("these data strongly suggest that", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
         bundles.put("these data strongly suggest", new SalazarClass("these data strongly suggest", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
-        bundles.put("these data suggest that", new SalazarClass("these data suggest that", "suggest", "V/N+that cl", "inferential", "stance", ""));
         bundles.put("these data suggest that", new SalazarClass("these data suggest that", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
-        bundles.put("these data suggest", new SalazarClass("these data suggest", "suggest", "other V fragment", "inferential", "stance", ""));
         bundles.put("these data suggest", new SalazarClass("these data suggest", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
         bundles.put("these experiments strongly suggest that", new SalazarClass("these experiments strongly suggest that", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
         bundles.put("these experiments strongly suggest", new SalazarClass("these experiments strongly suggest", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
@@ -850,10 +841,8 @@ public class SalazarClassify implements Classifier {
         bundles.put("these results indicate that", new SalazarClass("these results indicate that", "indicate", "V/N+that cl", "inferential", "", ""));
         bundles.put("these results strongly suggest that", new SalazarClass("these results strongly suggest that", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
         bundles.put("these results strongly suggest", new SalazarClass("these results strongly suggest", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
-        bundles.put("these results suggest that", new SalazarClass("these results suggest that", "suggest", "V/N+that cl", "inferential", "stance", ""));
         bundles.put("these results suggest that", new SalazarClass("these results suggest that", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
-        bundles.put("these results suggest", new SalazarClass("these results suggest", "suggest", "other V fragment", "inferential", "stance", ""));
-        bundles.put("these results suggest", new SalazarClass("these results suggest", "suggest", "V/N+that cl", "inferential", "stance", "results suggest that"));
+        bundles.put("these results suggest", new SalazarClass("these results suggest", "suggest", "other V fragment", "inferential", "stance", "results suggest that"));
         bundles.put("this implies that", new SalazarClass("this implies that", "imply", "V/N+that cl", "inferential", "", ""));
         bundles.put("this indicates that", new SalazarClass("this indicates that", "indicate", "V/N+that cl", "inferential", "", ""));
         bundles.put("this is consistent with", new SalazarClass("this is consistent with", "consistent", "others", "comparative", "citation", ""));
@@ -896,9 +885,7 @@ public class SalazarClassify implements Classifier {
         bundles.put("to test this", new SalazarClass("to test this", "test", "V/A+to", "objective", "", ""));
         bundles.put("to test whether", new SalazarClass("to test whether", "test", "V/A+to", "objective", "", ""));
         bundles.put("to that observed", new SalazarClass("to that observed", "observe", "other passive", "comparative", "", ""));
-        bundles.put("to that observed", new SalazarClass("to that observed", "similar", "other passive", "comparative", "", ""));
         bundles.put("to that seen", new SalazarClass("to that seen", "see", "other passive", "comparative", "", ""));
-        bundles.put("to that seen", new SalazarClass("to that seen", "similar", "other passive", "comparative", "", ""));
         bundles.put("to the left", new SalazarClass("to the left", "left", "other PP", "location", "", ""));
         bundles.put("to the right", new SalazarClass("to the right", "right", "other PP", "location", "", ""));
         bundles.put("to the same degree", new SalazarClass("to the same degree", "same", "other PP", "comparative", "", "to the same"));
@@ -923,7 +910,6 @@ public class SalazarClassify implements Classifier {
         bundles.put("was analyzed by", new SalazarClass("was analyzed by", "analyze", "passive+PP", "procedure", "", ""));
         bundles.put("was assessed by", new SalazarClass("was assessed by", "assess", "passive+PP", "procedure", "", ""));
         bundles.put("was associated with", new SalazarClass("was associated with", "associate", "passive+PP", "inferential", "stance", ""));
-        bundles.put("was based on", new SalazarClass("was based on", "base", "passive+PP", "framing", "", ""));
         bundles.put("was based on", new SalazarClass("was based on", "base", "passive+PP", "framing", "", "is based on"));
         bundles.put("was carried out", new SalazarClass("was carried out", "carry out", "other passive", "procedure", "", ""));
         bundles.put("was confirmed by", new SalazarClass("was confirmed by", "confirm", "passive+PP", "procedure", "", ""));
@@ -954,10 +940,8 @@ public class SalazarClassify implements Classifier {
         bundles.put("was observed in", new SalazarClass("was observed in", "observe", "passive+PP", "inferential", "", ""));
         bundles.put("was obtained by", new SalazarClass("was obtained by", "obtain", "passive+PP", "procedure", "", ""));
         bundles.put("was obtained from", new SalazarClass("was obtained from", "obtain", "passive+PP", "procedure", "", ""));
-        bundles.put("was performed as described", new SalazarClass("was performed as described", "describe", "passive+PP", "citation", "", ""));
-        bundles.put("was performed as described", new SalazarClass("was performed as described", "describe", "passive+PP", "structuring", "", ""));
-        bundles.put("was performed as", new SalazarClass("was performed as", "describe", "passive+PP", "citation", "", ""));
-        bundles.put("was performed as", new SalazarClass("was performed as", "describe", "passive+PP", "structuring", "", ""));
+        bundles.put("was performed as described", new SalazarClass("was performed as described", "describe", "passive+PP", "citation/structuring", "", ""));
+        bundles.put("was performed as", new SalazarClass("was performed as", "describe", "passive+PP", "citation/structuring", "", ""));
         bundles.put("was performed by", new SalazarClass("was performed by", "perform", "passive+PP", "procedure", "", ""));
         bundles.put("was performed in", new SalazarClass("was performed in", "perform", "passive+PP", "procedure", "", ""));
         bundles.put("was performed on", new SalazarClass("was performed on", "perform", "passive+PP", "procedure", "", ""));
@@ -974,7 +958,6 @@ public class SalazarClassify implements Classifier {
         bundles.put("was shown to", new SalazarClass("was shown to", "show", "V/A+to", "citation", "inferential", ""));
         bundles.put("was similar to", new SalazarClass("was similar to", "similar", "be+AP", "comparative", "", ""));
         bundles.put("was subjected to", new SalazarClass("was subjected to", "subject", "passive+PP", "procedure", "", ""));
-        bundles.put("was supported by", new SalazarClass("was supported by", "support", "passive+PP", "inferential", "acknowledgment", ""));
         bundles.put("was supported by", new SalazarClass("was supported by", "support", "passive+PP", "inferential", "acknowledgment", "is supported by"));
         bundles.put("was supported in part by", new SalazarClass("was supported in part by", "support", "passive+PP", "inferential", "acknowledgment", "is supported by"));
         bundles.put("was unable to", new SalazarClass("was unable to", "unable", "V/A+to", "description", "", ""));
@@ -996,7 +979,6 @@ public class SalazarClassify implements Classifier {
         bundles.put("we have identified", new SalazarClass("we have identified", "identify", "we+V", "inferential", "stance", ""));
         bundles.put("we have shown previously that", new SalazarClass("we have shown previously that", "show", "we+V", "inferential", "stance", "we show that"));
         bundles.put("we have shown previously", new SalazarClass("we have shown previously", "show", "we+V", "inferential", "stance", "we show that"));
-        bundles.put("we have shown that", new SalazarClass("we have shown that", "show", "we+V", "inferential", "stance", ""));
         bundles.put("we have shown that", new SalazarClass("we have shown that", "show", "we+V", "inferential", "stance", "we show that"));
         bundles.put("we have shown", new SalazarClass("we have shown", "show", "we+V", "inferential", "stance", ""));
         bundles.put("we have used", new SalazarClass("we have used", "use", "we+V", "procedure", "", ""));
@@ -1046,15 +1028,12 @@ public class SalazarClassify implements Classifier {
         bundles.put("were obtained from", new SalazarClass("were obtained from", "obtain", "passive+PP", "procedure", "", ""));
         bundles.put("were obtained in", new SalazarClass("were obtained in", "result", "passive+PP", "comparative", "", ""));
         bundles.put("were obtained with", new SalazarClass("were obtained with", "result", "passive+PP", "comparative", "", ""));
-        bundles.put("were performed as described", new SalazarClass("were performed as described", "describe", "passive+PP", "citation", "", ""));
-        bundles.put("were performed as described", new SalazarClass("were performed as described", "describe", "passive+PP", "structuring", "", ""));
-        bundles.put("were performed as", new SalazarClass("were performed as", "describe", "passive+PP", "citation", "", ""));
-        bundles.put("were performed as", new SalazarClass("were performed as", "describe", "passive+PP", "structuring", "", ""));
+        bundles.put("were performed as described", new SalazarClass("were performed as described", "describe", "passive+PP", "citation/structuring", "", ""));
+        bundles.put("were performed as", new SalazarClass("were performed as", "describe", "passive+PP", "citation/structuring", "", ""));
         bundles.put("were performed in", new SalazarClass("were performed in", "perform", "passive+PP", "procedure", "", ""));
         bundles.put("were performed using", new SalazarClass("were performed using", "perform", "passive+PP", "procedure", "", ""));
         bundles.put("were performed with", new SalazarClass("were performed with", "perform", "passive+PP", "procedure", "", ""));
-        bundles.put("were prepared as described", new SalazarClass("were prepared as described", "describe", "passive+PP", "citation", "", ""));
-        bundles.put("were prepared as described", new SalazarClass("were prepared as described", "describe", "passive+PP", "structuring", "", ""));
+        bundles.put("were prepared as described", new SalazarClass("were prepared as described", "describe", "passive+PP", "citation/structuring", "", ""));
         bundles.put("were prepared as", new SalazarClass("were prepared as", "prepare", "passive+PP", "procedure", "", ""));
         bundles.put("were prepared by", new SalazarClass("were prepared by", "prepare", "passive+PP", "procedure", "", ""));
         bundles.put("were prepared from", new SalazarClass("were prepared from", "prepare", "passive+PP", "procedure", "", ""));
