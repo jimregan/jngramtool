@@ -168,18 +168,19 @@ public class MainInterface {
 		textField_1.setColumns(10);
 		
 		Choice choice = new Choice();
-		choice.setBounds(342, 0, 82, 20);
+		choice.setBounds(315, 3, 95, 20);
+		choice.setFont(kfFont);
 		choice.addItem("Don't show");
 		choice.addItem("Show n-grams");
 		frame.getContentPane().add(choice);
 		
 		JLabel lblNewLabel_1 = new JLabel("Chars to sort");
 		lblNewLabel_1.setFont(kfFont);
-		lblNewLabel_1.setBounds(424, 3, 46, 14);
+		lblNewLabel_1.setBounds(415, 2, 65, 20);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		Choice choice_1 = new Choice();
-		choice_1.setBounds(476, 0, 28, 20);
+		choice_1.setBounds(485, 3, 50, 20);
 		choice_1.setFont(kfFont);
 		choice_1.addItem("128");
 		choice_1.addItem("256");
@@ -187,7 +188,12 @@ public class MainInterface {
 		choice_1.addItem("1024");
 		choice_1.addItem("2048");
 		frame.getContentPane().add(choice_1);
-		
+
+		JLabel lblAdvOpt = new JLabel("Advanced Options");
+		lblAdvOpt.setFont(kfFont);
+		lblAdvOpt.setBounds(540, 2, 95, 20);
+		frame.getContentPane().add(lblAdvOpt);
+
 		Choice choice_2 = new Choice();
 		choice_2.setBounds(5, 30, 115, 20);
 		choice_2.setFont(kfFont);
@@ -196,7 +202,7 @@ public class MainInterface {
 		frame.getContentPane().add(choice_2);
 		
 		Choice choice_3 = new Choice();
-		choice_3.setBounds(125, 26, 124, 20);
+		choice_3.setBounds(125, 30, 145, 20);
 		choice_3.setFont(kfFont);
 		choice_3.addItem("Observe TreatAsToken");
 		choice_3.addItem("Punct. as in KeepChars");
@@ -206,19 +212,22 @@ public class MainInterface {
 		frame.getContentPane().add(choice_3);
 		
 		Choice choice_4 = new Choice();
-		choice_4.setBounds(252, 26, 94, 20);
+		choice_4.setFont(kfFont);
+		choice_4.setBounds(275, 30, 115, 20);
 		choice_4.addItem("Alphabetical Sort");
 		choice_4.addItem("Frequency Sort");
 		frame.getContentPane().add(choice_4);
 		
 		Choice choice_5 = new Choice();
-		choice_5.setBounds(424, 26, 80, 20);
+		choice_5.setFont(kfFont);
+		choice_5.setBounds(395, 30, 130, 20);
 		choice_5.addItem("Retain numerals");
 		choice_5.addItem("Change numerals to #");
 		choice_5.addItem("Make all numbers #");
 		frame.getContentPane().add(choice_5);
 		
 		JButton btnNewButton = new JButton("Add Source Files");
+		btnNewButton.setFont(kfFont);
 		btnNewButton.setBounds(10, 94, 82, 75);
 		frame.getContentPane().add(btnNewButton);
 		
