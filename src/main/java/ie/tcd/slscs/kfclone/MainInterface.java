@@ -1,6 +1,6 @@
 package ie.tcd.slscs.kfclone;
 
-import java.awt.EventQueue;
+import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
@@ -13,7 +13,6 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
-import java.awt.Choice;
 import javax.swing.JButton;
 
 public class MainInterface {
@@ -183,7 +182,8 @@ public class MainInterface {
 		frame.getContentPane().add(choice_1);
 		
 		Choice choice_2 = new Choice();
-		choice_2.setBounds(0, 26, 119, 20);
+		choice_2.setBounds(5, 30, 115, 20);
+		choice_2.setFont(new Font("Arial", Font.PLAIN, 11));
 		choice_2.addItem("not case-sensitive");
 		choice_2.addItem("Case sensitive");
 		frame.getContentPane().add(choice_2);
