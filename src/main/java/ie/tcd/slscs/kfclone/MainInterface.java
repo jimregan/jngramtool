@@ -20,7 +20,7 @@ public class MainInterface {
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
-
+	private Font kfFont = new Font("Arial", Font.PLAIN, 11);
 	/**
 	 * Launch the application.
 	 */
@@ -51,8 +51,7 @@ public class MainInterface {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 673, 485);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Font kfFont = new Font("Arial", Font.PLAIN, 11);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
@@ -145,24 +144,24 @@ public class MainInterface {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("nGrams (e.g. 1-3, 5, 10)");
-		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblNewLabel.setFont(kfFont);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(2, 2, 120, 25);
 		frame.getContentPane().add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setFont(new Font("Arial", Font.PLAIN, 11));
+		textField.setFont(kfFont);
 		textField.setBounds(130, 7, 110, 15);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblFloor = new JLabel("Floor");
-		lblFloor.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblFloor.setFont(kfFont);
 		lblFloor.setBounds(245, 2, 46, 25);
 		frame.getContentPane().add(lblFloor);
 		
 		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Arial", Font.PLAIN, 11));
+		textField_1.setFont(kfFont);
 		textField_1.setBounds(275, 7, 30, 15);
 		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(textField_1);
@@ -175,13 +174,13 @@ public class MainInterface {
 		frame.getContentPane().add(choice);
 		
 		JLabel lblNewLabel_1 = new JLabel("Chars to sort");
-		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblNewLabel_1.setFont(kfFont);
 		lblNewLabel_1.setBounds(424, 3, 46, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		Choice choice_1 = new Choice();
 		choice_1.setBounds(476, 0, 28, 20);
-		choice_1.setFont(new Font("Arial", Font.PLAIN, 11));
+		choice_1.setFont(kfFont);
 		choice_1.addItem("128");
 		choice_1.addItem("256");
 		choice_1.addItem("512");
@@ -191,14 +190,14 @@ public class MainInterface {
 		
 		Choice choice_2 = new Choice();
 		choice_2.setBounds(5, 30, 115, 20);
-		choice_2.setFont(new Font("Arial", Font.PLAIN, 11));
+		choice_2.setFont(kfFont);
 		choice_2.addItem("not case-sensitive");
 		choice_2.addItem("Case sensitive");
 		frame.getContentPane().add(choice_2);
 		
 		Choice choice_3 = new Choice();
 		choice_3.setBounds(125, 26, 124, 20);
-		choice_3.setFont(new Font("Arial", Font.PLAIN, 11));
+		choice_3.setFont(kfFont);
 		choice_3.addItem("Observe TreatAsToken");
 		choice_3.addItem("Punct. as in KeepChars");
 		choice_3.addItem("Replace . , - ' with space");
