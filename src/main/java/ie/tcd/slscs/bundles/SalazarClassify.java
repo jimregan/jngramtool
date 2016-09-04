@@ -208,7 +208,7 @@ public class SalazarClassify implements Classifier {
         bundles.put("at the same rate", new SalazarClass("at the same rate", "same", "other PP", "comparative", "", "at the same"));
         bundles.put("at the same time", new SalazarClass("at the same time", "same", "other PP", "comparative", "", "at the same"));
         // FIXME
-        bundles.put("at the same time", new SalazarClass("at the same time", "time", "other PP", "framing", "additive", ""));
+        //bundles.put("at the same time", new SalazarClass("at the same time", "time", "other PP", "framing", "additive", ""));
         bundles.put("at the same", new SalazarClass("at the same", "same", "other PP", "comparative", "", ""));
         bundles.put("at the site", new SalazarClass("at the site", "site", "other PP", "location", "", ""));
         bundles.put("at the surface of", new SalazarClass("at the surface of", "surface", "PP+of", "location", "", ""));
@@ -371,7 +371,6 @@ public class SalazarClassify implements Classifier {
         bundles.put("in order to", new SalazarClass("in order to", "order", "others", "objective", "", ""));
         bundles.put("in response to", new SalazarClass("in response to", "response", "other PP", "causative", "", ""));
         bundles.put("in some cases", new SalazarClass("in some cases", "case", "other PP", "framing", "", ""));
-        //bundles.put("in support of this", new SalazarClass("in support of this", "support", "other PP", "inferential", "", ""));
         bundles.put("in support of this", new SalazarClass("in support of this", "support", "PP+of", "inferential", "", "in support of"));
         bundles.put("in support of", new SalazarClass("in support of", "support", "PP+of", "inferential", "", ""));
         bundles.put("in table 1", new SalazarClass("in table 1", "table", "other PP", "structuring", "", ""));
