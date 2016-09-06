@@ -44,13 +44,6 @@ public class NCIReader {
         final SimpleXmlSerializer serialiser = new SimpleXmlSerializer(props);
         serialiser.setCreatingHtmlDom(false);
         TagNode tagnode = cleaner.clean(new File(filename), "UTF-16LE");
-        Object[] titlenodes = tagnode.evaluateXPath("//tei.2/teiheader/filedesc/titlestmt/title");
-        if(titlenodes != null && titlenodes.length > 1) {
-            TagNode first = (TagNode)titlenodes[0];
-            System.err.println(first.getText());
-        } else {
-            System.err.println("nope");
-        }
         serialiser.writeToFile(tagnode, filename + ".xml", "utf-8");
     }
 }
