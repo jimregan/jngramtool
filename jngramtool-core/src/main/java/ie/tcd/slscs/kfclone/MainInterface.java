@@ -140,7 +140,7 @@ public class MainInterface {
 		        if(selected) {
 		            frame.setBounds(100, 100, 690, 490);
 		        } else {
-		            frame.setBounds(100, 100, 550, 490);
+		            frame.setBounds(100, 100, 540, 490);
 		        }
 		    }
 		});
