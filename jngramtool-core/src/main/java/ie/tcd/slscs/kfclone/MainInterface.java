@@ -8,11 +8,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 
 public class MainInterface {
@@ -50,6 +53,7 @@ public class MainInterface {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 690, 490);
+		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JMenuBar menuBar = new JMenuBar();
@@ -129,6 +133,17 @@ public class MainInterface {
 		
 		JCheckBoxMenuItem chckbxmntmNewCheckItem = new JCheckBoxMenuItem("Advanced");
 		chckbxmntmNewCheckItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.ALT_MASK));
+		chckbxmntmNewCheckItem.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent evt) {
+		        AbstractButton absbut = (AbstractButton) evt.getSource();
+		        boolean selected = absbut.getModel().isSelected();
+		        if(selected) {
+		            frame.setBounds(100, 100, 690, 490);
+		        } else {
+		            frame.setBounds(100, 100, 550, 490);
+		        }
+		    }
+		});
 		mnOptions.add(chckbxmntmNewCheckItem);
 		
 		JMenu mnHelp = new JMenu("Help");
@@ -231,15 +246,16 @@ public class MainInterface {
         lblNewLabel_2.setBounds(2, 70, 70, 20);
         frame.getContentPane().add(lblNewLabel_2);
         
-		JButton btnNewButton = new JButton("<html><center>Add<br><u>S</u>ource&nbsp;Files</center></html>");
+		JButton btnNewButton = new JButton("<html><center>Add<br><u>S</u>ource&nbsp;files</center></html>");
 		btnNewButton.setMargin(new Insets(0,0,0,0));
 		btnNewButton.setFont(kfFont);
 		btnNewButton.setBounds(2, 95, 75, 35);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("<html><center><u>R</u>eplace<br>Source&nbsp;files</center></html>");
+        btnNewButton_1.setMargin(new Insets(0,0,0,0));
 		btnNewButton_1.setFont(kfFont);
-		btnNewButton_1.setBounds(0, 180, 82, 75);
+		btnNewButton_1.setBounds(2, 135, 75, 35);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		Choice choice_6 = new Choice();
