@@ -30,5 +30,10 @@
             <artifactId>args4j</artifactId>
             <version>2.33</version>
         </dependency>
+        <dependency>  
+            <groupId>org.ini4j</groupId>  
+            <artifactId>ini4j</artifactId>  
+            <version>0.5.4</version>  
+        </dependency>  
     </dependencies>
 </project>
