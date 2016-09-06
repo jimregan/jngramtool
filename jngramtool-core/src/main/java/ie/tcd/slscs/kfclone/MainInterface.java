@@ -49,7 +49,7 @@ public class MainInterface {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 673, 485);
+		frame.setBounds(100, 100, 690, 490);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JMenuBar menuBar = new JMenuBar();
@@ -226,21 +226,25 @@ public class MainInterface {
 		choice_5.addItem("Make all numbers #");
 		frame.getContentPane().add(choice_5);
 		
-		JButton btnNewButton = new JButton("Add Source Files");
+        JLabel lblNewLabel_2 = new JLabel("Source files");
+        lblNewLabel_2.setFont(kfFont);
+        lblNewLabel_2.setBounds(2, 70, 70, 20);
+        frame.getContentPane().add(lblNewLabel_2);
+        
+		JButton btnNewButton = new JButton("<html><center>Add<br><u>S</u>ource&nbsp;Files</center></html>");
+		btnNewButton.setMargin(new Insets(0,0,0,0));
 		btnNewButton.setFont(kfFont);
-		btnNewButton.setBounds(10, 94, 82, 75);
+		btnNewButton.setBounds(2, 95, 75, 35);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setFont(kfFont);
 		btnNewButton_1.setBounds(0, 180, 82, 75);
 		frame.getContentPane().add(btnNewButton_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Source files");
-		lblNewLabel_2.setBounds(10, 69, 46, 14);
-		frame.getContentPane().add(lblNewLabel_2);
 		
 		Choice choice_6 = new Choice();
 		choice_6.setBounds(0, 277, 28, 20);
 		frame.getContentPane().add(choice_6);
 	}
+	
 }
