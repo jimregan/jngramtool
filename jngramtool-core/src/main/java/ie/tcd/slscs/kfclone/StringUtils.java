@@ -271,14 +271,4 @@ public class StringUtils {
             }
         });
     }
-
-    private class KFComparator implements Comparator<String> {
-        private final String ORDER;
-        KFComparator(String order) {
-            ORDER = order;
-        }
-        public int compare(String s1, String s2) {
-            return ORDER.indexOf(s1) - ORDER.indexOf(s2);
-        }
-    }
 }
