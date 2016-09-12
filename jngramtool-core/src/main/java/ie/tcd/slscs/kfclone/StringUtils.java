@@ -231,8 +231,21 @@ public class StringUtils {
     public static void kfsort(String[] a, String sort) {
         final String sorter = sort;
         Arrays.sort(a, new Comparator<String>() {
-            public int compare(String o1, String o2) {
-                return sorter.indexOf(o1) - sorter.indexOf(o2);
+            public int compare(String s1, String s2) {
+                if(s1.equals(s2)) {
+                    return 0;
+                }
+                int p1 = 0;
+                int p2 = 0;
+                int len = Math.min(s1.length(), s2.length());
+                for(int i = 0; i < len && p1 == p2; i++) {
+                    p1 = sorter.indexOf(s1.charAt(i));
+                    p2 = sorter.indexOf(s2.charAt(i));
+                }
+                if(p1 == p2 && s1.length() != s2.length()) {
+                    return s1.length() - s2.length();
+                }
+                return p1 - p2;
             }
         });
     }
