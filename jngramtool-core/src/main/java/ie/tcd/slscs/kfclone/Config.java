@@ -48,6 +48,13 @@ public class Config {
             setCaseSensitive(false);
         }
     }
+    public void setCaseSensitive(int i) {
+        if(i == 1) {
+            setCaseSensitive(true);
+        } else {
+            setCaseSensitive(false);
+        }
+    }
 
     private boolean replace_numbers = true;
     private boolean replace_all_numbers = true;
@@ -68,6 +75,18 @@ public class Config {
             setReplaceNumbers(true);
             setReplaceAllNumbers(true);
         } else if("1".equals(s)) {
+            setReplaceNumbers(true);
+            setReplaceAllNumbers(false);
+        } else {
+            setReplaceNumbers(false);
+            setReplaceAllNumbers(false);
+        }
+    }
+    public void setReplaceNumbers(int i) {
+        if(i == 2) {
+            setReplaceNumbers(true);
+            setReplaceAllNumbers(true);
+        } else if(i == 1) {
             setReplaceNumbers(true);
             setReplaceAllNumbers(false);
         } else {
