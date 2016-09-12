@@ -133,17 +133,18 @@ public class MainInterface {
 		
 		JCheckBoxMenuItem chckbxmntmNewCheckItem = new JCheckBoxMenuItem("Advanced");
 		chckbxmntmNewCheckItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.ALT_MASK));
-		chckbxmntmNewCheckItem.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent evt) {
-		        AbstractButton absbut = (AbstractButton) evt.getSource();
-		        boolean selected = absbut.getModel().isSelected();
-		        if(selected) {
-		            frame.setBounds(100, 100, 690, 490);
-		        } else {
-		            frame.setBounds(100, 100, 545, 490);
-		        }
-		    }
-		});
+		final ActionListener l = new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				AbstractButton absbut = (AbstractButton) evt.getSource();
+				boolean selected = absbut.getModel().isSelected();
+				if (selected) {
+					frame.setBounds(100, 100, 690, 490);
+				} else {
+					frame.setBounds(100, 100, 545, 490);
+				}
+			}
+		};
+		chckbxmntmNewCheckItem.addActionListener(l);
 		mnOptions.add(chckbxmntmNewCheckItem);
 		
 		JMenu mnHelp = new JMenu("Help");
