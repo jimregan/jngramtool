@@ -48,17 +48,11 @@ public class IniFile {
         ini.load(new FileReader(file));
         customise = ini.get("Customize");
         runtime = ini.get("Runtime");
-        String curopt;
-        curopt = customise.get("KeepChars");
-        //FIXME
-        curopt = customise.get("lcMapchars");
-        //FIXME
-        curopt = customise.get("csMapChars");
-        //FIXME
-        curopt = customise.get("TreatAsToken");
-        cfg.setKeepAsToken(curopt);
-        curopt = customise.get("sortorder");
-        //FIXME
+        cfg.setKeepChars(customise.get("KeepChars"));
+        cfg.setLcMapChars(customise.get("lcMapchars"));
+        cfg.setCsMapChars(customise.get("csMapChars"));
+        cfg.setKeepAsToken(customise.get("TreatAsToken"));
+        cfg.setSortOrder(customise.get("sortorder"));
     }
     public void fromFile(String filename) throws Exception {
         fromFile(new File(filename));

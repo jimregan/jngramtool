@@ -95,4 +95,82 @@ public class Config {
     public boolean isTokenChar(char c) {
         return tokenchars.contains(c);
     }
+
+    public String getKeepChars() {
+        return keepChars;
+    }
+
+    public void setKeepChars(String keepChars) {
+        if(keepChars != null && !"".equals(keepChars)) {
+            this.keepChars = keepChars;
+        }
+    }
+
+    private String keepChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØŒÙÚÛÜÝŸÞßªàáâãäåæçèéêëìíîïðñºòóôõöøœùúûüýþÿŠŽšž©";
+
+    public String getLcMapChars() {
+        return lcMapChars;
+    }
+    public void setLcMapChars(String lcMapChars) {
+        if(lcMapChars != null && !"".equals(lcMapChars)) {
+            this.lcMapChars = lcMapChars;
+        }
+    }
+    private String lcMapChars = "0123456789abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzàáâãäåæçèéêëìíîïðñòóôõöøœùúûüýÿþßªàáâãäåæçèéêëìíîïðñºòóôõöøœùúûüýþÿšžšž©";
+
+    public String getCsMapChars() {
+        return csMapChars;
+    }
+    public void setCsMapChars(String csMapChars) {
+        if(csMapChars != null && !"".equals(csMapChars)) {
+            this.csMapChars = csMapChars;
+        }
+    }
+    private String csMapChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØŒÙÚÛÜÝŸÞßªàáâãäåæçèéêëìíîïðñºòóôõöøœùúûüýþÿŠŽšž©";
+
+    public String getSortOrder() {
+        return sortOrder;
+    }
+    public void setSortOrder(String sortOrder) {
+        if(sortOrder != null && !"".equals(sortOrder)) {
+            this.sortOrder = sortOrder;
+        }
+    }
+    private String sortOrder = ".,-\n#0123456789AÀÁÂÃÄÅÆaªàáâãäåæBbCÇcç©DdÐðEÈÉÊËeèéêëFfGgHhIÌÍÎÏiìíîïJjKkLlMmNÑnñOÒÓÔÕÖØŒoºòóôõöøœPpQqRrSŠsßšTtÞþUÙÚÛÜuùúûüVvWwXxYÝŸyýÿZŽzž";
+
+    public int getRangeSize() {
+        return rangeSize;
+    }
+    public void setRangeSize(int rangeSize) {
+        this.rangeSize = rangeSize;
+    }
+    public void setRangeSize(String rangeSize) {
+        if(rangeSize != null && !"".equals(rangeSize)) {
+            this.rangeSize = Integer.parseInt(rangeSize);
+        }
+    }
+    private int rangeSize = 80000;
+
+    public String getFontFace() {
+        return fontFace;
+    }
+    public void setFontFace(String fontFace) {
+        if(fontFace != null && !"".equals(fontFace)) {
+            this.fontFace = fontFace;
+        }
+    }
+    private String fontFace = "Arial";
+
+    public int getFontSize() {
+        return fontSize;
+    }
+    public void setFontSize(int fontSize) {
+        this.fontSize = fontSize;
+    }
+    public void setFontSize(String fontSize) {
+        if(fontSize != null && !"".equals(fontSize)) {
+            this.fontSize = Integer.parseInt(fontSize);
+        }
+    }
+    private int fontSize = 11;
 }
