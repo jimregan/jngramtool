@@ -106,4 +106,12 @@ public class StringUtilsTest {
         List<Integer> out = StringUtils.getRange(inp);
         assertEquals(exp, out);
     }
+
+    @Test
+    public void testKfSort() {
+        String[] a = new String[]{"ab", "aá", "aa"};
+        String[] b = new String[]{"aa", "aá", "ab"};
+        StringUtils.kfsort(a, "aáb");
+        assertEquals(b, a);
+    }
 }

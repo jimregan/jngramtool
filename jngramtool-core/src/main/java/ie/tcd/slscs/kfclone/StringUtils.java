@@ -21,8 +21,7 @@ package ie.tcd.slscs.kfclone;
  * DEALINGS IN THE SOFTWARE.
  */
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class StringUtils {
     private static boolean isPunct(char c, boolean hyphen) {
@@ -220,5 +219,31 @@ public class StringUtils {
             out.add(tmp);
         }
         return out;
+    }
+    public static Map<Character, Integer> stringToCharMap(String s) {
+        Map<Character, Integer> ret = new HashMap<Character, Integer>();
+        for(int i = 0; i < s.length(); i++) {
+            ret.put(s.charAt(i), i);
+        }
+        return ret;
+    }
+
+    public static void kfsort(String[] a, String sort) {
+        final String sorter = sort;
+        Arrays.sort(a, new Comparator<String>() {
+            public int compare(String o1, String o2) {
+                return sorter.indexOf(o1) - sorter.indexOf(o2);
+            }
+        });
+    }
+
+    private class KFComparator implements Comparator<String> {
+        private final String ORDER;
+        KFComparator(String order) {
+            ORDER = order;
+        }
+        public int compare(String s1, String s2) {
+            return ORDER.indexOf(s1) - ORDER.indexOf(s2);
+        }
     }
 }
