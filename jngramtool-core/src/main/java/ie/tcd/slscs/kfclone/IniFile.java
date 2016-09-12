@@ -24,6 +24,7 @@ package ie.tcd.slscs.kfclone;
 
 import org.ini4j.Ini;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class IniFile {
@@ -32,14 +33,53 @@ public class IniFile {
     private Ini.Section customise;
     private Ini.Section runtime;
     
-    IniFile(File file) throws Exception {
+    IniFile() {
         cfg = new Config();
         ini = new Ini();
-        ini.load(new FileReader(file));
-        customise = ini.get("Customize");
-        runtime = ini.get("Runtime");
+    }
+    IniFile(File file) throws Exception {
+        this();
+        fromFile(file);
     }
     IniFile(String filename) throws Exception {
         this(new File(filename));
+    }
+    public void fromFile(File file) throws Exception {
+        ini.load(new FileReader(file));
+        customise = ini.get("Customize");
+        runtime = ini.get("Runtime");
+        String curopt;
+        curopt = customise.get("KeepChars");
+        //FIXME
+        curopt = customise.get("lcMapchars");
+        //FIXME
+        curopt = customise.get("csMapChars");
+        //FIXME
+        curopt = customise.get("TreatAsToken");
+        cfg.setKeepAsToken(curopt);
+        curopt = customise.get("sortorder");
+        //FIXME
+    }
+    public void fromFile(String filename) throws Exception {
+        fromFile(new File(filename));
+    }
+    public void fromFile() throws Exception {
+        fromFile(tryDefaultLocations());
+    }
+    private File tryDefaultLocations() throws FileNotFoundException {
+        File f;
+        f = new File("kfNgram.cfg");
+        if(f.isFile()) {
+            return f;
+        }
+        f = new File("C:\\Program Files (x86)\\kfNgram\\kfNgram.cfg");
+        if(f.isFile()) {
+            return f;
+        }
+        f = new File("C:\\Program Files\\kfNgram\\kfNgram.cfg");
+        if(f.isFile()) {
+            return f;
+        }
+        throw new FileNotFoundException("kfNgram.cfg");
     }
 }

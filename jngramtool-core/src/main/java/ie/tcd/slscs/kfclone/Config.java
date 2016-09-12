@@ -37,6 +37,18 @@ public class Config {
         case_sensitive = cs;
     }
 
+    /**
+     * For reading the 'optCase' option from the config
+     * @param s
+     */
+    public void setCaseSensitive(String s) {
+        if("1".equals(s)) {
+            setCaseSensitive(true);
+        } else {
+            setCaseSensitive(false);
+        }
+    }
+
     private boolean replace_numbers = true;
     private boolean replace_all_numbers = true;
     public boolean replaceNumbers() {
@@ -50,6 +62,18 @@ public class Config {
     }
     public void setReplaceAllNumbers(boolean rep) {
         replace_all_numbers = rep;
+    }
+    public void setReplaceNumbers(String s) {
+        if("2".equals(s)) {
+            setReplaceNumbers(true);
+            setReplaceAllNumbers(true);
+        } else if("1".equals(s)) {
+            setReplaceNumbers(true);
+            setReplaceAllNumbers(false);
+        } else {
+            setReplaceNumbers(false);
+            setReplaceAllNumbers(false);
+        }
     }
 
     private boolean use_keep_as_token = false;
