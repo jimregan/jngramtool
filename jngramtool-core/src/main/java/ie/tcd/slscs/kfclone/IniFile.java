@@ -28,6 +28,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class IniFile {
+    public Config getCfg() {
+        return cfg;
+    }
     private Config cfg;
     private Ini ini;
     private Ini.Section customise;
@@ -53,6 +56,11 @@ public class IniFile {
         cfg.setCsMapChars(customise.get("csMapChars"));
         cfg.setKeepAsToken(customise.get("TreatAsToken"));
         cfg.setSortOrder(customise.get("sortorder"));
+        cfg.setRangeSize(customise.get("rangesize"));
+        cfg.setFontFace(customise.get("DisplayFontFace"));
+        cfg.setFontSize(customise.get("DisplayFontSize"));
+        cfg.setCaseSensitive(runtime.get("optCase"));
+        cfg.setReplaceNumbers(runtime.get("optRemapNum"));
     }
     public void fromFile(String filename) throws Exception {
         fromFile(new File(filename));

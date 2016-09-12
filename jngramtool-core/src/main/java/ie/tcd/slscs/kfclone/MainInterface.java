@@ -24,6 +24,12 @@ public class MainInterface {
 	private JTextField textField;
 	private JTextField textField_1;
 	private Font kfFont = new Font("Arial", Font.PLAIN, 11);
+
+	private static Config initCfg() throws Exception {
+		IniFile ini = new IniFile();
+		ini.fromFile();
+		return ini.getCfg();
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -43,14 +49,15 @@ public class MainInterface {
 	/**
 	 * Create the application.
 	 */
-	public MainInterface() {
+	public MainInterface() throws Exception {
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize() throws Exception {
+		Config cfg = initCfg();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 690, 490);
 		frame.setResizable(false);
@@ -240,6 +247,7 @@ public class MainInterface {
 		choice_5.addItem("Retain numerals");
 		choice_5.addItem("Change numerals to #");
 		choice_5.addItem("Make all numbers #");
+		choice_5.select(cfg.getReplaceNumbersIndex());
 		frame.getContentPane().add(choice_5);
 		
         JLabel lblNewLabel_2 = new JLabel("Source files");

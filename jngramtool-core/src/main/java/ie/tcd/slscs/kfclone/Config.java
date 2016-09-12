@@ -94,6 +94,15 @@ public class Config {
             setReplaceAllNumbers(false);
         }
     }
+    public int getReplaceNumbersIndex() {
+        if(replace_all_numbers) {
+            return 2;
+        } else if(replace_numbers) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 
     private boolean use_keep_as_token = false;
     private String keep_as_token = ".:;!¡?¿©";
