@@ -201,4 +201,29 @@ public class Config {
         }
     }
     private int fontSize = 11;
+
+    public String getConfigPath() {
+        return configPath;
+    }
+    public void setConfigPath(String configPath) {
+        this.configPath = configPath;
+    }
+    private String configPath;
+
+    public int getFloor() {
+        return floor;
+    }
+    public String getFloorString() {
+        return Integer.toString(floor);
+    }
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+    public void setFloor(String floor) {
+        if(floor != null && !"".equals(floor)) {
+            this.floor = Integer.parseInt(floor);
+        }
+    }
+    private int floor = 1;
+
 }

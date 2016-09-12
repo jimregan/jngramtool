@@ -30,6 +30,16 @@ public class MainInterface {
 		ini.fromFile();
 		return ini.getCfg();
 	}
+	private static String getEditorCommand() {
+		String os = System.getProperty("os.name");
+		if(os.startsWith("Windows")) {
+			return "notepad.exe";
+		} else if(os.toLowerCase().startsWith("mac os x")) {
+			return "open /Application/TextEdit.app";
+		} else {
+			return System.getenv("EDITOR");
+		}
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -57,7 +67,7 @@ public class MainInterface {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() throws Exception {
-		Config cfg = initCfg();
+		final Config cfg = initCfg();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 690, 490);
 		frame.setResizable(false);
@@ -136,6 +146,15 @@ public class MainInterface {
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Edit Options");
 		mntmNewMenuItem_4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK));
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Runtime.getRuntime().exec(getEditorCommand() + " " + cfg.getConfigPath());
+				} catch (Exception ex) {
+					// Do nothing
+				}
+			}
+		});
 		mnOptions.add(mntmNewMenuItem_4);
 		
 		JCheckBoxMenuItem chckbxmntmNewCheckItem = new JCheckBoxMenuItem("Advanced");
@@ -187,6 +206,12 @@ public class MainInterface {
 		textField_1.setFont(kfFont);
 		textField_1.setBounds(275, 7, 30, 15);
 		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_1.setText(cfg.getFloorString());
+		textField_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cfg.setFloor(textField_1.getText());
+			}
+		});
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		

@@ -61,6 +61,7 @@ public class IniFile {
         cfg.setFontSize(customise.get("DisplayFontSize"));
         cfg.setCaseSensitive(runtime.get("optCase"));
         cfg.setReplaceNumbers(runtime.get("optRemapNum"));
+        cfg.setFloor(runtime.get("floor"));
     }
     public void fromFile(String filename) throws Exception {
         fromFile(new File(filename));
@@ -72,14 +73,18 @@ public class IniFile {
         File f;
         f = new File("kfNgram.cfg");
         if(f.isFile()) {
+            String dir = System.getProperty("user.dir");
+            cfg.setConfigPath(dir + File.pathSeparator + "kfNgram.cfg");
             return f;
         }
         f = new File("C:\\Program Files (x86)\\kfNgram\\kfNgram.cfg");
         if(f.isFile()) {
+            cfg.setConfigPath("C:\\Program Files (x86)\\kfNgram\\kfNgram.cfg");
             return f;
         }
         f = new File("C:\\Program Files\\kfNgram\\kfNgram.cfg");
         if(f.isFile()) {
+            cfg.setConfigPath("C:\\Program Files\\kfNgram\\kfNgram.cfg");
             return f;
         }
         throw new FileNotFoundException("kfNgram.cfg");
