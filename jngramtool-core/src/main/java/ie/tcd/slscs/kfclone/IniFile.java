@@ -62,6 +62,8 @@ public class IniFile {
         cfg.setCaseSensitive(runtime.get("optCase"));
         cfg.setReplaceNumbers(runtime.get("optRemapNum"));
         cfg.setFloor(runtime.get("floor"));
+        cfg.setNgramRange(runtime.get("nGramRange"));
+        cfg.setAdvanced(runtime.get("Advanced"));
     }
     public void fromFile(String filename) throws Exception {
         fromFile(new File(filename));

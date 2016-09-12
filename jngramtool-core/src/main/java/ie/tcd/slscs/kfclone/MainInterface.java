@@ -70,6 +70,9 @@ public class MainInterface {
 		final Config cfg = initCfg();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 690, 490);
+		if(!cfg.isAdvanced()) {
+			frame.setBounds(100, 100, 545, 490);
+		}
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -165,12 +168,15 @@ public class MainInterface {
 				boolean selected = absbut.getModel().isSelected();
 				if (selected) {
 					frame.setBounds(100, 100, 690, 490);
+					cfg.setAdvanced(true);
 				} else {
 					frame.setBounds(100, 100, 545, 490);
+					cfg.setAdvanced(false);
 				}
 			}
 		};
 		chckbxmntmNewCheckItem.addActionListener(l);
+		chckbxmntmNewCheckItem.setSelected(cfg.isAdvanced());
 		mnOptions.add(chckbxmntmNewCheckItem);
 		
 		JMenu mnHelp = new JMenu("Help");
@@ -195,6 +201,12 @@ public class MainInterface {
 		textField.setFont(kfFont);
 		textField.setBounds(130, 7, 110, 15);
 		frame.getContentPane().add(textField);
+		textField.setText(cfg.getNgramRange());
+		textField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cfg.setNgramRange(textField.getText());
+			}
+		});
 		textField.setColumns(10);
 		
 		JLabel lblFloor = new JLabel("Floor");

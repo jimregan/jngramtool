@@ -226,4 +226,40 @@ public class Config {
     }
     private int floor = 1;
 
+    public String getNgramRange() {
+        return ngramRange;
+    }
+    public void setNgramRange(String ngramRange) {
+        this.ngramRange = ngramRange;
+    }
+    private String ngramRange;
+
+    public int getOptPunct() {
+        return optPunct;
+    }
+    public void setOptPunct(int optPunct) {
+        this.optPunct = optPunct;
+    }
+    private int optPunct = 0;
+    private int optSort = 0;
+
+    public boolean isAdvanced() {
+        return advanced;
+    }
+    public int getAdvanced() {
+        return advanced ? 1 : 0;
+    }
+    public void setAdvanced(boolean advanced) {
+        this.advanced = advanced;
+    }
+    public void setAdvanced(String advanced) {
+        if("1".equals(advanced)) {
+            this.advanced = true;
+        } else {
+            this.advanced = false;
+        }
+    }
+    private boolean advanced = false;
+
+
 }
