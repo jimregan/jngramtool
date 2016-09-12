@@ -11,6 +11,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -254,11 +256,21 @@ public class MainInterface {
 		lblAdvOpt.setBounds(540, 2, 95, 20);
 		frame.getContentPane().add(lblAdvOpt);
 
-		Choice choice_2 = new Choice();
+		final Choice choice_2 = new Choice();
 		choice_2.setBounds(5, 30, 115, 20);
 		choice_2.setFont(kfFont);
 		choice_2.addItem("not case-sensitive");
 		choice_2.addItem("Case sensitive");
+		choice_2.select(cfg.isCaseSensitive() ? 1 : 0);
+		choice_2.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent evt) {
+				if(choice_2.getSelectedIndex() == 1) {
+					cfg.setCaseSensitive(true);
+				} else {
+					cfg.setCaseSensitive(false);
+				}
+			}
+		});
 		frame.getContentPane().add(choice_2);
 		
 		Choice choice_3 = new Choice();
