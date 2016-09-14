@@ -93,6 +93,12 @@ public class StringUtils {
         }
     }
 
+    /**
+     * Replaces all numbers in a string with the character provided
+     * @param s The string to process
+     * @param replacement The character to replace numbers with
+     * @return
+     */
     public static String replaceNumbers(String s, char replacement) {
         String out = "";
         for (char c : s.toCharArray()) {
@@ -104,10 +110,24 @@ public class StringUtils {
         }
         return out;
     }
+
+    /**
+     * Version of {@link StringUtils#replaceNumbers(String, char)}
+     * using kfNgram's default of '#' as the replacement character
+     * @param s
+     * @return
+     */
     public static String replaceNumbers(String s) {
         return replaceNumbers(s, '#');
     }
 
+    /**
+     * Replaces all numbers in a string with a single instance of
+     * the character provided
+     * @param s The string to process
+     * @param replacement The character to replace numbers with
+     * @return
+     */
     public static String replaceAllNumbers(String s, char replacement) {
         String out = "";
         boolean numberSeen = false;
@@ -126,6 +146,13 @@ public class StringUtils {
         }
         return out;
     }
+
+    /**
+     * Variant of {@link StringUtils#replaceAllNumbers(String, char)}
+     * using kfNgram's default of '#' as the replacement character
+     * @param s
+     * @return
+     */
     public static String replaceAllNumbers(String s) {
         return replaceAllNumbers(s, '#');
     }
@@ -169,6 +196,12 @@ public class StringUtils {
         return sb.toString();
     }
 
+    /**
+     * Process the string according to the config settings
+     * @param s the string to process
+     * @param cfg The Config to use for settings
+     * @return
+     */
     public static String processString(String s, Config cfg) {
         if(!cfg.isCaseSensitive()) {
             s = s.toLowerCase();
@@ -182,6 +215,13 @@ public class StringUtils {
         return s;
     }
 
+    /**
+     * Creates a list of integers corresponding to the range string
+     * provided. Can contain hyphenated ranges and/or comma separated
+     * values
+     * @param s range string
+     * @return
+     */
     public static List<Integer> getRange(String s) {
         List<Integer> out = new ArrayList<Integer>();
         String cur = "";
@@ -228,6 +268,11 @@ public class StringUtils {
         return ret;
     }
 
+    /**
+     * Sorts an array of strings using an ordered string
+     * @param a The array of strings to sort
+     * @param sort A string containing the characters in sort order
+     */
     public static void kfsort(String[] a, String sort) {
         final String sorter = sort;
         Arrays.sort(a, new Comparator<String>() {
@@ -250,6 +295,11 @@ public class StringUtils {
         });
     }
 
+    /**
+     * Sorts a list of strings using an ordered string
+     * @param l The list of strings to sort
+     * @param sort A string containing the characters in sort order
+     */
     public static void kfsort(List l, String sort) {
         final String sorter = sort;
         Collections.sort(l, new Comparator<String>() {
