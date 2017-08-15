@@ -29,6 +29,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This classifier checks if an n-gram is present in the list of
+ * bundles used in Kozicka, 2016.
+ *
+ * <pre>
+ * @MastersThesis{kozicka2016dissertation,
+ * author = {Kozicka, J.},
+ * title = {{Native and Non-native Written English Academic Language: A
+ * Frequency-driven Comparative Analysis of Four-word Lexical Bundles in
+ * Academic Journal Articles by L1 English and L1 Polish Writers}},
+ * school = {Trinity College, Dublin},
+ * address = {Ireland},
+ * year = {2016},
+ * }
+ * </pre>
+ */
 public class Kozicka2016Second implements Classifier {
     private Map<String, SalazarClass> bundles;
     public Kozicka2016Second() {
