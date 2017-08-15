@@ -20,7 +20,7 @@ package ie.tcd.slscs.itut.ngramtool;
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-import ie.tcd.slscs.ngramtool.Tools;
+import ie.tcd.slscs.itut.ngramtool.Tools;
 
 import java.util.ArrayList;
 import java.util.List;

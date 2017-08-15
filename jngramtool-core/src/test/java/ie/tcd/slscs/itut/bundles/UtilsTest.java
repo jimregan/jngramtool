@@ -21,7 +21,7 @@ package ie.tcd.slscs.itut.bundles;
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-import ie.tcd.slscs.ngramtool.NGram;
+import ie.tcd.slscs.itut.ngramtool.NGram;
 import org.junit.Test;
 
 import java.util.ArrayList;

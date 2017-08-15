@@ -1,4 +1,4 @@
-package ie.tcd.slscs.bundles;
+package ie.tcd.slscs.itut.bundles;
 
 /*
  * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>

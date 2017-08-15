@@ -20,7 +20,7 @@ package ie.tcd.slscs.itut.ngramtool;
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-import ie.tcd.slscs.ngramtool.StringReduction;
+import ie.tcd.slscs.itut.ngramtool.StringReduction;
 import org.junit.Test;
 
 import java.util.Map;

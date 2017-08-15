@@ -22,6 +22,7 @@ package ie.tcd.slscs.itut.bundles;
  * DEALINGS IN THE SOFTWARE.
  */
 
+import ie.tcd.slscs.itut.bundles.Utils;
 import ie.tcd.slscs.itut.ngramtool.NGram;
 
 import java.util.ArrayList;
@@ -31,8 +32,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
-
-import ie.tcd.slscs.bundles.Utils;
 
 public class Biber1999Academic implements Classifier {
     private Map<String, String> bundles;

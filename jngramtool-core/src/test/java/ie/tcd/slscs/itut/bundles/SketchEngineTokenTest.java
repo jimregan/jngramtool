@@ -21,7 +21,7 @@ package ie.tcd.slscs.itut.bundles;
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-import ie.tcd.slscs.bundles.SketchEngineToken;
+import ie.tcd.slscs.itut.bundles.SketchEngineToken;
 import org.junit.Test;
 
 import java.util.ArrayList;
