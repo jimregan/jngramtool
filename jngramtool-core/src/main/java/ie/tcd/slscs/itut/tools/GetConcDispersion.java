@@ -1,15 +1,5 @@
 package ie.tcd.slscs.itut.tools;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.nio.charset.Charset;
-import java.util.Map;
-
-import ie.tcd.slscs.itut.bundles.SketchEngineConcTextReader;
-
 /*
  * Copyright 2016 Jim O'Regan <jaoregan@tcd.ie>
  *
@@ -31,6 +21,16 @@ import ie.tcd.slscs.itut.bundles.SketchEngineConcTextReader;
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
+import java.util.Map;
+
+import ie.tcd.slscs.itut.bundles.SketchEngineConcTextReader;
 
 public class GetConcDispersion {
     public static void main(String[] args) {
